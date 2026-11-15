@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры · Noob · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Базовые сценарии Cognito: User Pool в Terraform, App Client с PKCE, Hosted UI, регистрация и SRP-вход в AWS CLI, настройка TOTP и защита от перечисления.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/10.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/10.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/10.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
 <meta property="og:title" content="Примеры · Noob">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Базовые сценарии Cognito: User Pool в Terraform, App Client с PKCE, Hosted UI, регистрация и SRP-вход в AWS CLI, настройка TOTP и защита от перечисления.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/10.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Noob","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/10.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Noob","description":"Базовые сценарии Cognito: User Pool в Terraform, App Client с PKCE, Hosted UI, регистрация и SRP-вход в AWS CLI, настройка TOTP и защита от перечисления.","url":"https://y-kolyada.github.io/aws-cognito/ru/10.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,159 @@
 
   <main id="main">
     <h1>Примеры · Noob</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1031">Слов: 1031</p>
+    <p class="lead">Базовые сценарии Cognito: User Pool в Terraform, App Client с PKCE, Hosted UI, регистрация и SRP-вход в AWS CLI, настройка TOTP и защита от перечисления.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Базовый инженерный уровень Noob в Amazon Cognito строится на переходе от ручной настройки в веб-консоли к полностью декларативному коду Terraform/OpenTofu и точному владению протоколами клиентской безопасности. Главный рубеж профессиональной зрелости начинающего инженера - отказ от небезопасной передачи открытых паролей в пользу криптографического протокола Secure Remote Password (SRP), принудительное включение защиты от перечисления пользователей (PreventUserExistenceErrors) и отказ от сохранения Client Secret в публичных SPA и мобильных приложениях в пользу Authorization Code Grant с PKCE. Каждый сценарий здесь представляет собой рабочий минимальный строительный блок, готовый к эксплуатации в реальном окружении.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-user-pool-tf">1 · Декларативное развертывание User Pool через Terraform <a class="anchor-link" href="#scenario-user-pool-tf">#</a></h2>
+    <p><strong>Задача:</strong> Развернуть изолированный пул пользователей User Pool для веб-приложения через Terraform. Пул обязан требовать подтверждения адреса электронной почты, обеспечивать безопасную политику паролей (не менее 12 символов, цифры, заглавные и спецсимволы), предотвращать случайное удаление и задавать срок действия временных паролей в 7 дней.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_cognito_user_pool" "primary" {
+  name                     = "production-user-pool"
+  deletion_protection      = "ACTIVE"
+  auto_verified_attributes = ["email"]
+  username_attributes      = ["email"]
+
+  password_policy {
+    minimum_length                   = 12
+    require_lowercase                = true
+    require_uppercase                = true
+    require_numbers                  = true
+    require_symbols                  = true
+    temporary_password_validity_days = 7
+  }
+
+  account_recovery_setting {
+    recovery_mechanism {
+      name     = "verified_email"
+      priority = 1
+    }
+  }
+
+  user_pool_tier = "ESSENTIALS"
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Параметр <code>deletion_protection = "ACTIVE"</code> защищает пул от непреднамеренного уничтожения через <code>terraform destroy</code> или консоль AWS. Использование <code>username_attributes = ["email"]</code> позволяет пользователям логиниться по реальному адресу почты без необходимости генерировать искусственный логин. Обратите внимание: параметр <code>username_attributes</code> является иммутабельным и не может быть изменен после создания пула. Блок <code>account_recovery_setting</code> с наивысшим приоритетом для верифицированной почты гарантирует предсказуемое восстановление доступа без использования уязвимых и дорогостоящих телефонных SMS-каналов.
+    </div>
+
+    <h2 id="scenario-app-client-pkce">2 · Конфигурация App Client для SPA с PKCE без Client Secret <a class="anchor-link" href="#scenario-app-client-pkce">#</a></h2>
+    <p><strong>Задача:</strong> Создать клиент приложения (App Client) для одностраничного браузерного приложения (React, Vue, Angular). Клиент обязан использовать безопасный протокол Authorization Code Grant с расширением Proof Key for Code Exchange (PKCE), запрещать генерацию секрета клиента (Client Secret) и блокировать устаревший Implicit Grant.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_cognito_user_pool_client" "spa" {
+  name         = "spa-web-client"
+  user_pool_id = aws_cognito_user_pool.primary.id
+
+  generate_secret     = false
+  allowed_oauth_flows = ["code"]
+  allowed_oauth_flows_user_pool_client = true
+  allowed_oauth_scopes = ["openid", "email", "profile"]
+
+  callback_urls = ["https://app.example.com/callback"]
+  logout_urls   = ["https://app.example.com/logout"]
+
+  supported_identity_providers  = ["COGNITO"]
+  prevent_user_existence_errors = "ENABLED"
+  enable_token_revocation       = true
+
+  token_validity_units {
+    access_token  = "minutes"
+    id_token      = "minutes"
+    refresh_token = "days"
+  }
+
+  access_token_validity  = 60
+  id_token_validity      = 60
+  refresh_token_validity = 30
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Браузерное приложение исполняется на устройстве пользователя в недоверенной среде и физически не способно сохранить в тайне статический секрет клиента. Флаг <code>generate_secret = false</code> исключает компрометацию учетных данных. Поток <code>code</code> в паре с динамическим вычислением одноразового криптографического верификатора по формуле <code>BASE64URL(SHA256(verifier))</code> (RFC 7636 PKCE) гарантирует, что даже в случае перехвата кода авторизации через историю браузера или сетевой сниффер злоумышленник не сможет получить токены без исходного 128-байтного секрета верификации.
+    </div>
+
+    <h2 id="scenario-hosted-ui-domain">3 · Привязка домена Hosted UI со стандартным префиксом Cognito <a class="anchor-link" href="#scenario-hosted-ui-domain">#</a></h2>
+    <p><strong>Задача:</strong> Настроить стандартный домен Hosted UI для обеспечения встроенных веб-страниц входа, регистрации и сброса пароля без развертывания собственного фронтенда авторизации.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_cognito_user_pool_domain" "hosted_ui" {
+  domain       = "auth-company-prod-login"
+  user_pool_id = aws_cognito_user_pool.primary.id
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Префикс домена обязан быть уникальным среди всех клиентов AWS в рамках выбранного региона. Созданный домен доступен по адресу <code>https://auth-company-prod-login.auth.eu-central-1.amazoncognito.com</code> и автоматически обслуживает стандартизированные конечные точки OAuth 2.0: <code>/login</code>, <code>/signup</code>, <code>/oauth2/authorize</code> и <code>/oauth2/token</code>.
+    </div>
+
+    <h2 id="scenario-cli-signup">4 · Регистрация и подтверждение пользователя через AWS CLI <a class="anchor-link" href="#scenario-cli-signup">#</a></h2>
+    <p><strong>Задача:</strong> Зарегистрировать нового тестового пользователя в пуле через AWS CLI и подтвердить полученный шестизначный проверочный код из терминала без ручных манипуляций в консоли AWS.</p>
+    <p><strong>Команда (AWS CLI):</strong></p>
+    <pre><code># Шаг 1: Отправка запроса на регистрацию пользователя
+aws cognito-idp sign-up \
+  --client-id 1example234567890abcdef \
+  --username "engineer@example.com" \
+  --password "SecurePass2026!" \
+  --user-attributes Name=email,Value=engineer@example.com
+
+# Шаг 2: Подтверждение учетной записи полученным кодом
+aws cognito-idp confirm-sign-up \
+  --client-id 1example234567890abcdef \
+  --username "engineer@example.com" \
+  --confirmation-code "482910"</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Вызов <code>sign-up</code> переводит пользователя в статус <code>UNCONFIRMED</code> и инициирует отправку верификационного письма с кодом подтверждения. Успешный вызов <code>confirm-sign-up</code> проверяет код на стороне Cognito и переводит аккаунт в статус <code>CONFIRMED</code>, активируя возможность последующей аутентификации.
+    </div>
+
+    <h2 id="scenario-srp-auth">5 · Аутентификация пользователя по протоколу Secure Remote Password (SRP) <a class="anchor-link" href="#scenario-srp-auth">#</a></h2>
+    <p><strong>Задача:</strong> Выполнить защищенную аутентификацию пользователя в клиентском приложении без передачи открытого пароля по сети с помощью протокола Secure Remote Password (RFC 2945).</p>
+    <p><strong>Команда (AWS CLI):</strong></p>
+    <pre><code># Инициация безопасного потока USER_SRP_AUTH
+aws cognito-idp initiate-auth \
+  --client-id 1example234567890abcdef \
+  --auth-flow USER_SRP_AUTH \
+  --auth-parameters USERNAME=engineer@example.com,SRP_A=0123456789abcdef...</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Протокол SRP защищает от перехвата учетных данных даже при атаках типа Man-in-the-Middle и компрометации TLS-сертификатов. Клиент генерирует эфемерный открытый ключ A и доказывает знание пароля через математическое вычисление хэша доказательства на базе соли (Salt) и открытого ключа сервера B. Сервер Cognito проверяет математическое соотношение без получения пароля, исключая нахождение открытого пароля в оперативной памяти или сетевых пакетах.
+    </div>
+
+    <h2 id="scenario-totp-mfa">6 · Активация программного токена TOTP MFA через CLI <a class="anchor-link" href="#scenario-totp-mfa">#</a></h2>
+    <p><strong>Задача:</strong> Настроить второй фактор многофакторной аутентификации (MFA) на основе программного токена TOTP (Google Authenticator / 1Password) для конкретного пользователя без финансовых затрат на SMS.</p>
+    <p><strong>Команда (AWS CLI):</strong></p>
+    <pre><code># Шаг 1: Запрос секретного ключа для привязки приложения
+aws cognito-idp associate-software-token \
+  --access-token "eyJraWQiOi..."
+
+# Шаг 2: Верификация сгенерированного одноразового кода
+aws cognito-idp verify-software-token \
+  --access-token "eyJraWQiOi..." \
+  --user-code "839201" \
+  --friendly-device-name "YubiKey-Authenticator"</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Метод <code>associate-software-token</code> генерирует криптографический секрет (Base32 SecretCode), который импортируется в приложение аутентификатора в виде QR-кода. Алгоритм RFC 6238 генерирует одноразовые 6-значные коды на основе скользящего 30-секундного временного окна и HMAC-SHA1. Вызов <code>verify-software-token</code> подтверждает синхронизацию системных часов устройства с серверами AWS, после чего программный токен TOTP переходит в статус подтвержденного фактора аутентификации.
+    </div>
+
+    <h2 id="scenario-user-enumeration">7 · Защита от перечисления пользователей через PreventUserExistenceErrors <a class="anchor-link" href="#scenario-user-enumeration">#</a></h2>
+    <p><strong>Задача:</strong> Защитить публичные формы входа и восстановления пароля от автоматизированных атак перечисления пользователей (User Enumeration Attacks), позволяющих злоумышленникам проверять наличие email в базе сервиса по разнице в ответах сервера.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_cognito_user_pool_client" "secure_client" {
+  name                          = "hardened-web-client"
+  user_pool_id                  = aws_cognito_user_pool.primary.id
+  prevent_user_existence_errors = "ENABLED"
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> В устаревшем режиме <code>LEGACY</code> сервис возвращает разные коды ошибок: <code>UserNotFoundException</code>, если аккаунт отсутствует, и <code>NotAuthorizedException</code>, если введен неверный пароль. При включении флага <code>ENABLED</code> Cognito в обоих случаях возвращает идентичный обезличенный ответ <code>NotAuthorizedException: Incorrect username or password</code>. Кроме того, внутренняя обработка запроса искусственно выравнивает время ответа сервера, нейтрализуя сайдченнел-атаки тайминга (Timing Attacks), при которых злоумышленник оценивает наличие пользователя по миллисекундной разнице во времени работы хэш-функции.
+    </div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения базовых сценариев уровня Noob вы владеете промышленными навыками развертывания и базовой эксплуатации Amazon Cognito:</p>
+      <ul>
+        <li>Декларативный шаблон Terraform для развертывания пула пользователей с защитой от удаления и политикой паролей.</li>
+        <li>Конфигурация защищенного клиента SPA с протоколом PKCE и блокировкой передачи Client Secret в браузер.</li>
+        <li>Скрипты автоматизации регистрации, подтверждения учетных записей и аутентификации через AWS CLI.</li>
+        <li>Понимание математических преимуществ протокола Secure Remote Password (SRP) над базовой передачей паролей.</li>
+        <li>Практика настройки бесплатного фактора TOTP MFA без использования телекоммуникационных каналов SMS.</li>
+        <li>Механизм защиты публичных интерфейсов от сканирования пользовательской базы через <code>PreventUserExistenceErrors</code>.</li>
+      </ul>
     </div>
   
 

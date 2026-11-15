@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Примеры · IGL · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Архитектурные сценарии системного уровня: беспарольный вход, User Migration триггер, B2B-федерация, Passkeys FIDO2, защита от Toll Fraud и аудит Credential...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/12.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/12.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/12.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
 <meta property="og:title" content="Примеры · IGL">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Архитектурные сценарии системного уровня: беспарольный вход, User Migration триггер, B2B-федерация, Passkeys FIDO2, защита от Toll Fraud и аудит Credential...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/12.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · IGL","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · IGL","description":"Архитектурные сценарии системного уровня: беспарольный вход, User Migration триггер, B2B-федерация, Passkeys FIDO2, защита от Toll Fraud и аудит Credential...","url":"https://y-kolyada.github.io/aws-cognito/ru/12.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,191 @@
 
   <main id="main">
     <h1>Примеры · IGL</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1074">Слов: 1074</p>
+    <p class="lead">Архитектурные сценарии системного уровня: беспарольный вход, User Migration триггер, B2B-федерация, Passkeys FIDO2, защита от Toll Fraud и аудит Credential Stuffing.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Высшая ступень квалификации IGL (In-Game Leader / Lead Cloud Architect) требует системного взгляда на управление идентичностью: балансирования бизнес-метрик конверсии, устойчивости к сложным атакам мошенничества, непрерывности миграции сотен тысяч пользователей без деградации сервиса и оптимизации совокупной стоимости владения. Сценарии этого раздела охватывают передовые паттерны беспарольного входа по криптографическим одноразовым кодам (Custom Auth Flow), безаварийный перенос legacy-паролей без сброса, многопользовательскую B2B-федерацию с динамическим выбором IdP, аппаратную защиту Passkeys FIDO2 и глубокий аудит угроз в реальном времени.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-passwordless-otp">1 · Беспарольная аутентификация по Email OTP через триаду Lambda <a class="anchor-link" href="#scenario-passwordless-otp">#</a></h2>
+    <p><strong>Задача:</strong> Полностью устранить пароли из клиентского пути приложения: реализовать безопасный вход по одноразовому шестизначному коду на email с помощью кастомного потока Custom Authentication Flow.</p>
+    <p><strong>Конфигурация (Node.js триггеры):</strong></p>
+    <pre><code>// 1. DefineAuthChallenge: управление шагами протокола
+exports.defineAuthChallenge = async (event) => {
+  const attempts = event.request.session;
+  if (attempts.length >= 3 && !attempts[attempts.length - 1].challengeResult) {
+    event.response.issueTokens = false;
+    event.response.failAuthentication = true;
+  } else if (attempts.length > 0 && attempts[attempts.length - 1].challengeResult) {
+    event.response.issueTokens = true;
+    event.response.failAuthentication = false;
+  } else {
+    event.response.issueTokens = false;
+    event.response.failAuthentication = false;
+    event.response.challengeName = 'CUSTOM_CHALLENGE';
+  }
+  return event;
+};
+
+// 2. CreateAuthChallenge: генерация криптографического OTP и отправка
+const crypto = require('crypto');
+exports.createAuthChallenge = async (event) => {
+  if (event.request.challengeName === 'CUSTOM_CHALLENGE') {
+    const otpCode = crypto.randomInt(100000, 999999).toString();
+    event.response.privateChallengeParameters = { secretLoginCode: otpCode };
+    event.response.challengeMetadata = 'EMAIL_OTP_CHALLENGE';
+    // Отправка otpCode пользователю через Amazon SES
+  }
+  return event;
+};
+
+// 3. VerifyAuthChallengeResponse: верификация введенного кода
+exports.verifyAuthChallenge = async (event) => {
+  const expected = event.request.privateChallengeParameters.secretLoginCode;
+  const provided = event.request.challengeAnswer;
+  event.response.answerCorrect = (expected === provided);
+  return event;
+};</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Триада триггеров образует конечный автомат аутентификации. Значение одноразового пароля хранится в <code>privateChallengeParameters</code> и никогда не передается клиенту, а вызов <code>respond-to-auth-challenge</code> передает только введенный пользователем ответ, обеспечивая максимальную защиту от атак перехвата.
+    </div>
+
+    <h2 id="scenario-user-migration">2 · Бесшовная миграция пользователей «на лету» через User Migration Lambda <a class="anchor-link" href="#scenario-user-migration">#</a></h2>
+    <p><strong>Задача:</strong> Перенести 500 000 пользователей из устаревшей базы данных PostgreSQL (где пароли зашифрованы bcrypt) в Amazon Cognito без сброса паролей и без необходимости отправлять пользователям требования об изменении пароля.</p>
+    <p><strong>Код триггера (Node.js Lambda):</strong></p>
+    <pre><code>const bcrypt = require('bcryptjs');
+
+exports.handler = async (event) => {
+  const { userName, password } = event.request;
+
+  if (event.triggerSource === 'UserMigration_Authentication') {
+    // 1. Поиск пользователя в старой реляционной базе данных
+    const legacyUser = await queryLegacyDatabase(userName);
+    if (!legacyUser) throw new Error('Bad credentials');
+
+    // 2. Проверка хэша пароля по алгоритму bcrypt
+    const isValid = await bcrypt.compare(password, legacyUser.password_hash);
+    if (!isValid) throw new Error('Bad credentials');
+
+    // 3. Автоматическое создание и подтверждение в Cognito
+    event.response.userAttributes = {
+      email: legacyUser.email,
+      email_verified: 'true',
+      name: legacyUser.full_name
+    };
+    event.response.finalUserStatus = 'CONFIRMED';
+    event.response.messageAction = 'SUPPRESS';
+    return event;
+  }
+
+  throw new Error('Unsupported migration trigger source');
+};</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Механизм Just-In-Time миграции срабатывает в момент реального ввода пароля пользователем. Cognito получает пароль в открытом виде внутри защищенного контекста триггера, валидирует его через старый хэш и автоматически генерирует для нового аккаунта собственный криптографический соленый хэш. Ни один пользователь не замечает факта миграции платформы.
+    </div>
+
+    <h2 id="scenario-b2b-federation">3 · Мультиарендная B2B-федерация с динамическим выбором IdP по домену <a class="anchor-link" href="#scenario-b2b-federation">#</a></h2>
+    <p><strong>Задача:</strong> Разработать B2B SaaS-архитектуру, где каждый корпоративный клиент подключает собственный корпоративный SAML/OIDC Identity Provider (Okta, Entra ID), а форма входа автоматически перенаправляет сотрудника в его доверенный IdP по введенному корпоративному домену.</p>
+    <p><strong>Код маршрутизации авторизации (TypeScript / Frontend):</strong></p>
+    <pre><code>function redirectToEnterpriseSSO(email: string) {
+  const domain = email.split('@')[1].toLowerCase();
+  
+  // Сопоставление корпоративного домена с настроенным провайдером в Cognito
+  const tenantMap: Record&lt;string, string&gt; = {
+    'acme-corp.com': 'AcmeCorp-Okta-SAML',
+    'globex-inc.com': 'Globex-AzureAD-OIDC'
+  };
+
+  const idpIdentifier = tenantMap[domain] || 'COGNITO';
+  const authUrl = new URL('https://auth.mysaas.com/oauth2/authorize');
+  authUrl.searchParams.set('client_id', '1example234567890abcdef');
+  authUrl.searchParams.set('response_type', 'code');
+  authUrl.searchParams.set('scope', 'openid email profile');
+  authUrl.searchParams.set('redirect_uri', 'https://app.mysaas.com/callback');
+  authUrl.searchParams.set('identity_provider', idpIdentifier);
+
+  window.location.href = authUrl.toString();
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Передача параметра <code>identity_provider</code> в конечную точку <code>/oauth2/authorize</code> полностью пропускает стандартный экран Hosted UI со списком кнопок входа и немедленно инициирует редирект в IdP конкретной корпорации, изолируя арендаторов и гарантируя соблюдение корпоративных политик безопасности.
+    </div>
+
+    <h2 id="scenario-passkeys-webauthn">4 · Внедрение FIDO2 Passkeys и WebAuthn в интерфейсе Managed Login <a class="anchor-link" href="#scenario-passkeys-webauthn">#</a></h2>
+    <p><strong>Задача:</strong> Активировать устойчивую к фишингу биометрическую аутентификацию (Touch ID, Face ID, Windows Hello) и аппаратные ключи YubiKey через стандарт WebAuthn / FIDO2 в новом интерфейсе Managed Login v2.</p>
+    <p><strong>Конфигурация (AWS CLI):</strong></p>
+    <pre><code># Активация фактора WebAuthn в пуле пользователей
+aws cognito-idp set-user-pool-mfa-config \
+  --user-pool-id us-east-1_ExamplePool \
+  --mfa-configuration OPTIONAL \
+  --web-authn-configuration '{"RelyingPartyId":"app.example.com","UserVerification":"preferred"}'</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Passkeys привязаны к домену (Origin-bound credentials). Приватный асимметричный ключ никогда не покидает защищенный чип устройства пользователя (Secure Enclave / TPM). Даже если злоумышленник создаст точную фишинговую копию сайта авторизации, браузер откажется предоставить криптографическую подпись для чужого домена, делая фишинг технически невозможным.
+    </div>
+
+    <h2 id="scenario-toll-fraud-defense">5 · Защита от международного SMS Toll Fraud через гео-валидацию в Pre Sign-up <a class="anchor-link" href="#scenario-toll-fraud-defense">#</a></h2>
+    <p><strong>Задача:</strong> Пресечь автоматизированную атаку телефонного фрода (International Revenue Share Fraud / Toll Fraud), при которой злоумышленники с помощью ботнетов регистрируют фиктивные аккаунты на премиальные телефонные номера удаленных юрисдикций, вызывая колоссальные счета за отправку SMS через Amazon SNS.</p>
+    <p><strong>Код триггера Pre Sign-up (Node.js):</strong></p>
+    <pre><code>const ALLOWED_COUNTRY_CODES = ['+1', '+44', '+49', '+380'];
+
+exports.handler = async (event) => {
+  const phone = event.request.userAttributes.phone_number;
+  if (phone) {
+    const isAllowed = ALLOWED_COUNTRY_CODES.some(prefix => phone.startsWith(prefix));
+    if (!isAllowed) {
+      throw new Error('Registration from this telephone country code is restricted by security policy.');
+    }
+  }
+  return event;
+};</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Триггер <code>PreSignUp</code> выполняется синхронно до создания профиля пользователя в базе и до отправки верификационного SMS через SNS. Выброс исключения немедленно прерывает транзакцию регистрации, защищая телефонный бюджет компании от счетов на десятки тысяч долларов.
+    </div>
+
+    <h2 id="scenario-token-revocation">6 · Ротация Refresh токенов с обнаружением повторного использования и отзывом сессий <a class="anchor-link" href="#scenario-token-revocation">#</a></h2>
+    <p><strong>Задача:</strong> Настроить автоматическую ротацию долгоживущих токенов обновления (Refresh Token Rotation) и мгновенный отзыв скомпрометированных сессий при обнаружении попытки повторного использования отработанного токена.</p>
+    <p><strong>Конфигурация и вызов отзыва (Terraform / AWS CLI):</strong></p>
+    <pre><code># Отзыв скомпрометированного Refresh токена через API
+aws cognito-idp revoke-token \
+  --client-id 1example234567890abcdef \
+  --token "eyJraWQiOiJleGFtcGxlUmVmcmVzaFRva2Vu..."</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> В соответствии со спецификацией OAuth 2.0 Threat Model (RFC 6749), однократное использование Refresh токена выпускает новую пару Access/Refresh токенов и инвалидирует старый. Если злоумышленник перехватил старый токен и попытается предъявить его, Cognito расценивает это как инцидент безопасности и автоматически аннулирует всю цепочку выданных токенов данного пользователя.
+    </div>
+
+    <h2 id="scenario-credential-stuffing-audit">7 · Комплексный аудит угроз Credential Stuffing и скоринг рисков в CloudWatch и Athena <a class="anchor-link" href="#scenario-credential-stuffing-audit">#</a></h2>
+    <p><strong>Задача:</strong> Организовать мониторинг и расследование атак массового подбора паролей (Credential Stuffing) с агрегацией журналов событий Cognito в Amazon S3 и аналитикой через SQL-запросы в Amazon Athena.</p>
+    <p><strong>Аналитический запрос (Amazon Athena SQL):</strong></p>
+    <pre><code>SELECT 
+  sourceipaddress,
+  useridentity.username,
+  eventname,
+  responseelements,
+  count(*) as failure_count
+FROM cognito_cloudtrail_logs
+WHERE eventname IN ('InitiateAuth', 'AdminInitiateAuth')
+  AND errorcode = 'NotAuthorizedException'
+  AND eventtime >= now() - interval '1' hour
+GROUP BY sourceipaddress, useridentity.username, eventname, responseelements
+HAVING count(*) > 20
+ORDER BY failure_count DESC;</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Регулярный анализ неудачных попыток аутентификации в Athena позволяет выявить распределенные ботнеты, атакующие разные учетные записи с десятков IP-адресов. Результаты анализа используются для превентивного внесения диапазонов подсетей в блокирующие правила AWS WAFv2.
+    </div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения высших архитектурных сценариев уровня IGL вы владеете полным арсеналом корпоративной безопасности и масштабирования Cognito:</p>
+      <ul>
+        <li>Триада бессерверных функций для беспарольного входа (Passwordless OTP) через Custom Authentication Flow.</li>
+        <li>Шаблон безаварийной миграции паролей «на лету» через триггер User Migration.</li>
+        <li>Мультиарендная архитектура Single Sign-On с динамической маршрутизацией по доменам корпораций.</li>
+        <li>Конфигурация устойчивых к фишингу биометрических Passkeys (FIDO2 / WebAuthn).</li>
+        <li>Превентивная защита телефонных каналов от международного мошенничества SMS Toll Fraud.</li>
+        <li>Модель ротации и криптографического отзыва токенов с защитой от повторного использования.</li>
+        <li>Аналитические шаблоны мониторинга угроз Credential Stuffing в Amazon Athena.</li>
+      </ul>
     </div>
   
 
