@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Словарь понятий · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Восемьдесят одно ключевое понятие Amazon Cognito, федерации удостоверений, протоколов OAuth 2.0, OpenID Connect, криптографии JWT и бессерверных триггеров.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/glossary.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/glossary.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/glossary.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
 <meta property="og:title" content="Словарь понятий">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Восемьдесят одно ключевое понятие Amazon Cognito, федерации удостоверений, протоколов OAuth 2.0, OpenID Connect, криптографии JWT и бессерверных триггеров.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/glossary.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Словарь понятий","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","name":"Словарь понятий","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html","inLanguage":"ru","hasDefinedTerm":[{"@type":"DefinedTerm","name":"Пул пользователей (User Pool)","description":"Управляемый каталог учетных записей пользователей в Amazon Cognito, выступающий сервером аутентификации и провайдером OpenID Connect.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#user-pool"},{"@type":"DefinedTerm","name":"Идентификатор пула (UserPoolId)","description":"Уникальный региональный идентификатор пула пользователей формата region_randomID, определяющий издателя токенов.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#user-pool-id"},{"@type":"DefinedTerm","name":"Стандартные атрибуты (Standard Attributes)","description":"Предопределенный набор атрибутов профиля пользователя, зафиксированный спецификацией OpenID Connect.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#standard-attributes"},{"@type":"DefinedTerm","name":"Пользовательские атрибуты (Custom Attributes)","description":"Дополнительные поля профиля пользователя с обязательным префиксом custom: для хранения предметных данных приложения.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#custom-attributes"},{"@type":"DefinedTerm","name":"Политика надежности паролей (Password Policy)","description":"Декларативные правила User Pool, задающие минимальную длину пароля, состав символов и срок устаревания.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#password-policy"},{"@type":"DefinedTerm","name":"Псевдонимы входа (Alias Attributes)","description":"Механизм пула, разрешающий аутентификацию по подтвержденному email или телефонному номеру вместо технического имени пользователя.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#alias-attributes"},{"@type":"DefinedTerm","name":"Токен идентичности (ID Token)","description":"Криптографический JWT токен стандарта OpenID Connect, удостоверяющий факт аутентификации и профиль пользователя.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#id-token"},{"@type":"DefinedTerm","name":"Токен доступа (Access Token)","description":"JWT токен авторизации стандарта OAuth 2.0, передаваемый в заголовке Authorization Bearer для вызова защищенных API.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#access-token"},{"@type":"DefinedTerm","name":"Токен обновления (Refresh Token)","description":"Долгоживущий непрозрачный токен, используемый для получения свежей пары ID и Access токенов без повторного ввода пароля.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#refresh-token"},{"@type":"DefinedTerm","name":"JSON Web Token (JWT)","description":"Открытый отраслевой стандарт RFC 7519 для компактной и самодостаточной передачи утверждений (claims) в формате JSON.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#jwt"},{"@type":"DefinedTerm","name":"Набор открытых ключей (JWKS)","description":"Набор открытых криптографических ключей в формате JSON, публикуемый сервисом по адресу /.well-known/jwks.json.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#jwks"},{"@type":"DefinedTerm","name":"Идентификатор ключа (Key ID, kid)","description":"Уникальный строковый идентификатор ключа в заголовке JWT токена, указывающий на соответствующий открытый ключ в наборе JWKS.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#kid"},{"@type":"DefinedTerm","name":"Клиент приложения (App Client)","description":"Сущность конфигурации в User Pool, представляющая конкретное приложение (SPA, Mobile, Backend) с индивидуальными правами.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#app-client"},{"@type":"DefinedTerm","name":"Секрет клиента (Client Secret)","description":"Криптографический секретный ключ конфиденциального клиента, используемый бэкендом для аутентификации перед сервером авторизации.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#client-secret"},{"@type":"DefinedTerm","name":"Поток кода авторизации (Authorization Code Grant)","description":"Стандартный поток протокола OAuth 2.0, при котором клиент получает временный одноразовый код авторизации и обменивает его на токены.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#auth-code-grant"},{"@type":"DefinedTerm","name":"Протокол PKCE (Proof Key for Code Exchange)","description":"Криптографическое расширение OAuth 2.0 (RFC 7636), защищающее публичные клиенты от перехвата кода авторизации.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#pkce"},{"@type":"DefinedTerm","name":"Поток учетных данных клиента (Client Credentials)","description":"Поток OAuth 2.0 для межсервисной аутентификации (M2M) без участия конечного пользователя.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#client-credentials"},{"@type":"DefinedTerm","name":"Сервер ресурсов (Resource Server)","description":"Архитектурная сущность в User Pool, определяющая защищаемый API и перечень пользовательских областей видимости (custom scopes).","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#resource-server"},{"@type":"DefinedTerm","name":"Пользовательские скоупы (Custom Scopes)","description":"Гранулярные разрешения доступа, определенные на сервере ресурсов и включаемые в состав Access токена.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#custom-scopes"},{"@type":"DefinedTerm","name":"Встроенный веб-интерфейс (Hosted UI)","description":"Готовый управляемый AWS интерфейс авторизации, включающий формы логина, регистрации, ввода MFA и подтверждения согласия IdP.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#hosted-ui"},{"@type":"DefinedTerm","name":"Кастомный домен (Custom Domain)","description":"Собственное доменное имя авторизации организации (например, auth.example.com), привязываемое к Hosted UI.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#custom-domain"},{"@type":"DefinedTerm","name":"Сертификат ACM (ACM Certificate)","description":"Публичный сертификат безопасности AWS Certificate Manager, выпущенный строго в регионе us-east-1 для кастомного домена.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#acm-cert"},{"@type":"DefinedTerm","name":"Интерфейс Managed Login (Managed Login v2)","description":"Второе поколение встроенного интерфейса входа Cognito с поддержкой аппаратных ключей доступа Passkeys и гибкой кастомизации.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#managed-login"},{"@type":"DefinedTerm","name":"Разрешенный адрес перенаправления (Redirect URI)","description":"Строго зафиксированный белый список URL в настройках App Client, на которые разрешен возврат кода авторизации.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#redirect-uri"},{"@type":"DefinedTerm","name":"Провайдер идентичности (Identity Provider, IdP)","description":"Внешняя доверенная система, хранящая учетные записи и удостоверяющая подлинность пользователей для Cognito.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#idp"},{"@type":"DefinedTerm","name":"Протокол SAML 2.0 (Security Assertion Markup Language)","description":"Открытый корпоративный стандарт обмена данными аутентификации и авторизации в формате подписанных XML-документов.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#saml"},{"@type":"DefinedTerm","name":"Протокол OpenID Connect (OIDC)","description":"Легковесный слой идентификации поверх протокола OAuth 2.0, выдающий ID токен в формате JSON Web Token.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#oidc"},{"@type":"DefinedTerm","name":"Динамический провижининг (JIT Provisioning)","description":"Автоматическое создание профиля пользователя в User Pool в момент первого успешного входа через внешний IdP.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#jit-provisioning"},{"@type":"DefinedTerm","name":"Сопоставление атрибутов (Attribute Mapping)","description":"Таблица трансляции входящих утверждений внешнего IdP (SAML утверждений или OIDC клеймов) в атрибуты профиля User Pool.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#attribute-mapping"},{"@type":"DefinedTerm","name":"Документ метаданных (Metadata Document)","description":"XML-файл или URL конечной точки SAML провайдера, содержащий открытый сертификат подписи и адреса эндпоинтов SSO.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#metadata-doc"},{"@type":"DefinedTerm","name":"Триггер Lambda (Lambda Trigger)","description":"Бессерверная функция AWS Lambda, автоматически вызываемая сервисом Cognito на различных этапах жизненного цикла пользователя.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#lambda-trigger"},{"@type":"DefinedTerm","name":"Триггер предварительной регистрации (Pre Sign-up)","description":"Синхронный хук, выполняемый до создания учетной записи пользователя в базе User Pool.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#pre-signup"},{"@type":"DefinedTerm","name":"Обогащение токенов (Pre Token Generation)","description":"Синхронный триггер, вызываемый перед выпуском токенов для динамического добавления или модификации клеймов.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#pre-token-gen"},{"@type":"DefinedTerm","name":"Триггер пост-подтверждения (Post Confirmation)","description":"Асинхронный триггер, срабатывающий сразу после успешного подтверждения регистрации пользователем.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#post-confirmation"},{"@type":"DefinedTerm","name":"Кастомизация уведомлений (Custom Message)","description":"Синхронный хук для динамической генерации текстов электронных писем и SMS с кодами подтверждения.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#custom-message"},{"@type":"DefinedTerm","name":"Определение вызова (Define Auth Challenge)","description":"Управляющий триггер-конечный автомат в кастомном потоке входа (Custom Authentication Flow).","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#define-auth-challenge"},{"@type":"DefinedTerm","name":"Пул идентичностей (Identity Pool)","description":"Компонент Cognito для обмена токенов удостоверения на временные учетные данные AWS STS с правами IAM ролей.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#identity-pool"},{"@type":"DefinedTerm","name":"Служба временных токенов (AWS STS)","description":"Глобальный сервис AWS Security Token Service, генерирующий временные ограниченные криптографические ключи доступа.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#sts"},{"@type":"DefinedTerm","name":"Авторизованная роль (Authenticated Role)","description":"IAM-роль, назначаемая пользователям, успешно подтвердившим свою подлинность через провайдера идентификации.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#authenticated-role"},{"@type":"DefinedTerm","name":"Гостевая роль (Unauthenticated Role)","description":"IAM-роль, предоставляющая строго ограниченный доступ анонимным пользователям приложения без прохождения логина.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#unauthenticated-role"},{"@type":"DefinedTerm","name":"Сопоставление ролей (Role Mapping)","description":"Механизм Identity Pool, динамически выбирающий целевую IAM-роль на основе клеймов или групп входящего токена.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#role-mapping"},{"@type":"DefinedTerm","name":"Протокол подписи SigV4 (Signature Version 4)","description":"Обязательный криптографический протокол подписи HTTP-запросов к API интерфейсам сервисов Amazon Web Services.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#sigv4"},{"@type":"DefinedTerm","name":"Расширенная безопасность (Advanced Security Features, ASF)","description":"Встроенный движок поведенческой безопасности Cognito, использующий машинное обучение для выявления подозрительных попыток входа.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#asf"},{"@type":"DefinedTerm","name":"Адаптивная аутентификация (Adaptive Authentication)","description":"Механизм гибкого реагирования на риски: запрашивает дополнительный фактор MFA или блокирует вход при подозрительных сессиях.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#adaptive-auth"},{"@type":"DefinedTerm","name":"Скомпрометированные пароли (Compromised Credentials)","description":"Функция ASF, сличающая вводимые пользователями пароли с глобальными базами данных утекших учетных записей.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#compromised-credentials"},{"@type":"DefinedTerm","name":"Сетевой экран WAF (AWS WAFv2)","description":"Служба фильтрации прикладного веб-трафика L7, подключаемая напрямую к домену User Pool для блокировки вредоносных запросов.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#wafv2"},{"@type":"DefinedTerm","name":"Список контроля веб-доступа (WebACL)","description":"Основной конфигурационный объект AWS WAFv2, объединяющий набор правил фильтрации с приоритетами выполнения.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#web-acl"},{"@type":"DefinedTerm","name":"Ограничение частоты запросов (Rate Limiting)","description":"Правило безопасности WAF, ограничивающее количество запросов с одного IP-адреса за скользящий 5-минутный интервал.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#rate-limiting"},{"@type":"DefinedTerm","name":"Ежемесячно активные пользователи (MAU)","description":"Базовая метрика тарификации Cognito: уникальный пользователь, совершивший хотя бы одну операцию аутентификации за месяц.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#mau"},{"@type":"DefinedTerm","name":"Телефонный фрод (SMS Toll Fraud)","description":"Атака злоумышленников, массово инициирующих отправку платных SMS с кодами подтверждения на дорогие премиум-номера.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#sms-toll-fraud"},{"@type":"DefinedTerm","name":"Квоты API провайдера (API Quotas)","description":"Региональные ограничения платформы AWS на максимальное количество вызовов методов API Cognito в секунду.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#api-quotas"},{"@type":"DefinedTerm","name":"Лимит расходов SNS на SMS (SNS SMS Spend Limit)","description":"Жесткий финансовый лимит в настройках Amazon Simple Notification Service, ограничивающий максимальные ежемесячные траты на SMS.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#sns-sms-limit"},{"@type":"DefinedTerm","name":"Метрики CloudWatch (CloudWatch Metrics)","description":"Стандартный набор эксплуатационных метрик Cognito, публикуемый в Amazon CloudWatch для мониторинга активности каталога.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#cloudwatch-metrics"},{"@type":"DefinedTerm","name":"Инфраструктура как код (IaC)","description":"Подход к управлению и развертыванию облачной инфраструктуры через машиночитаемые файлы определений вместо ручных настроек.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#iac"},{"@type":"DefinedTerm","name":"Провайдер Terraform AWS (Terraform Provider AWS)","description":"Официальный плагин HashiCorp для взаимодействия с API Amazon Web Services через декларативные манифесты HCL.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#tf-provider-aws"},{"@type":"DefinedTerm","name":"Защита от перечисления учетных записей","description":"Параметр безопасности App Client, возвращающий обобщенный ответ NotAuthorizedException при любых ошибках логина.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#prevent-user-existence"},{"@type":"DefinedTerm","name":"Одноразовый пароль TOTP MFA (TOTP MFA)","description":"Бесплатный программный второй фактор аутентификации (RFC 6238), генерируемый приложениями Google или 1Password.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#totp-mfa"},{"@type":"DefinedTerm","name":"Протокол SRP (Secure Remote Password)","description":"Криптографический протокол доказательства с нулевым разглашением, при котором пароль никогда не передается по сети.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#srp"},{"@type":"DefinedTerm","name":"Авторизатор API Gateway (Cognito Authorizer)","description":"Встроенный нативный авторизатор REST API Gateway, автоматически валидирующий токен Cognito на границе сети.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#apigw-authorizer"},{"@type":"DefinedTerm","name":"Авторизатор JWT (HTTP API JWT Authorizer)","description":"Легковесный и экономичный авторизатор HTTP API v2, проверяющий issuer и audience токена по открытому JWKS.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#jwt-authorizer"},{"@type":"DefinedTerm","name":"Аутентификация на ALB (ALB Authenticate-Cognito)","description":"Правило слушателя балансировщика Application Load Balancer, автоматически перенаправляющее пользователя на логин в Cognito.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#alb-auth"},{"@type":"DefinedTerm","name":"Авторизация AppSync (AppSync Cognito Auth)","description":"Нативная модель авторизации в сервисе AWS AppSync, валидирующая JWT токены пула пользователей Cognito.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#appsync-auth"},{"@type":"DefinedTerm","name":"Обогащение клеймов (Claims Enrichment)","description":"Архитектурный паттерн динамической подгрузки ролей и прав из базы данных при генерации токена через триггер Lambda.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#claims-enrichment"},{"@type":"DefinedTerm","name":"Ключи доступа Passkeys (FIDO2 Passkeys)","description":"Фишинг-устойчивый беспарольный метод аутентификации на основе биометрии устройства (TouchID, FaceID) или аппаратных ключей.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#passkeys"},{"@type":"DefinedTerm","name":"Стандарт WebAuthn (Web Authentication)","description":"Официальная спецификация консорциума W3C, предоставляющая JavaScript API браузера для взаимодействия с аутентификаторами.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#webauthn"},{"@type":"DefinedTerm","name":"Миграция пользователей (User Migration Trigger)","description":"Специальный триггер Lambda, прозрачно переносящий профиль и пароль пользователя из старой базы при его первом логине в Cognito.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#user-migration"},{"@type":"DefinedTerm","name":"Кастомный поток входа (Custom Authentication Flow)","description":"Триада триггеров Lambda (Define, Create, Verify Auth Challenge), позволяющая реализовать произвольную логику беспарольного входа.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#custom-auth-flow"},{"@type":"DefinedTerm","name":"Ротация токенов обновления (Refresh Token Rotation)","description":"Паттерн безопасности, при котором каждый вызов обновления сессии инвалидирует старый Refresh Token и выдает новый.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#token-rotation"},{"@type":"DefinedTerm","name":"Восстановление доступа (Account Recovery)","description":"Настраиваемый механизм сброса забытого пароля через отправку временного кода подтверждения на верифицированный канал связи.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#account-recovery"},{"@type":"DefinedTerm","name":"Дистрактор (Distractor)","description":"Правдоподобный, но технически ошибочный вариант ответа в вопросах квалификационного теста.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#distractor"},{"@type":"DefinedTerm","name":"Квалификационный уровень Noob (Noob Level)","description":"Начальный уровень инженерной зрелости, направленный на устранение страха перед сервисом и понимание базового синтаксиса.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#noob-level"},{"@type":"DefinedTerm","name":"Временное окружение (Ephemeral Environment)","description":"Изолированный динамический контур инфраструктуры, поднимаемый автоматически в пайплайне для тестирования ветки кода.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#ephemeral-env"},{"@type":"DefinedTerm","name":"Статус пользователя (User Status)","description":"Состояние учетной записи в жизненном цикле каталога пользователей (UNCONFIRMED, CONFIRMED, FORCE_CHANGE_PASSWORD).","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#user-status"},{"@type":"DefinedTerm","name":"Ролевой доступ (Role-Based Access Control, RBAC)","description":"Модель разграничения прав доступа к ресурсам на основе назначенных пользователю ролей или членства в группах.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#rbac"},{"@type":"DefinedTerm","name":"Отзыв токенов (Token Revocation)","description":"Стандартизированная процедура немедленной инвалидации долгоживущего Refresh токена и всех активных сессий пользователя.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#token-revocation"},{"@type":"DefinedTerm","name":"Асимметричная верификация (Asymmetric Verification)","description":"Проверка цифровой подписи токена с использованием открытого ключа провайдера без обращения к закрытому секрету.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#asymmetric-verification"},{"@type":"DefinedTerm","name":"Сквозное тестирование (Ephemeral Testing)","description":"Методология автоматизированного тестирования авторизации в CI/CD с использованием временных пулов или локальных эмуляторов.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#ephemeral-testing"},{"@type":"DefinedTerm","name":"Мультиарендность (Multi-tenancy)","description":"Архитектурный шаблон обслуживания множества независимых организаций-клиентов (тенантов) в едином SaaS-приложении.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#multi-tenancy"},{"@type":"DefinedTerm","name":"Катастрофоустойчивость (Disaster Recovery, DR)","description":"Комплекс мер и процедур для восстановления работоспособности каталога пользователей при крупномасштабном отказе региона AWS.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#disaster-recovery"},{"@type":"DefinedTerm","name":"Оптимизация TCO (TCO Optimization)","description":"Совокупность архитектурных решений, направленных на минимизацию полной стоимости владения сервисом идентификации.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#tco-optimization"},{"@type":"DefinedTerm","name":"Межрегиональное переключение (Cross-Region Failover)","description":"Стратегия перенаправления пользовательского трафика на резервный региональный пул Cognito через DNS Amazon Route 53.","url":"https://y-kolyada.github.io/aws-cognito/ru/glossary.html#cross-region-failover"}]}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,10 +94,1110 @@
 
   <main id="main">
     <h1>Словарь понятий</h1>
-    <p class="page-size" data-words="22">Слов: 22</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="3930">Слов: 3930 · Понятий: 81</p>
+    <p class="lead">Восемьдесят одно ключевое понятие Amazon Cognito, федерации удостоверений, протоколов OAuth 2.0, OpenID Connect, криптографии JWT и бессерверных триггеров.</p>
 
-    <p>Текст этого раздела ещё не написан.</p>
+    <nav class="chips" aria-label="Быстрый переход по главам словаря">
+      <strong>Переход по главам:</strong>
+      <a href="#ch-01">01 · User Pools (6)</a>
+      <a href="#ch-02">02 · Токены и JWT (6)</a>
+      <a href="#ch-03">03 · Клиенты и OAuth (7)</a>
+      <a href="#ch-04">04 · Hosted UI (5)</a>
+      <a href="#ch-05">05 · Федерация IdP (6)</a>
+      <a href="#ch-06">06 · Триггеры Lambda (6)</a>
+      <a href="#ch-07">07 · Identity Pools (6)</a>
+      <a href="#ch-08">08 · WAF и безопасность (6)</a>
+      <a href="#ch-09">09 · Лимиты и MAU (5)</a>
+      <a href="#ch-10">10 · Практика Noob (5)</a>
+      <a href="#ch-11">11 · Практика Pro (5)</a>
+      <a href="#ch-12">12 · Архитектура IGL (6)</a>
+      <a href="#ch-13">13 · Вопросы Noob (4)</a>
+      <a href="#ch-14">14 · Вопросы Pro (4)</a>
+      <a href="#ch-15">15 · Вопросы IGL (4)</a>
+    </nav>
+
+    <h2 id="ch-01">01 · Архитектура и User Pools <a class="anchor-link" href="#ch-01">#</a></h2>
+
+    <div class="glossary-term" id="user-pool">
+      <h2>
+        <span class="glossary-title">Пул пользователей (User Pool)</span>
+        <code class="glossary-object">User Pool · Directory · IdP · Authentication · OIDC</code>
+        <a class="anchor-link" href="#user-pool">#</a>
+      </h2>
+      <p class="glossary-lead">Управляемый каталог учетных записей пользователей в Amazon Cognito, выступающий сервером аутентификации и провайдером OpenID Connect.</p>
+      <p>Пул пользователей обеспечивает безопасную регистрацию, вход, проверку подлинности, хранение профилей и выдачу стандартизированных токенов JWT (ID, Access, Refresh) для клиентских приложений.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура User Pools</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="user-pool-id">
+      <h2>
+        <span class="glossary-title">Идентификатор пула (UserPoolId)</span>
+        <code class="glossary-object">UserPoolId · Region · Format · Discovery · Issuer</code>
+        <a class="anchor-link" href="#user-pool-id">#</a>
+      </h2>
+      <p class="glossary-lead">Уникальный региональный идентификатор пула пользователей формата <code>region_randomID</code>, определяющий издателя токенов.</p>
+      <p>Идентификатор пула формирует корневой URL эмитента токенов (клейм iss) и эндпоинт обнаружения метаданных OpenID Connect, служащий глобальной адресной ссылкой для клиентских библиотек.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура User Pools</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="standard-attributes">
+      <h2>
+        <span class="glossary-title">Стандартные атрибуты (Standard Attributes)</span>
+        <code class="glossary-object">OIDC · Standard Attributes · Email · Profile · Claims</code>
+        <a class="anchor-link" href="#standard-attributes">#</a>
+      </h2>
+      <p class="glossary-lead">Предопределенный набор атрибутов профиля пользователя, зафиксированный спецификацией OpenID Connect.</p>
+      <p>Включает такие поля, как email, phone_number, given_name, family_name, sub и address. Требование обязательности атрибута настраивается строго в момент инициализации пула и неизменяемо в дальнейшем.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура User Pools</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="custom-attributes">
+      <h2>
+        <span class="glossary-title">Пользовательские атрибуты (Custom Attributes)</span>
+        <code class="glossary-object">Custom Attributes · Prefix · Append-Only · Immutability</code>
+        <a class="anchor-link" href="#custom-attributes">#</a>
+      </h2>
+      <p class="glossary-lead">Дополнительные поля профиля пользователя с обязательным префиксом <code>custom:</code> для хранения предметных данных приложения.</p>
+      <p>Схема добавления кастомных атрибутов поддерживает только расширение (append-only): удаление или переименование созданных атрибутов запрещено платформой.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура User Pools</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="password-policy">
+      <h2>
+        <span class="glossary-title">Политика надежности паролей (Password Policy)</span>
+        <code class="glossary-object">Password Policy · Security · Complexity · Expiration · NIST</code>
+        <a class="anchor-link" href="#password-policy">#</a>
+      </h2>
+      <p class="glossary-lead">Декларативные правила User Pool, задающие минимальную длину пароля, состав символов и срок устаревания.</p>
+      <p>Позволяет настроить требования к наличию цифр, строчных, прописных и специальных символов, а также предотвратить повторное использование недавних паролей в соответствии с рекомендациями NIST.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура User Pools</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="alias-attributes">
+      <h2>
+        <span class="glossary-title">Псевдонимы входа (Alias Attributes)</span>
+        <code class="glossary-object">Alias Attributes · Username · Sign-in · Email · Phone</code>
+        <a class="anchor-link" href="#alias-attributes">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм пула, разрешающий аутентификацию по подтвержденному email или телефонному номеру вместо технического имени пользователя.</p>
+      <p>Обеспечивает удобный пользовательский опыт входа без необходимости запоминания синтетического системного идентификатора пользователя (UUID sub).</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Глава 01 · Архитектура User Pools</a>
+      </div>
+    </div>
+
+    <h2 id="ch-02">02 · Аутентификация и токены <a class="anchor-link" href="#ch-02">#</a></h2>
+
+    <div class="glossary-term" id="id-token">
+      <h2>
+        <span class="glossary-title">Токен идентичности (ID Token)</span>
+        <code class="glossary-object">ID Token · OIDC · Identity · Claims · Frontend</code>
+        <a class="anchor-link" href="#id-token">#</a>
+      </h2>
+      <p class="glossary-lead">Криптографический JWT токен стандарта OpenID Connect, удостоверяющий факт аутентификации и профиль пользователя.</p>
+      <p>Предназначен для клиентского приложения (фронтенда), содержит стандартные клеймы (sub, email, cognito:groups, auth_time) и аудиторию (aud), равную Client ID.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Аутентификация и JWT</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="access-token">
+      <h2>
+        <span class="glossary-title">Токен доступа (Access Token)</span>
+        <code class="glossary-object">Access Token · OAuth 2.0 · Authorization · Scopes · API</code>
+        <a class="anchor-link" href="#access-token">#</a>
+      </h2>
+      <p class="glossary-lead">JWT токен авторизации стандарта OAuth 2.0, передаваемый в заголовке Authorization Bearer для вызова защищенных API.</p>
+      <p>Содержит список разрешенных скоупов (scope), идентификатор клиента (client_id) и группы пользователя, используясь пограничными шлюзами для авторизации операций.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Аутентификация и JWT</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="refresh-token">
+      <h2>
+        <span class="glossary-title">Токен обновления (Refresh Token)</span>
+        <code class="glossary-object">Refresh Token · Session · Renewal · Long-Lived · Revocation</code>
+        <a class="anchor-link" href="#refresh-token">#</a>
+      </h2>
+      <p class="glossary-lead">Долгоживущий непрозрачный токен, используемый для получения свежей пары ID и Access токенов без повторного ввода пароля.</p>
+      <p>Хранится в защищенном хранилище клиента, имеет настраиваемый срок жизни (до 10 лет) и может быть немедленно отозван через API GlobalSignOut или RevokeToken.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Аутентификация и JWT</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="jwt">
+      <h2>
+        <span class="glossary-title">JSON Web Token (JWT)</span>
+        <code class="glossary-object">JWT · RFC 7519 · Header · Payload · Signature · RS256</code>
+        <a class="anchor-link" href="#jwt">#</a>
+      </h2>
+      <p class="glossary-lead">Открытый отраслевой стандарт RFC 7519 для компактной и самодостаточной передачи утверждений (claims) в формате JSON.</p>
+      <p>Состоит из трех частей, разделенных точками (Header, Payload, Signature), закодированных в Base64URL и подписанных асимметричным алгоритмом RS256.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Аутентификация и JWT</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="jwks">
+      <h2>
+        <span class="glossary-title">Набор открытых ключей (JWKS)</span>
+        <code class="glossary-object">JWKS · RFC 7517 · Public Keys · Well-Known · Endpoint</code>
+        <a class="anchor-link" href="#jwks">#</a>
+      </h2>
+      <p class="glossary-lead">Набор открытых криптографических ключей в формате JSON, публикуемый сервисом по адресу <code>/.well-known/jwks.json</code>.</p>
+      <p>Используется бэкендами и сетевыми шлюзами для автономной математической верификации цифровой подписи токенов без постоянных сетевых вызовов к Cognito.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Аутентификация и JWT</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="kid">
+      <h2>
+        <span class="glossary-title">Идентификатор ключа (Key ID, kid)</span>
+        <code class="glossary-object">kid · Key ID · Header · Rotation · Signature</code>
+        <a class="anchor-link" href="#kid">#</a>
+      </h2>
+      <p class="glossary-lead">Уникальный строковый идентификатор ключа в заголовке JWT токена, указывающий на соответствующий открытый ключ в наборе JWKS.</p>
+      <p>Позволяет сервисам валидации мгновенно находить нужный открытый ключ для проверки подписи и поддерживает бесшовную регулярную ротацию ключей провайдера.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Глава 02 · Аутентификация и JWT</a>
+      </div>
+    </div>
+
+    <h2 id="ch-03">03 · Клиенты приложений и OAuth 2.0 <a class="anchor-link" href="#ch-03">#</a></h2>
+
+    <div class="glossary-term" id="app-client">
+      <h2>
+        <span class="glossary-title">Клиент приложения (App Client)</span>
+        <code class="glossary-object">App Client · Client ID · OAuth · Configuration · SPA</code>
+        <a class="anchor-link" href="#app-client">#</a>
+      </h2>
+      <p class="glossary-lead">Сущность конфигурации в User Pool, представляющая конкретное приложение (SPA, Mobile, Backend) с индивидуальными правами.</p>
+      <p>Определяет разрешенные потоки OAuth, время жизни токенов, права на чтение и запись атрибутов и необходимость генерации Client Secret.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Клиенты и OAuth 2.0</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="client-secret">
+      <h2>
+        <span class="glossary-title">Секрет клиента (Client Secret)</span>
+        <code class="glossary-object">Client Secret · Confidential · Backend · HMAC · Credentials</code>
+        <a class="anchor-link" href="#client-secret">#</a>
+      </h2>
+      <p class="glossary-lead">Криптографический секретный ключ конфиденциального клиента, используемый бэкендом для аутентификации перед сервером авторизации.</p>
+      <p>Категорически запрещен к использованию в публичных клиентах (Single Page Apps и мобильных приложениях), так как код клиента может быть декомпилирован пользователем.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Клиенты и OAuth 2.0</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="auth-code-grant">
+      <h2>
+        <span class="glossary-title">Поток кода авторизации (Authorization Code Grant)</span>
+        <code class="glossary-object">Authorization Code · RFC 6749 · Redirection · Exchange · Flow</code>
+        <a class="anchor-link" href="#auth-code-grant">#</a>
+      </h2>
+      <p class="glossary-lead">Стандартный поток протокола OAuth 2.0, при котором клиент получает временный одноразовый код авторизации и обменивает его на токены.</p>
+      <p>Является золотым стандартом безопасной веб-аутентификации, исключающим передачу токенов через фрагменты URL в браузере при поддержке PKCE.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Клиенты и OAuth 2.0</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="pkce">
+      <h2>
+        <span class="glossary-title">Протокол PKCE (Proof Key for Code Exchange)</span>
+        <code class="glossary-object">PKCE · RFC 7636 · Code Verifier · Code Challenge · SHA256</code>
+        <a class="anchor-link" href="#pkce">#</a>
+      </h2>
+      <p class="glossary-lead">Криптографическое расширение OAuth 2.0 (RFC 7636), защищающее публичные клиенты от перехвата кода авторизации.</p>
+      <p>Клиент генерирует случайный verifier, отправляет его хэш challenge в запросе авторизации и предъявляет исходный verifier при обмене кода на токены.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Клиенты и OAuth 2.0</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="client-credentials">
+      <h2>
+        <span class="glossary-title">Поток учетных данных клиента (Client Credentials)</span>
+        <code class="glossary-object">Client Credentials · M2M · Machine-to-Machine · Service · Scopes</code>
+        <a class="anchor-link" href="#client-credentials">#</a>
+      </h2>
+      <p class="glossary-lead">Поток OAuth 2.0 для межсервисной аутентификации (M2M) без участия конечного пользователя.</p>
+      <p>Сервис аутентифицируется с помощью Client ID и Client Secret напрямую на эндпоинте токенов и получает Access Token с правами Resource Server.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Клиенты и OAuth 2.0</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="resource-server">
+      <h2>
+        <span class="glossary-title">Сервер ресурсов (Resource Server)</span>
+        <code class="glossary-object">Resource Server · API · Scopes · Identifier · RFC 6749</code>
+        <a class="anchor-link" href="#resource-server">#</a>
+      </h2>
+      <p class="glossary-lead">Архитектурная сущность в User Pool, определяющая защищаемый API и перечень пользовательских областей видимости (custom scopes).</p>
+      <p>Использует уникальный идентификатор (URI) и формирует пространство имен для скоупов вида <code>https://api.example.com/read</code>.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Клиенты и OAuth 2.0</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="custom-scopes">
+      <h2>
+        <span class="glossary-title">Пользовательские скоупы (Custom Scopes)</span>
+        <code class="glossary-object">Custom Scopes · Permissions · RBAC · Access Token · Granular</code>
+        <a class="anchor-link" href="#custom-scopes">#</a>
+      </h2>
+      <p class="glossary-lead">Гранулярные разрешения доступа, определенные на сервере ресурсов и включаемые в состав Access токена.</p>
+      <p>Позволяют ограничить действия вызывающего сервиса или пользователя в целевом API до строго очерченного набора операций (например, <code>orders.read</code>).</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Глава 03 · Клиенты и OAuth 2.0</a>
+      </div>
+    </div>
+
+    <h2 id="ch-04">04 · Hosted UI и кастомные домены <a class="anchor-link" href="#ch-04">#</a></h2>
+
+    <div class="glossary-term" id="hosted-ui">
+      <h2>
+        <span class="glossary-title">Встроенный веб-интерфейс (Hosted UI)</span>
+        <code class="glossary-object">Hosted UI · Login Page · OAuth Server · Branding · Managed</code>
+        <a class="anchor-link" href="#hosted-ui">#</a>
+      </h2>
+      <p class="glossary-lead">Готовый управляемый AWS интерфейс авторизации, включающий формы логина, регистрации, ввода MFA и подтверждения согласия IdP.</p>
+      <p>Полностью реализует протоколы OAuth 2.0 и OpenID Connect, снимая с инженеров необходимость самостоятельной разработки форм входа.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Hosted UI и домены</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="custom-domain">
+      <h2>
+        <span class="glossary-title">Кастомный домен (Custom Domain)</span>
+        <code class="glossary-object">Custom Domain · FQDN · Branding · DNS · CNAME · CloudFront</code>
+        <a class="anchor-link" href="#custom-domain">#</a>
+      </h2>
+      <p class="glossary-lead">Собственное доменное имя авторизации организации (например, <code>auth.example.com</code>), привязываемое к Hosted UI.</p>
+      <p>Опирается на пограничную маршрутизацию CloudFront и требует привязки доверенного публичного SSL-сертификата из региона us-east-1.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Hosted UI и домены</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="acm-cert">
+      <h2>
+        <span class="glossary-title">Сертификат ACM (ACM Certificate)</span>
+        <code class="glossary-object">ACM · Certificate Manager · us-east-1 · TLS · HTTPS</code>
+        <a class="anchor-link" href="#acm-cert">#</a>
+      </h2>
+      <p class="glossary-lead">Публичный сертификат безопасности AWS Certificate Manager, выпущенный строго в регионе <code>us-east-1</code> для кастомного домена.</p>
+      <p>Привязывается к дистрибутиву CloudFront, обслуживающему домен авторизации Cognito, гарантируя защищенное HTTPS-соединение.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Hosted UI и домены</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="managed-login">
+      <h2>
+        <span class="glossary-title">Интерфейс Managed Login (Managed Login v2)</span>
+        <code class="glossary-object">Managed Login · Modern UI · Passkeys · WebAuthn · Branding</code>
+        <a class="anchor-link" href="#managed-login">#</a>
+      </h2>
+      <p class="glossary-lead">Второе поколение встроенного интерфейса входа Cognito с поддержкой аппаратных ключей доступа Passkeys и гибкой кастомизации.</p>
+      <p>Позволяет раздельно настраивать визуальный стиль для различных клиентов и обеспечивает нативную поддержку аутентификации FIDO2.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Hosted UI и домены</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="redirect-uri">
+      <h2>
+        <span class="glossary-title">Разрешенный адрес перенаправления (Redirect URI)</span>
+        <code class="glossary-object">Redirect URI · Callback · Whitelist · Open Redirect · Security</code>
+        <a class="anchor-link" href="#redirect-uri">#</a>
+      </h2>
+      <p class="glossary-lead">Строго зафиксированный белый список URL в настройках App Client, на которые разрешен возврат кода авторизации.</p>
+      <p>Предотвращает критическую уязвимость открытого редиректа (Open Redirect), блокируя отправку чувствительного кода на сторонние домены.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Глава 04 · Hosted UI и домены</a>
+      </div>
+    </div>
+
+    <h2 id="ch-05">05 · Федерация и внешние IdP <a class="anchor-link" href="#ch-05">#</a></h2>
+
+    <div class="glossary-term" id="idp">
+      <h2>
+        <span class="glossary-title">Провайдер идентичности (Identity Provider, IdP)</span>
+        <code class="glossary-object">IdP · External Provider · Identity · Okta · Entra · Google</code>
+        <a class="anchor-link" href="#idp">#</a>
+      </h2>
+      <p class="glossary-lead">Внешняя доверенная система, хранящая учетные записи и удостоверяющая подлинность пользователей для Cognito.</p>
+      <p>Включает корпоративные системы (Okta, Microsoft Entra ID, Ping Identity) и социальные сервисы (Google, Apple, Facebook).</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Федерация и IdP</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="saml">
+      <h2>
+        <span class="glossary-title">Протокол SAML 2.0 (Security Assertion Markup Language)</span>
+        <code class="glossary-object">SAML · XML · Enterprise SSO · Okta · Entra · Assertion</code>
+        <a class="anchor-link" href="#saml">#</a>
+      </h2>
+      <p class="glossary-lead">Открытый корпоративный стандарт обмена данными аутентификации и авторизации в формате подписанных XML-документов.</p>
+      <p>Используется для организации сквозного корпоративного входа (SSO) сотрудников через корпоративные каталоги пользователей.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Федерация и IdP</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="oidc">
+      <h2>
+        <span class="glossary-title">Протокол OpenID Connect (OIDC)</span>
+        <code class="glossary-object">OIDC · Identity Layer · OAuth 2.0 · JWT · Discovery</code>
+        <a class="anchor-link" href="#oidc">#</a>
+      </h2>
+      <p class="glossary-lead">Легковесный слой идентификации поверх протокола OAuth 2.0, выдающий ID токен в формате JSON Web Token.</p>
+      <p>Обеспечивает унифицированную интеграцию с современными провайдерами авторизации благодаря стандарту автообнаружения OpenID Discovery.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Федерация и IdP</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="jit-provisioning">
+      <h2>
+        <span class="glossary-title">Динамический провижининг (JIT Provisioning)</span>
+        <code class="glossary-object">JIT · Just-In-Time · Provisioning · Federation · Sync</code>
+        <a class="anchor-link" href="#jit-provisioning">#</a>
+      </h2>
+      <p class="glossary-lead">Автоматическое создание профиля пользователя в User Pool в момент первого успешного входа через внешний IdP.</p>
+      <p>Избавляет от необходимости предварительной синхронизации всей корпоративной базы учетных записей сотрудников в каталог Cognito.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Федерация и IdP</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="attribute-mapping">
+      <h2>
+        <span class="glossary-title">Сопоставление атрибутов (Attribute Mapping)</span>
+        <code class="glossary-object">Attribute Mapping · Claims · SAML Assertion · Profile · Sync</code>
+        <a class="anchor-link" href="#attribute-mapping">#</a>
+      </h2>
+      <p class="glossary-lead">Таблица трансляции входящих утверждений внешнего IdP (SAML утверждений или OIDC клеймов) в атрибуты профиля User Pool.</p>
+      <p>Гарантирует корректное сохранение корпоративных групп, email и имени пользователя в единой структуре каталога Cognito.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Федерация и IdP</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="metadata-doc">
+      <h2>
+        <span class="glossary-title">Документ метаданных (Metadata Document)</span>
+        <code class="glossary-object">Metadata · XML · SAML EntityID · Certificate · Trust</code>
+        <a class="anchor-link" href="#metadata-doc">#</a>
+      </h2>
+      <p class="glossary-lead">XML-файл или URL конечной точки SAML провайдера, содержащий открытый сертификат подписи и адреса эндпоинтов SSO.</p>
+      <p>Определяет взаимное доверие между сервис-провайдером (Cognito SP) и внешним корпоративным провайдером идентичности (IdP).</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Глава 05 · Федерация и IdP</a>
+      </div>
+    </div>
+
+    <h2 id="ch-06">06 · События и триггеры <a class="anchor-link" href="#ch-06">#</a></h2>
+
+    <div class="glossary-term" id="lambda-trigger">
+      <h2>
+        <span class="glossary-title">Триггер Lambda (Lambda Trigger)</span>
+        <code class="glossary-object">Lambda Trigger · Serverless · Hook · Synchronous · Event</code>
+        <a class="anchor-link" href="#lambda-trigger">#</a>
+      </h2>
+      <p class="glossary-lead">Бессерверная функция AWS Lambda, автоматически вызываемая сервисом Cognito на различных этапах жизненного цикла пользователя.</p>
+      <p>Позволяет внедрять пользовательскую валидацию, обогащать клеймы токенов и кастомизировать потоки аутентификации.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · События и триггеры</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="pre-signup">
+      <h2>
+        <span class="glossary-title">Триггер предварительной регистрации (Pre Sign-up)</span>
+        <code class="glossary-object">Pre Sign-up · Validation · Fraud · Blacklist · Auto-Confirm</code>
+        <a class="anchor-link" href="#pre-signup">#</a>
+      </h2>
+      <p class="glossary-lead">Синхронный хук, выполняемый до создания учетной записи пользователя в базе User Pool.</p>
+      <p>Используется для проверки email по черным спискам временных почтовых доменов, защиты от SMS-фрода и автоматического подтверждения доверенных пользователей.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · События и триггеры</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="pre-token-gen">
+      <h2>
+        <span class="glossary-title">Обогащение токенов (Pre Token Generation)</span>
+        <code class="glossary-object">Pre Token Generation · Claims · Roles · Permissions · V2</code>
+        <a class="anchor-link" href="#pre-token-gen">#</a>
+      </h2>
+      <p class="glossary-lead">Синхронный триггер, вызываемый перед выпуском токенов для динамического добавления или модификации клеймов.</p>
+      <p>Версия v2 позволяет инжектировать кастомные роли и скоупы как в ID Token, так и в Access Token, предотвращая разрастание статической базы пользователей.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · События и триггеры</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="post-confirmation">
+      <h2>
+        <span class="glossary-title">Триггер пост-подтверждения (Post Confirmation)</span>
+        <code class="glossary-object">Post Confirmation · Async · Provisioning · Analytics · CRM</code>
+        <a class="anchor-link" href="#post-confirmation">#</a>
+      </h2>
+      <p class="glossary-lead">Асинхронный триггер, срабатывающий сразу после успешного подтверждения регистрации пользователем.</p>
+      <p>Используется для инициализации рабочего пространства клиента, записи приветственного события в аналитику или отправки данных в CRM.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · События и триггеры</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="custom-message">
+      <h2>
+        <span class="glossary-title">Кастомизация уведомлений (Custom Message)</span>
+        <code class="glossary-object">Custom Message · Email · SMS · Localization · Branding</code>
+        <a class="anchor-link" href="#custom-message">#</a>
+      </h2>
+      <p class="glossary-lead">Синхронный хук для динамической генерации текстов электронных писем и SMS с кодами подтверждения.</p>
+      <p>Позволяет локализовать сообщения на родной язык пользователя и внедрять кастомные HTML-шаблоны бренда.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · События и триггеры</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="define-auth-challenge">
+      <h2>
+        <span class="glossary-title">Определение вызова (Define Auth Challenge)</span>
+        <code class="glossary-object">Define Auth Challenge · State Machine · Passwordless · Flow</code>
+        <a class="anchor-link" href="#define-auth-challenge">#</a>
+      </h2>
+      <p class="glossary-lead">Управляющий триггер-конечный автомат в кастомном потоке входа (Custom Authentication Flow).</p>
+      <p>Определяет следующий шаг проверки пользователя (выдача капчи, отправка одноразового кода по почте или успешная выдача токенов).</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Глава 06 · События и триггеры</a>
+      </div>
+    </div>
+
+    <h2 id="ch-07">07 · Identity Pools и STS <a class="anchor-link" href="#ch-07">#</a></h2>
+
+    <div class="glossary-term" id="identity-pool">
+      <h2>
+        <span class="glossary-title">Пул идентичностей (Identity Pool)</span>
+        <code class="glossary-object">Identity Pool · Federated Identities · STS · IAM · Credentials</code>
+        <a class="anchor-link" href="#identity-pool">#</a>
+      </h2>
+      <p class="glossary-lead">Компонент Cognito для обмена токенов удостоверения на временные учетные данные AWS STS с правами IAM ролей.</p>
+      <p>Позволяет веб- и мобильным клиентам безопасно обращаться напрямую к сервисам AWS (S3, DynamoDB, Bedrock) без создания серверных прокси.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Identity Pools и STS</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="sts">
+      <h2>
+        <span class="glossary-title">Служба временных токенов (AWS STS)</span>
+        <code class="glossary-object">STS · Security Token Service · AssumeRole · Temporary</code>
+        <a class="anchor-link" href="#sts">#</a>
+      </h2>
+      <p class="glossary-lead">Глобальный сервис AWS Security Token Service, генерирующий временные ограниченные криптографические ключи доступа.</p>
+      <p>Выдает триаду <code>AccessKeyId</code>, <code>SecretAccessKey</code> и <code>SessionToken</code> со сроком жизни от 15 минут до нескольких часов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Identity Pools и STS</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="authenticated-role">
+      <h2>
+        <span class="glossary-title">Авторизованная роль (Authenticated Role)</span>
+        <code class="glossary-object">Authenticated Role · IAM · Permissions · Signed-in · User</code>
+        <a class="anchor-link" href="#authenticated-role">#</a>
+      </h2>
+      <p class="glossary-lead">IAM-роль, назначаемая пользователям, успешно подтвердившим свою подлинность через провайдера идентификации.</p>
+      <p>Содержит политики разрешений для работы с личными объектами в защищенных хранилищах и выполнения авторизованных операций в облаке.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Identity Pools и STS</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="unauthenticated-role">
+      <h2>
+        <span class="glossary-title">Гостевая роль (Unauthenticated Role)</span>
+        <code class="glossary-object">Unauthenticated Role · Guest · Anonymous · IAM · Public</code>
+        <a class="anchor-link" href="#unauthenticated-role">#</a>
+      </h2>
+      <p class="glossary-lead">IAM-роль, предоставляющая строго ограниченный доступ анонимным пользователям приложения без прохождения логина.</p>
+      <p>Обычно разрешает загрузку публичных каталогов товаров или отправку первичной телеметрии использования мобильного приложения.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Identity Pools и STS</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="role-mapping">
+      <h2>
+        <span class="glossary-title">Сопоставление ролей (Role Mapping)</span>
+        <code class="glossary-object">Role Mapping · Rules · Token Claims · Groups · Dynamic IAM</code>
+        <a class="anchor-link" href="#role-mapping">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм Identity Pool, динамически выбирающий целевую IAM-роль на основе клеймов или групп входящего токена.</p>
+      <p>Позволяет дифференцировать права администраторов и обычных пользователей без создания отдельных пулов идентичностей.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Identity Pools и STS</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="sigv4">
+      <h2>
+        <span class="glossary-title">Протокол подписи SigV4 (Signature Version 4)</span>
+        <code class="glossary-object">SigV4 · AWS Signature · HMAC-SHA256 · Request · Security</code>
+        <a class="anchor-link" href="#sigv4">#</a>
+      </h2>
+      <p class="glossary-lead">Обязательный криптографический протокол подписи HTTP-запросов к API интерфейсам сервисов Amazon Web Services.</p>
+      <p>Обеспечивает аутентификацию отправителя и целостность передаваемого запроса на основе временных ключей AWS STS.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Глава 07 · Identity Pools и STS</a>
+      </div>
+    </div>
+
+    <h2 id="ch-08">08 · Безопасность и WAF <a class="anchor-link" href="#ch-08">#</a></h2>
+
+    <div class="glossary-term" id="asf">
+      <h2>
+        <span class="glossary-title">Расширенная безопасность (Advanced Security Features, ASF)</span>
+        <code class="glossary-object">ASF · Risk Engine · Machine Learning · Protection · Plus</code>
+        <a class="anchor-link" href="#asf">#</a>
+      </h2>
+      <p class="glossary-lead">Встроенный движок поведенческой безопасности Cognito, использующий машинное обучение для выявления подозрительных попыток входа.</p>
+      <p>Обеспечивает адаптивную аутентификацию, предотвращает захват учетных записей (Account Takeover) и проверяет пароли на утечки.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Безопасность и WAF</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="adaptive-auth">
+      <h2>
+        <span class="glossary-title">Адаптивная аутентификация (Adaptive Authentication)</span>
+        <code class="glossary-object">Adaptive Auth · Risk Score · Step-up MFA · Low · High Risk</code>
+        <a class="anchor-link" href="#adaptive-auth">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм гибкого реагирования на риски: запрашивает дополнительный фактор MFA или блокирует вход при подозрительных сессиях.</p>
+      <p>Оценивает репутацию IP-адреса, геолокацию устройства и поведенческие паттерны пользователя в реальном времени.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Безопасность и WAF</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="compromised-credentials">
+      <h2>
+        <span class="glossary-title">Скомпрометированные пароли (Compromised Credentials)</span>
+        <code class="glossary-object">Compromised Credentials · Leak Detection · Credential Stuffing</code>
+        <a class="anchor-link" href="#compromised-credentials">#</a>
+      </h2>
+      <p class="glossary-lead">Функция ASF, сличающая вводимые пользователями пароли с глобальными базами данных утекших учетных записей.</p>
+      <p>Блокирует попытку входа или принуждает пользователя сменить скомпрометированный пароль до завершения авторизации.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Безопасность и WAF</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="wafv2">
+      <h2>
+        <span class="glossary-title">Сетевой экран WAF (AWS WAFv2)</span>
+        <code class="glossary-object">WAFv2 · Web Application Firewall · L7 · DDoS · Managed Rules</code>
+        <a class="anchor-link" href="#wafv2">#</a>
+      </h2>
+      <p class="glossary-lead">Служба фильтрации прикладного веб-трафика L7, подключаемая напрямую к домену User Pool для блокировки вредоносных запросов.</p>
+      <p>Отражает атаки ботнетов, SQL-инъекции и попытки брутфорса еще на сетевой границе до вызова вычислительного бэкенда Cognito.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Безопасность и WAF</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="web-acl">
+      <h2>
+        <span class="glossary-title">Список контроля веб-доступа (WebACL)</span>
+        <code class="glossary-object">WebACL · Rules · Priority · Action · Association</code>
+        <a class="anchor-link" href="#web-acl">#</a>
+      </h2>
+      <p class="glossary-lead">Основной конфигурационный объект AWS WAFv2, объединяющий набор правил фильтрации с приоритетами выполнения.</p>
+      <p>Ассоциируется с ARN User Pool через вызов API <code>AssociateWebACL</code> для комплексной защиты эндпоинтов авторизации.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Безопасность и WAF</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="rate-limiting">
+      <h2>
+        <span class="glossary-title">Ограничение частоты запросов (Rate Limiting)</span>
+        <code class="glossary-object">Rate Limiting · WAF Rule · Brute Force · IP Throttling</code>
+        <a class="anchor-link" href="#rate-limiting">#</a>
+      </h2>
+      <p class="glossary-lead">Правило безопасности WAF, ограничивающее количество запросов с одного IP-адреса за скользящий 5-минутный интервал.</p>
+      <p>Останавливает распределенные атаки подбора паролей и флуд регистраций, возвращая атакующему статус HTTP 403 Forbidden.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Глава 08 · Безопасность и WAF</a>
+      </div>
+    </div>
+
+    <h2 id="ch-09">09 · Лимиты, квоты и экономика <a class="anchor-link" href="#ch-09">#</a></h2>
+
+    <div class="glossary-term" id="mau">
+      <h2>
+        <span class="glossary-title">Ежемесячно активные пользователи (MAU)</span>
+        <code class="glossary-object">MAU · Monthly Active Users · Pricing · Tier · Billing</code>
+        <a class="anchor-link" href="#mau">#</a>
+      </h2>
+      <p class="glossary-lead">Базовая метрика тарификации Cognito: уникальный пользователь, совершивший хотя бы одну операцию аутентификации за месяц.</p>
+      <p>Первые 50 000 MAU предоставляются в рамках бесплатного уровня (Free Tier), после чего применяется ступенчатая шкала оплаты.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Лимиты и экономика</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="sms-toll-fraud">
+      <h2>
+        <span class="glossary-title">Телефонный фрод (SMS Toll Fraud)</span>
+        <code class="glossary-object">SMS Toll Fraud · Telephony · Cost Explosion · Bot Attack</code>
+        <a class="anchor-link" href="#sms-toll-fraud">#</a>
+      </h2>
+      <p class="glossary-lead">Атака злоумышленников, массово инициирующих отправку платных SMS с кодами подтверждения на дорогие премиум-номера.</p>
+      <p>Способна генерировать счета на десятки тысяч долларов за считанные часы при отсутствии эшелонированной защиты и WAF.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Лимиты и экономика</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="api-quotas">
+      <h2>
+        <span class="glossary-title">Квоты API провайдера (API Quotas)</span>
+        <code class="glossary-object">API Quotas · RPS · Throttling · HTTP 429 · Service Quotas</code>
+        <a class="anchor-link" href="#api-quotas">#</a>
+      </h2>
+      <p class="glossary-lead">Региональные ограничения платформы AWS на максимальное количество вызовов методов API Cognito в секунду.</p>
+      <p>Превышение квот вызывает ошибку <code>TooManyRequestsException</code> и требует внедрения кэширования и экспоненциальной задержки с джиттером.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Лимиты и экономика</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="sns-sms-limit">
+      <h2>
+        <span class="glossary-title">Лимит расходов SNS на SMS (SNS SMS Spend Limit)</span>
+        <code class="glossary-object">SNS Spend Limit · Monthly Budget · Hard Stop · Protection</code>
+        <a class="anchor-link" href="#sns-sms-limit">#</a>
+      </h2>
+      <p class="glossary-lead">Жесткий финансовый лимит в настройках Amazon Simple Notification Service, ограничивающий максимальные ежемесячные траты на SMS.</p>
+      <p>Служит последним рубежом финансовой защиты, полностью блокирующим дальнейшую отправку платных SMS при исчерпании лимита.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Лимиты и экономика</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="cloudwatch-metrics">
+      <h2>
+        <span class="glossary-title">Метрики CloudWatch (CloudWatch Metrics)</span>
+        <code class="glossary-object">CloudWatch Metrics · Telemetry · SignInSuccesses · Alarms</code>
+        <a class="anchor-link" href="#cloudwatch-metrics">#</a>
+      </h2>
+      <p class="glossary-lead">Стандартный набор эксплуатационных метрик Cognito, публикуемый в Amazon CloudWatch для мониторинга активности каталога.</p>
+      <p>Включает индикаторы <code>SignInSuccesses</code>, <code>SignUpSuccesses</code> и <code>SignInThrottles</code>, служащие базой для алертов SRE.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Глава 09 · Лимиты и экономика</a>
+      </div>
+    </div>
+
+    <h2 id="ch-10">10 · Примеры · Noob <a class="anchor-link" href="#ch-10">#</a></h2>
+
+    <div class="glossary-term" id="iac">
+      <h2>
+        <span class="glossary-title">Инфраструктура как код (IaC)</span>
+        <code class="glossary-object">IaC · Terraform · OpenTofu · Automation · Declarative</code>
+        <a class="anchor-link" href="#iac">#</a>
+      </h2>
+      <p class="glossary-lead">Подход к управлению и развертыванию облачной инфраструктуры через машиночитаемые файлы определений вместо ручных настроек.</p>
+      <p>Гарантирует повторяемость окружений, контроль версий и исключение человеческого фактора при конфигурировании пулов Cognito.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="tf-provider-aws">
+      <h2>
+        <span class="glossary-title">Провайдер Terraform AWS (Terraform Provider AWS)</span>
+        <code class="glossary-object">Terraform AWS Provider · Plugin · HCL · aws_cognito_user_pool</code>
+        <a class="anchor-link" href="#tf-provider-aws">#</a>
+      </h2>
+      <p class="glossary-lead">Официальный плагин HashiCorp для взаимодействия с API Amazon Web Services через декларативные манифесты HCL.</p>
+      <p>Предоставляет полный спектр ресурсов для декларативного создания и обновления ресурсов User Pools, Clients и Identity Pools.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="prevent-user-existence">
+      <h2>
+        <span class="glossary-title">Защита от перечисления учетных записей</span>
+        <code class="glossary-object">PreventUserExistenceErrors · User Enumeration · Security</code>
+        <a class="anchor-link" href="#prevent-user-existence">#</a>
+      </h2>
+      <p class="glossary-lead">Параметр безопасности App Client, возвращающий обобщенный ответ <code>NotAuthorizedException</code> при любых ошибках логина.</p>
+      <p>Предотвращает атаку сканирования базы пользователей (User Enumeration), скрывая от атакующего факт существования email в системе.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="totp-mfa">
+      <h2>
+        <span class="glossary-title">Одноразовый пароль TOTP MFA (TOTP MFA)</span>
+        <code class="glossary-object">TOTP · MFA · RFC 6238 · Authenticator App · Zero-Cost</code>
+        <a class="anchor-link" href="#totp-mfa">#</a>
+      </h2>
+      <p class="glossary-lead">Бесплатный программный второй фактор аутентификации (RFC 6238), генерируемый приложениями Google или 1Password.</p>
+      <p>Полностью устраняет зависимость от платных и уязвимых к перехвату SMS-сообщений, защищая бюджет и безопасность пользователя.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="srp">
+      <h2>
+        <span class="glossary-title">Протокол SRP (Secure Remote Password)</span>
+        <code class="glossary-object">SRP · Zero-Knowledge · RFC 2945 · USER_SRP_AUTH · Cryptography</code>
+        <a class="anchor-link" href="#srp">#</a>
+      </h2>
+      <p class="glossary-lead">Криптографический протокол доказательства с нулевым разглашением, при котором пароль никогда не передается по сети.</p>
+      <p>Клиент и сервер вычисляют математические доказательства знания пароля, исключая риск перехвата учетных данных при MITM-атаках.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="10.html">Глава 10 · Примеры · Noob</a>
+      </div>
+    </div>
+
+    <h2 id="ch-11">11 · Примеры · Pro <a class="anchor-link" href="#ch-11">#</a></h2>
+
+    <div class="glossary-term" id="apigw-authorizer">
+      <h2>
+        <span class="glossary-title">Авторизатор API Gateway (Cognito Authorizer)</span>
+        <code class="glossary-object">Cognito Authorizer · REST API · API Gateway · Offload</code>
+        <a class="anchor-link" href="#apigw-authorizer">#</a>
+      </h2>
+      <p class="glossary-lead">Встроенный нативный авторизатор REST API Gateway, автоматически валидирующий токен Cognito на границе сети.</p>
+      <p>Отсекает неавторизованные запросы с кодом 401 Unauthorized до передачи трафика в функции Lambda или контейнеры бэкенда.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="jwt-authorizer">
+      <h2>
+        <span class="glossary-title">Авторизатор JWT (HTTP API JWT Authorizer)</span>
+        <code class="glossary-object">JWT Authorizer · HTTP API v2 · Low Latency · Cost Efficient</code>
+        <a class="anchor-link" href="#jwt-authorizer">#</a>
+      </h2>
+      <p class="glossary-lead">Легковесный и экономичный авторизатор HTTP API v2, проверяющий issuer и audience токена по открытому JWKS.</p>
+      <p>Обеспечивает субмиллисекундную обработку запросов и втрое меньшую стоимость по сравнению с классическим REST API.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="alb-auth">
+      <h2>
+        <span class="glossary-title">Аутентификация на ALB (ALB Authenticate-Cognito)</span>
+        <code class="glossary-object">ALB Auth · Action · Listener Rule · OIDC Flow · X-AMZN-OIDC</code>
+        <a class="anchor-link" href="#alb-auth">#</a>
+      </h2>
+      <p class="glossary-lead">Правило слушателя балансировщика Application Load Balancer, автоматически перенаправляющее пользователя на логин в Cognito.</p>
+      <p>После входа ALB пробрасывает проверенные клеймы пользователя бэкенду через защищенные заголовки <code>x-amzn-oidc-data</code>.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="appsync-auth">
+      <h2>
+        <span class="glossary-title">Авторизация AppSync (AppSync Cognito Auth)</span>
+        <code class="glossary-object">AppSync · GraphQL · Directives · @auth · Field-Level Security</code>
+        <a class="anchor-link" href="#appsync-auth">#</a>
+      </h2>
+      <p class="glossary-lead">Нативная модель авторизации в сервисе AWS AppSync, валидирующая JWT токены пула пользователей Cognito.</p>
+      <p>Позволяет использовать гранулярные директивы схемы GraphQL <code>@auth</code> для разграничения доступа к отдельным полям и запросам.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="claims-enrichment">
+      <h2>
+        <span class="glossary-title">Обогащение клеймов (Claims Enrichment)</span>
+        <code class="glossary-object">Claims Enrichment · DynamoDB · RBAC · Pre Token Gen · Roles</code>
+        <a class="anchor-link" href="#claims-enrichment">#</a>
+      </h2>
+      <p class="glossary-lead">Архитектурный паттерн динамической подгрузки ролей и прав из базы данных при генерации токена через триггер Lambda.</p>
+      <p>Исключает задержки рассинхронизации прав и избавляет от необходимости дублировать бизнес-роли в статических группах пула.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="11.html">Глава 11 · Примеры · Pro</a>
+      </div>
+    </div>
+
+    <h2 id="ch-12">12 · Примеры · IGL <a class="anchor-link" href="#ch-12">#</a></h2>
+
+    <div class="glossary-term" id="passkeys">
+      <h2>
+        <span class="glossary-title">Ключи доступа Passkeys (FIDO2 Passkeys)</span>
+        <code class="glossary-object">Passkeys · FIDO2 · Biometrics · Phishing-Resistant · WebAuthn</code>
+        <a class="anchor-link" href="#passkeys">#</a>
+      </h2>
+      <p class="glossary-lead">Фишинг-устойчивый беспарольный метод аутентификации на основе биометрии устройства (TouchID, FaceID) или аппаратных ключей.</p>
+      <p>Опирается на криптографию открытых ключей и привязан к домену приложения, делая невозможным перехват через фишинговые сайты.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="webauthn">
+      <h2>
+        <span class="glossary-title">Стандарт WebAuthn (Web Authentication)</span>
+        <code class="glossary-object">WebAuthn · W3C Standard · Browser API · Public Key Credentials</code>
+        <a class="anchor-link" href="#webauthn">#</a>
+      </h2>
+      <p class="glossary-lead">Официальная спецификация консорциума W3C, предоставляющая JavaScript API браузера для взаимодействия с аутентификаторами.</p>
+      <p>Лежит в основе работы Passkeys и поддерживается нативным интерфейсом Cognito Managed Login v2.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="user-migration">
+      <h2>
+        <span class="glossary-title">Миграция пользователей (User Migration Trigger)</span>
+        <code class="glossary-object">User Migration · Just-In-Time · Legacy DB · Hash · Zero-Downtime</code>
+        <a class="anchor-link" href="#user-migration">#</a>
+      </h2>
+      <p class="glossary-lead">Специальный триггер Lambda, прозрачно переносящий профиль и пароль пользователя из старой базы при его первом логине в Cognito.</p>
+      <p>Позволяет мигрировать миллионы учетных записей без принудительного массового сброса паролей и простоя сервиса.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="custom-auth-flow">
+      <h2>
+        <span class="glossary-title">Кастомный поток входа (Custom Authentication Flow)</span>
+        <code class="glossary-object">Custom Auth Flow · Triad · Passwordless · Email OTP · Challenge</code>
+        <a class="anchor-link" href="#custom-auth-flow">#</a>
+      </h2>
+      <p class="glossary-lead">Триада триггеров Lambda (Define, Create, Verify Auth Challenge), позволяющая реализовать произвольную логику беспарольного входа.</p>
+      <p>Применяется для реализации авторизации по одноразовым кодам Email OTP, магическим ссылкам или специализированным капчам.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="token-rotation">
+      <h2>
+        <span class="glossary-title">Ротация токенов обновления (Refresh Token Rotation)</span>
+        <code class="glossary-object">Token Rotation · Refresh Token · Security · Compromise · Single-Use</code>
+        <a class="anchor-link" href="#token-rotation">#</a>
+      </h2>
+      <p class="glossary-lead">Паттерн безопасности, при котором каждый вызов обновления сессии инвалидирует старый Refresh Token и выдает новый.</p>
+      <p>Гарантирует, что при компрометации токена злоумышленником одновременная попытка входа легитимного пользователя немедленно отзовет всю цепочку сессий.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="account-recovery">
+      <h2>
+        <span class="glossary-title">Восстановление доступа (Account Recovery)</span>
+        <code class="glossary-object">Account Recovery · ForgotPassword · Reset · Verification Channel</code>
+        <a class="anchor-link" href="#account-recovery">#</a>
+      </h2>
+      <p class="glossary-lead">Настраиваемый механизм сброса забытого пароля через отправку временного кода подтверждения на верифицированный канал связи.</p>
+      <p>Определяет приоритет каналов (проверенный email или номер телефона) и защищает процедуру сброса от сканирования.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Глава 12 · Примеры · IGL</a>
+      </div>
+    </div>
+
+    <h2 id="ch-13">13 · Вопросы · Noob <a class="anchor-link" href="#ch-13">#</a></h2>
+
+    <div class="glossary-term" id="distractor">
+      <h2>
+        <span class="glossary-title">Дистрактор (Distractor)</span>
+        <code class="glossary-object">Distractor · Assessment · Examination · Multiple Choice</code>
+        <a class="anchor-link" href="#distractor">#</a>
+      </h2>
+      <p class="glossary-lead">Правдоподобный, но технически ошибочный вариант ответа в вопросах квалификационного теста.</p>
+      <p>Каждый дистрактор в банке вопросов сопровождается детальным инженерным обоснованием причины его некорректности.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="noob-level">
+      <h2>
+        <span class="glossary-title">Квалификационный уровень Noob (Noob Level)</span>
+        <code class="glossary-object">Noob · Fundamentals · Syntax · CLI · Zero Magic</code>
+        <a class="anchor-link" href="#noob-level">#</a>
+      </h2>
+      <p class="glossary-lead">Начальный уровень инженерной зрелости, направленный на устранение страха перед сервисом и понимание базового синтаксиса.</p>
+      <p>Инженер уровня Noob уверенно владеет базовыми операциями CLI, разграничивает типы токенов и создает пулы без критических ошибок.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="ephemeral-env">
+      <h2>
+        <span class="glossary-title">Временное окружение (Ephemeral Environment)</span>
+        <code class="glossary-object">Ephemeral Environment · CI/CD · Dynamic Staging · Testing</code>
+        <a class="anchor-link" href="#ephemeral-env">#</a>
+      </h2>
+      <p class="glossary-lead">Изолированный динамический контур инфраструктуры, поднимаемый автоматически в пайплайне для тестирования ветки кода.</p>
+      <p>Уничтожается сразу после прогона интеграционных тестов, предотвращая засорение продуктовых каталогов тестовыми пользователями.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="user-status">
+      <h2>
+        <span class="glossary-title">Статус пользователя (User Status)</span>
+        <code class="glossary-object">User Status · UNCONFIRMED · CONFIRMED · RESET_REQUIRED</code>
+        <a class="anchor-link" href="#user-status">#</a>
+      </h2>
+      <p class="glossary-lead">Состояние учетной записи в жизненном цикле каталога пользователей (UNCONFIRMED, CONFIRMED, FORCE_CHANGE_PASSWORD).</p>
+      <p>Определяет доступные пользователю операции и маршрутизирует потоки авторизации при входе в приложение.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="13.html">Глава 13 · Вопросы · Noob</a>
+      </div>
+    </div>
+
+    <h2 id="ch-14">14 · Вопросы · Pro <a class="anchor-link" href="#ch-14">#</a></h2>
+
+    <div class="glossary-term" id="rbac">
+      <h2>
+        <span class="glossary-title">Ролевой доступ (Role-Based Access Control, RBAC)</span>
+        <code class="glossary-object">RBAC · Roles · Permissions · Groups · Authorization</code>
+        <a class="anchor-link" href="#rbac">#</a>
+      </h2>
+      <p class="glossary-lead">Модель разграничения прав доступа к ресурсам на основе назначенных пользователю ролей или членства в группах.</p>
+      <p>В Cognito реализуется через сопоставление групп пула (cognito:groups) или инжекцию кастомных ролей в клеймы токена.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="token-revocation">
+      <h2>
+        <span class="glossary-title">Отзыв токенов (Token Revocation)</span>
+        <code class="glossary-object">Revocation · RFC 7009 · GlobalSignOut · Security · Session</code>
+        <a class="anchor-link" href="#token-revocation">#</a>
+      </h2>
+      <p class="glossary-lead">Стандартизированная процедура немедленной инвалидации долгоживущего Refresh токена и всех активных сессий пользователя.</p>
+      <p>Осуществляется через вызовы API <code>RevokeToken</code> или <code>GlobalSignOut</code>, предотвращая дальнейшее использование скомпрометированной сессии.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="asymmetric-verification">
+      <h2>
+        <span class="glossary-title">Асимметричная верификация (Asymmetric Verification)</span>
+        <code class="glossary-object">Asymmetric Verification · RS256 · Public Key · Offline · Microservices</code>
+        <a class="anchor-link" href="#asymmetric-verification">#</a>
+      </h2>
+      <p class="glossary-lead">Проверка цифровой подписи токена с использованием открытого ключа провайдера без обращения к закрытому секрету.</p>
+      <p>Позволяет микросервисам проверять подлинность токенов полностью автономно в оперативной памяти с задержкой в доли миллисекунды.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="ephemeral-testing">
+      <h2>
+        <span class="glossary-title">Сквозное тестирование (Ephemeral Testing)</span>
+        <code class="glossary-object">Ephemeral Testing · E2E · Automated Tests · LocalStack · Mock</code>
+        <a class="anchor-link" href="#ephemeral-testing">#</a>
+      </h2>
+      <p class="glossary-lead">Методология автоматизированного тестирования авторизации в CI/CD с использованием временных пулов или локальных эмуляторов.</p>
+      <p>Гарантирует выявление регрессий в конфигурации прав и токенов до выкатки изменений на продуктовые окружения.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="14.html">Глава 14 · Вопросы · Pro</a>
+      </div>
+    </div>
+
+    <h2 id="ch-15">15 · Вопросы · IGL <a class="anchor-link" href="#ch-15">#</a></h2>
+
+    <div class="glossary-term" id="multi-tenancy">
+      <h2>
+        <span class="glossary-title">Мультиарендность (Multi-tenancy)</span>
+        <code class="glossary-object">Multi-tenancy · B2B · Isolation · Pool-per-Tenant · SaaS</code>
+        <a class="anchor-link" href="#multi-tenancy">#</a>
+      </h2>
+      <p class="glossary-lead">Архитектурный шаблон обслуживания множества независимых организаций-клиентов (тенантов) в едином SaaS-приложении.</p>
+      <p>Может реализовываться через стратегию единого пула с разделением по клеймам либо через изолированные пулы пользователей на тенанта.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="disaster-recovery">
+      <h2>
+        <span class="glossary-title">Катастрофоустойчивость (Disaster Recovery, DR)</span>
+        <code class="glossary-object">Disaster Recovery · Multi-Region · RTO · RPO · Backup</code>
+        <a class="anchor-link" href="#disaster-recovery">#</a>
+      </h2>
+      <p class="glossary-lead">Комплекс мер и процедур для восстановления работоспособности каталога пользователей при крупномасштабном отказе региона AWS.</p>
+      <p>Включает резервную выгрузку профилей в S3 и горячую миграцию паролей в резервный регион через триггеры User Migration.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="tco-optimization">
+      <h2>
+        <span class="glossary-title">Оптимизация TCO (TCO Optimization)</span>
+        <code class="glossary-object">TCO · FinOps · MAU · SMS Costs · Architecture Optimization</code>
+        <a class="anchor-link" href="#tco-optimization">#</a>
+      </h2>
+      <p class="glossary-lead">Совокупность архитектурных решений, направленных на минимизацию полной стоимости владения сервисом идентификации.</p>
+      <p>Охватывает отказ от SMS в пользу TOTP/Passkeys, выбор между планами Essentials и Plus и управление жизненным циклом неактивных пользователей.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="cross-region-failover">
+      <h2>
+        <span class="glossary-title">Межрегиональное переключение (Cross-Region Failover)</span>
+        <code class="glossary-object">Failover · Route 53 · Health Check · Multi-Region · Resilience</code>
+        <a class="anchor-link" href="#cross-region-failover">#</a>
+      </h2>
+      <p class="glossary-lead">Стратегия перенаправления пользовательского трафика на резервный региональный пул Cognito через DNS Amazon Route 53.</p>
+      <p>Обеспечивает непрерывность бизнеса при региональных сетевых аномалиях с минимальным временем восстановления RTO.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="15.html">Глава 15 · Вопросы · IGL</a>
+      </div>
+    </div>
   
 
     <footer>

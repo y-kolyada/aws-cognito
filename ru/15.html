@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Вопросы · IGL · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Пятьдесят архитектурных кейсов высшего уровня IGL по AWS Cognito: мультиарендность, беспарольный вход, FIDO2 Passkeys, миграция миллионов пользователей, FinOps...">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/15.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/15.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/15.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
 <meta property="og:title" content="Вопросы · IGL">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Пятьдесят архитектурных кейсов высшего уровня IGL по AWS Cognito: мультиарендность, беспарольный вход, FIDO2 Passkeys, миграция миллионов пользователей, FinOps...">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/15.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Вопросы · IGL","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/15.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Вопросы · IGL","description":"Пятьдесят архитектурных кейсов высшего уровня IGL по AWS Cognito: мультиарендность, беспарольный вход, FIDO2 Passkeys, миграция миллионов пользователей, FinOps...","url":"https://y-kolyada.github.io/aws-cognito/ru/15.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,184 @@
 
   <main id="main">
     <h1>Вопросы · IGL</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="3456">Слов: 3456</p>
+    <p class="lead">Пятьдесят архитектурных кейсов высшего уровня IGL по AWS Cognito: мультиарендность, беспарольный вход, FIDO2 Passkeys, миграция миллионов пользователей, FinOps и SRE.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Высшая инженерная ступень IGL (In-Game Leader / Главный архитектор) требует комплексного системного мышления. Архитектор видит платформу аутентификации сквозь призму <span class="term"><button type="button" class="term-btn" aria-expanded="false">оптимизации совокупной стоимости владения (TCO)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Оптимизация TCO (TCO Optimization)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Совокупность архитектурных решений, направленных на минимизацию полной стоимости владения сервисом идентификации.</span><span class="term-links"><a href="glossary.html#tco-optimization">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, требований международного комплаенса (SOC 2, ISO 27001, HIPAA, GDPR), безаварийного масштабирования до десятков миллионов активных пользователей и абсолютной устойчивости к атакам международного фрода. Все 50 кейсов представляют собой реальные архитектурные дилеммы с глубоким обоснованием проектных решений.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="part1">1 · Архитектура Enterprise CIAM и Multi-tenancy (1-10) <a class="anchor-link" href="#part1">#</a></h2>
+
+    <p id="q1"><strong>1. Пул на клиента (Pool-per-tenant) против единого мультиарендного пула (Multi-tenant Pool): как выбрать стратегию <span class="term"><button type="button" class="term-btn" aria-expanded="false">мультиарендности (Multi-tenancy)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Мультиарендность (Multi-tenancy)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Архитектурный шаблон обслуживания множества независимых организаций-клиентов (тенантов) в едином SaaS-приложении.</span><span class="term-links"><a href="glossary.html#multi-tenancy">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> для B2B SaaS?</strong> <a class="anchor-link" href="#q1">#</a></p>
+    <p>Модель Pool-per-tenant обеспечивает максимальную изоляцию данных, соответствие жестким требованиям регуляторов (персональные ключи KMS, независимый бэкап) и индивидуальные политики паролей, но ограничена лимитом пулов на аккаунт AWS и усложняет централизованное обновление схем. Единый пул с изоляцией по атрибуту <code>custom:tenant_id</code> масштабируется до миллионов пользователей и снижает накладные расходы на управление, но требует строгой логики изоляции на уровне бэкенда. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Фундаментальный выбор архитектуры B2B платформ.</span></p>
+
+    <p id="q2"><strong>2. Как динамически определять IdP клиента без отображения экрана с сотнями кнопок входа в Hosted UI?</strong> <a class="anchor-link" href="#q2">#</a></p>
+    <p>На форме входа пользователь вводит свой рабочий email. Фронтенд извлекает почтовый домен (например, <code>@corp.example.com</code>), сопоставляет его по внутренней таблице соответствий тенантов и выполняет редирект на эндпоинт <code>/oauth2/authorize</code> с параметром <code>identity_provider={TenantIdP}</code>, отправляя пользователя напрямую в корпоративную Okta или Entra ID. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Реализация бесшовного Home Realm Discovery (HRD) в enterprise-системах.</span></p>
+
+    <p id="q3"><strong>3. Как предотвратить конфликт пространств имен учетных записей в мультиарендной B2B-системе?</strong> <a class="anchor-link" href="#q3">#</a></p>
+    <p>В едином пуле пользователей username формируется синтетически в формате <code>{tenant_id}_{email}</code> либо используется постоянный случайный UUID, а email хранится как стандартный неизменяемый атрибут. Это позволяет одному и тому же физическому лицу иметь независимые изолированные профили в разных компаниях-клиентах платформы. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Архитектура разделения пространств имен в мультитенантных БД.</span></p>
+
+    <p id="q4"><strong>4. Как обеспечить выполнение требований резидентности данных (Data Residency) для глобальных клиентов?</strong> <a class="anchor-link" href="#q4">#</a></p>
+    <p>Cognito User Pool является региональным сервисом и физически хранит данные строго в выбранном регионе AWS. Для европейских клиентов развертывается пул во Франкфурте (<code>eu-central-1</code>), для американских - в Вирджинии (<code>us-east-1</code>). Фронтенд или Anycast DNS определяет локацию пользователя и направляет запрос в соответствующий региональный пул. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Соблюдение регламентов GDPR, Schrems II и локального законодательства о данных.</span></p>
+
+    <p id="q5"><strong>5. Как организовать <span class="term"><button type="button" class="term-btn" aria-expanded="false">межрегиональное аварийное переключение</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Межрегиональное переключение (Cross-Region Failover)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Стратегия перенаправления пользовательского трафика на резервный региональный пул Cognito через DNS Amazon Route 53.</span><span class="term-links"><a href="glossary.html#cross-region-failover">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> и <span class="term"><button type="button" class="term-btn" aria-expanded="false">катастрофоустойчивость (Disaster Recovery)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Катастрофоустойчивость (Disaster Recovery, DR)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Комплекс мер и процедур для восстановления работоспособности каталога пользователей при крупномасштабном отказе региона AWS.</span><span class="term-links"><a href="glossary.html#disaster-recovery">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> для Cognito?</strong> <a class="anchor-link" href="#q5">#</a></p>
+    <p>У Cognito нет встроенной активной кросс-региональной мультимастер репликации. Решение строится по схеме Active-Passive: изменения профилей асинхронно передаются через EventBridge / Kinesis во вторичный регион, где вспомогательный сервис обновляет копию. Для бесшовного переключения пароли синхронизируются через триггер User Migration во вторичном регионе. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Проектирование планов RTO/RPO для систем идентификации.</span></p>
+
+    <p id="q6"><strong>6. Как безопасно изолировать корпоративных аудиторов через ролевую модель Cognito?</strong> <a class="anchor-link" href="#q6">#</a></p>
+    <p>Создается выделенная группа <code>SecurityAuditors</code> с приоритетом 0. Триггер Pre Token Generation v2 проверяет членство в группе, принудительно урезает скоупы до <code>audit:read</code> и внедряет ограничение по IP-адресу в клеймы сессии, а шлюзы API Gateway отсекают любые попытки вызовов мутирующих методов. См. <a href="06.html">главу 06</a> и <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Принцип наименьших привилегий (PoLP) для внешних аудиторов.</span></p>
+
+    <p id="q7"><strong>7. Почему использование кастомных атрибутов для хранения корзины или частых данных является архитектурной ошибкой?</strong> <a class="anchor-link" href="#q7">#</a></p>
+    <p>Каждое обновление атрибута через <code>UpdateUserAttributes</code> тратит жесткую квоту API (40-50 RPS) и увеличивает накладные расходы на выпуск новых токенов. Динамические прикладные данные обязаны храниться во внешних базах данных (Amazon DynamoDB / Aurora), а Cognito должен хранить только фундаментальные атрибуты аутентификации и авторизации. См. <a href="01.html">главу 01</a> и <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Разделение слоя идентичности и слоя прикладного состояния.</span></p>
+
+    <p id="q8"><strong>8. Как реализовать SCIM (System for Cross-domain Identity Management) провижининг для автоматической синхронизации пользователей из Okta?</strong> <a class="anchor-link" href="#q8">#</a></p>
+    <p>Cognito не имеет нативного сервера SCIM. Развертывается бессерверный мост: Amazon API Gateway принимает стандартизированные HTTP-вызовы SCIM 2.0 от Okta, а функция Lambda транслирует операции создания, блокировки и удаления пользователей в вызовы API Cognito (<code>AdminCreateUser</code>, <code>AdminDisableUser</code>). См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Инженерные решения автоматического депровижининга уволенных сотрудников.</span></p>
+
+    <p id="q9"><strong>9. Как гарантировать мгновенный отзыв доступа (Instant Deprovisioning) скомпрометированного сотрудника во всех микросервисах?</strong> <a class="anchor-link" href="#q9">#</a></p>
+    <p>Администратор вызывает <code>AdminUserGlobalSignOut</code>, аннулируя Refresh токены. Для мгновенного отзыва короткоживущих Access токенов сервис публикует событие в Redis или DynamoDB Accelerator (DAX) черный список (Revocation Denylist). Ingress-шлюзы проверяют <code>jti</code> (JWT ID) токена по кэшу в оперативной памяти, отсекая запросы за микросекунды. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Преодоление фундаментального ограничения автономных JWT токенов.</span></p>
+
+    <p id="q10"><strong>10. Каковы риски использования Cognito User Pools в качестве федеративного IdP для AWS IAM Identity Center?</strong> <a class="anchor-link" href="#q10">#</a></p>
+    <p>Cognito может выступать внешним OIDC/SAML провайдером для IAM Identity Center, однако ручное управление учетными записями в User Pool для доступа инженеров к консоли AWS создает избыточную сложность. Отраслевым стандартом для управления доступом к Control Plane AWS является прямая связка Identity Center с Okta или Entra ID. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Разграничение плоскостей доступа Control Plane и Application Plane.</span></p>
+
+    <h2 id="part2">2 · Беспарольная аутентификация и FIDO2 Passkeys (11-20) <a class="anchor-link" href="#part2">#</a></h2>
+
+    <p id="q11"><strong>11. Как кастомный поток Custom Authentication Flow оркестрирует этапы беспарольной проверки?</strong> <a class="anchor-link" href="#q11">#</a></p>
+    <p>Триада Lambda реализует конечный автомат: 1. <code>DefineAuthChallenge</code> анализирует историю попыток и назначает вызов <code>CUSTOM_CHALLENGE</code>. 2. <code>CreateAuthChallenge</code> генерирует криптографический секрет (OTP) и отправляет его через SES/SNS, сохраняя ожидаемый ответ в защищенном поле <code>privateChallengeParameters</code>. 3. <code>VerifyAuthChallengeResponse</code> проверяет введенный ответ. <code>DefineAuthChallenge</code> фиксирует успех и выставляет <code>issueTokens = true</code>. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Архитектура расширяемых конечных автоматов аутентификации в AWS.</span></p>
+
+    <p id="q12"><strong>12. Почему хранение секретного одноразового кода в publicChallengeParameters является критической уязвимостью?</strong> <a class="anchor-link" href="#q12">#</a></p>
+    <p>Все поля объекта <code>publicChallengeParameters</code> передаются клиенту в открытом виде в теле ответа метода <code>InitiateAuth</code>. Секретный код обязан сохраняться исключительно в <code>privateChallengeParameters</code>, который доступен только на стороне бэкенда Cognito и следующего триггера верификации. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Проверка знаний правил безопасного кодирования бессерверных триггеров.</span></p>
+
+    <p id="q13"><strong>13. В чем фундаментальное преимущество стандарта WebAuthn / Passkeys перед классической парольной защитой?</strong> <a class="anchor-link" href="#q13">#</a></p>
+    <p>Passkeys базируются на асимметричной криптографии и привязаны к домену происхождения (Origin-bound). Приватный ключ никогда не покидает чип TPM или Secure Enclave устройства. Аутентификатор подписывает вызов сервера только для строго совпадающего доменного имени, делая фишинговые атаки через поддельные домены физически невозможными. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Переход на стандарты аутентификации нового поколения, устойчивые к фишингу.</span></p>
+
+    <p id="q14"><strong>14. Как работает авторизация по волшебной ссылке (Magic Link) на базе Custom Authentication Flow?</strong> <a class="anchor-link" href="#q14">#</a></p>
+    <p>Триггер генерирует криптографический токен с коротким TTL (например, 10 минут) и отправляет на email ссылку формата <code>https://app.example.com/magic-login?code=...</code>. При клике фронтенд извлекает код и вызывает <code>RespondToAuthChallenge</code>, передавая токен в качестве ответа на challenge. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Паттерны улучшения пользовательского опыта (UX) в потребительских сервисах.</span></p>
+
+    <p id="q15"><strong>15. Как предотвратить атаку перебора кодов OTP (Brute-force) в кастомном потоке аутентификации?</strong> <a class="anchor-link" href="#q15">#</a></p>
+    <p>В триггере <code>DefineAuthChallenge</code> инспектируется массив <code>event.request.session</code>. Если количество неудачных попыток ввода кода достигает порога (например, 3 попытки), триггер выставляет <code>event.response.failAuthentication = true</code> и прерывает сессию, требуя повторного запроса нового кода. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Защита коротких 6-значных одноразовых паролей от перебора.</span></p>
+
+    <p id="q16"><strong>16. Как обеспечить синхронизацию Passkeys между устройствами одного пользователя?</strong> <a class="anchor-link" href="#q16">#</a></p>
+    <p>Синхронизация ключей Passkeys осуществляется облачными менеджерами паролей операционных систем (Apple iCloud Keychain, Google Password Manager, 1Password) со сквозным шифрованием. Cognito хранит только публичный ключ (Public Key Credential) и идентификатор учетных данных, не участвуя в синхронизации приватных ключей. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Понимание распределения ответственности между клиентом, ОС и Cognito.</span></p>
+
+    <p id="q17"><strong>17. Можно ли использовать FIDO2 Passkeys без развертывания Hosted UI?</strong> <a class="anchor-link" href="#q17">#</a></p>
+    <p>Да, клиентское приложение может напрямую использовать браузерный API <code>navigator.credentials.create()</code> и <code>navigator.credentials.get()</code>, взаимодействуя с эндпоинтами Cognito через вызовы API или кастомный поток аутентификации, реализующий сопоставление открытых ключей. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Реализация нативного FIDO2 интерфейса в полностью кастомных фронтендах.</span></p>
+
+    <p id="q18"><strong>18. Как защитить сессию от повторного воспроизведения ответа в VerifyAuthChallengeResponse?</strong> <a class="anchor-link" href="#q18">#</a></p>
+    <p>После первой же проверки ответа одноразовый код инвалидируется, а сессия помечается как завершенная. Повторная отправка того же ответа блокируется на стороне Cognito, исключая replay-атаки в сетевом канале. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Предотвращение классических атак повторного воспроизведения токенов.</span></p>
+
+    <p id="q19"><strong>19. Как устроен механизм Step-up Authentication при выполнении чувствительных финансовых операций?</strong> <a class="anchor-link" href="#q19">#</a></p>
+    <p>Пользователь уже вошел в систему и имеет валидный токен. При попытке совершить крупный платеж приложение инициирует повторный вызов <code>InitiateAuth</code> с кастомным challenge для подтверждения биометрией или OTP. При успехе выпускается обогащенный токен с клеймом <code>acr: "step-up-verified"</code> и коротким временем жизни (5 минут). См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Реализация требований PSD2 и банковских протоколов безопасности.</span></p>
+
+    <p id="q20"><strong>20. Какова предельная пропускная способность кастомного потока аутентификации?</strong> <a class="anchor-link" href="#q20">#</a></p>
+    <p>Пропускная способность ограничена региональной квотой вызовов метода <code>InitiateAuth / RespondToAuthChallenge</code> (80-120 RPS базово, масштабируемо через запрос в поддержку) и региональным лимитом параллельных вызовов функции AWS Lambda (Concurrency Limit, по умолчанию 1000 одновременных выполнений). См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Оценка узких мест производительности при пиковых нагрузках.</span></p>
+
+    <h2 id="part3">3 · Стратегии бесшовной миграции пользователей (21-30) <a class="anchor-link" href="#part3">#</a></h2>
+
+    <p id="q21"><strong>21. В чем главное преимущество триггера User Migration перед пакетным экспортом/импортом CSV?</strong> <a class="anchor-link" href="#q21">#</a></p>
+    <p>При пакетном импорте через CSV пароли пользователей не могут быть перенесены, так как они захэшированы сторонними алгоритмами (bcrypt, scrypt, argon2), которых Cognito не поддерживает в открытом импорте. Это вынуждает требовать от всех пользователей сброса паролей. Триггер User Migration переносит пароли «на лету» без единого сброса. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Сохранение конверсии и непрерывности бизнеса при миграции систем авторизации.</span></p>
+
+    <p id="q22"><strong>22. По какому алгоритму работает триггер User Migration при аутентификации (UserMigration_Authentication)?</strong> <a class="anchor-link" href="#q22">#</a></p>
+    <p>1. Пользователь вводит логин и пароль в приложении. 2. Cognito не находит его в пуле и вызывает Lambda с событием <code>UserMigration_Authentication</code>. 3. Функция проверяет пароль по legacy-базе. 4. При успехе функция возвращает профиль, а Cognito создает пользователя со статусом <code>CONFIRMED</code>, автоматически перехэшируя пароль своим внутренним алгоритмом. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Детальное знание механики JIT-миграции паролей.</span></p>
+
+    <p id="q23"><strong>23. Как триггер User Migration обрабатывает сценарий восстановления пароля (UserMigration_ForgotPassword)?</strong> <a class="anchor-link" href="#q23">#</a></p>
+    <p>Если еще не мигрированный пользователь нажимает «Забыл пароль», Cognito вызывает триггер с событием <code>UserMigration_ForgotPassword</code>. Функция проверяет существование email в старой базе, подтверждает пользователя, и Cognito штатно высылает код сброса пароля на подтвержденную почту. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Покрытие всех граничных сценариев при миграции каталога пользователей.</span></p>
+
+    <p id="q24"><strong>24. Что делать с пользователями, которые не совершили вход за период миграции (неактивные аккаунты)?</strong> <a class="anchor-link" href="#q24">#</a></p>
+    <p>По окончании активной фазы миграции (например, через 6-12 месяцев) оставшиеся «спящие» профили загружаются пакетно через CSV импорт или вызов <code>AdminCreateUser</code> со статусом <code>RESET_REQUIRED</code>. При следующей попытке входа такой пользователь будет обязан подтвердить почту и установить новый пароль. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Завершение переходного периода миграции и закрытие старой инфраструктуры.</span></p>
+
+    <p id="q25"><strong>25. Как безопасно изолировать подключение к устаревшей базе данных из триггера User Migration?</strong> <a class="anchor-link" href="#q25">#</a></p>
+    <p>Функция Lambda развертывается в приватных подсетях VPC с доступом к базе данных через Security Groups. Для предотвращения исчерпания пула соединений к реляционной базе используется Amazon RDS Proxy, а учетные данные доступа извлекаются из AWS Secrets Manager с автоматическим кэшированием. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Предотвращение отказа старой базы под нагрузкой миграции.</span></p>
+
+    <p id="q26"><strong>26. Почему важно выставлять параметр messageAction = 'SUPPRESS' в триггере User Migration?</strong> <a class="anchor-link" href="#q26">#</a></p>
+    <p>Значение <code>SUPPRESS</code> подавляет отправку стандартного приветственного письма или кода верификации от Cognito при создании аккаунта. Если его не выставить, мигрируемый пользователь получит неожиданное системное письмо от AWS, что вызовет панику и перегрузит службу поддержки. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Соблюдение гигиены коммуникаций с клиентами при миграциях.</span></p>
+
+    <p id="q27"><strong>27. Как мигрировать пользователей из пула Cognito одного региона в другой регион AWS?</strong> <a class="anchor-link" href="#q27">#</a></p>
+    <p>Прямой перенос паролей между пулами Cognito невозможен. Во вторичном регионе настраивается триггер User Migration, который при попытке входа вызывает метод <code>AdminInitiateAuth</code> пула первичного региона. При успехе пользователь создается в новом пуле. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Паттерны межрегиональной миграции данных в экосистеме AWS.</span></p>
+
+    <p id="q28"><strong>28. Как валидировать целостность миграции и отслеживать процент мигрированных пользователей?</strong> <a class="anchor-link" href="#q28">#</a></p>
+    <p>При каждой успешной миграции триггер отправляет кастомную метрику <code>UserMigratedSuccess</code> в Amazon CloudWatch и инкрементирует флаг в старой базе. Соотношение мигрированных записей к общему числу выводится на операционный дашборд CloudWatch для отслеживания динамики. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Наблюдаемость и контроль хода инфраструктурных релизов.</span></p>
+
+    <p id="q29"><strong>29. Что произойдет, если старая база данных временно недоступна во время выполнения триггера миграции?</strong> <a class="anchor-link" href="#q29">#</a></p>
+    <p>Функция Lambda завершится ошибкой подключения, а пользователь получит ошибку 400. Для защиты от отказов база обязана иметь отказоустойчивую реплику для чтения (Read Replica), а функция должна содержать повторные попытки (retry) с экспоненциальной задержкой. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Обеспечение высокой доступности при зависимостях от сторонних сервисов.</span></p>
+
+    <p id="q30"><strong>30. Как мигрировать пользователей с активным фактором MFA?</strong> <a class="anchor-link" href="#q30">#</a></p>
+    <p>Секреты TOTP приложений Google Authenticator обычно невозможно экспортировать в открытом виде. В триггере миграции пользователю присваивается статус, требующий повторной привязки MFA устройства при первом входе, либо инициируется верификация через подтвержденный email адрес. См. <a href="12.html">главу 12</a>.<br><span class="dim">Зачем спрашивают: Решение сложных коллизий при переносе криптографических секретов MFA.</span></p>
+
+    <h2 id="part4">4 · FinOps, квоты API и оптимизация расходов (31-40) <a class="anchor-link" href="#part4">#</a></h2>
+
+    <p id="q31"><strong>31. Как рассчитывается показатель MAU (Monthly Active Users) в биллинговой модели AWS?</strong> <a class="anchor-link" href="#q31">#</a></p>
+    <p>Пользователь считается активным (1 MAU) в данном календарном месяце, если в отношении его профиля произошла хотя бы одна операция: регистрация, вход по паролю/SRP, обновление токена через Refresh Token или изменение атрибутов. Неактивные пользователи в базе хранятся бесплатно ($0.00). См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Фундамент финансового планирования затрат на CIAM.</span></p>
+
+    <p id="q32"><strong>32. В чем финансовая ловушка использования SMS сообщений для доставки кодов верификации?</strong> <a class="anchor-link" href="#q32">#</a></p>
+    <p>Стоимость SMS тарифицируется сервисом Amazon SNS отдельно от стоимости Cognito и может достигать от $0.05 до $0.25 за одно сообщение в ряде стран. При частых входах пользователей или атаках спама счет за SMS может в сотни раз превысить базовую стоимость пула Cognito. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Управление крупнейшей статьей скрытых расходов на авторизацию.</span></p>
+
+    <p id="q33"><strong>33. Что такое атака SMS Toll Fraud (IRSF) и как архитектор защищает от нее инфраструктуру?</strong> <a class="anchor-link" href="#q33">#</a></p>
+    <p>Злоумышленники атакуют форму регистрации ботнетом, заказывая тысячи SMS на премиальные платные телефонные номера в удаленных странах и разделяя доход с операторами. Защита включает: жесткий лимит расходов MonthlySpendLimit в SNS, валидацию телефонных префиксов в триггере Pre Sign-up и подключение AWS WAF Captcha на эндпоинтах регистрации. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Предотвращение критического финансового ущерба от телефонного мошенничества.</span></p>
+
+    <p id="q34"><strong>34. Почему перевод отправки почты в Amazon SES (EmailSendingAccount = DEVELOPER) обязателен для продакшена?</strong> <a class="anchor-link" href="#q34">#</a></p>
+    <p>Режим по умолчанию <code>COGNITO_DEFAULT</code> имеет жесткий лимит в 50 писем в день на весь пул и предназначен только для отладки. Режим <code>DEVELOPER</code> направляет транзакционные письма через Amazon SES, где лимиты масштабируются до сотен писем в секунду по цене всего $0.10 за 1000 сообщений. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Устранение дефекта отказа отправки верификаций при росте пользователей.</span></p>
+
+    <p id="q35"><strong>35. Каковы последствия использования метода ListUsers в клиентских сценариях и как их избежать?</strong> <a class="anchor-link" href="#q35">#</a></p>
+    <p>Метод <code>ListUsers</code> имеет жесткий лимит всего 5 RPS с кратковременным всплеском до 10 запросов. Использование его для поиска пользователей на лету немедленно приводит к троттлингу. Поиск пользователей должен производиться по вторичным индексам в собственной базе данных (DynamoDB / OpenSearch), синхронизируемой через события. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Защита от критического узкого места API Cognito.</span></p>
+
+    <p id="q36"><strong>36. Как настроить алгоритм Exponential Backoff with Full Jitter для защиты от ThrottlingException?</strong> <a class="anchor-link" href="#q36">#</a></p>
+    <p>При получении ошибки 429 / Throttling клиент ждет интервал, вычисляемый как <code>random(0, min(max_backoff, base * 2^attempt))</code>. Случайное распределение (джиттер) предотвращает одновременные повторные запросы сотен потоков (проблема Thundering Herd), позволяя пулу Cognito восстановить корзину лимитов. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Стандарты надежного взаимодействия с распределенными облачными API.</span></p>
+
+    <p id="q37"><strong>37. В каких случаях переход на тарифный уровень PLUS экономически оправдан?</strong> <a class="anchor-link" href="#q37">#</a></p>
+    <p>Тариф PLUS ($0.015/MAU) оправдан, когда приложению требуются функции Advanced Security: защита от Credential Stuffing, адаптивная аутентификация и скоринг рисков на основе моделей AWS. Если у компании уже есть внешняя система антифрода или эшелонированный WAF, уровень ESSENTIALS ($0.0055/MAU) позволяет сэкономить бюджет в 3 раза. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Обоснование выбора тарифных уровней с точки зрения ROI безопасности.</span></p>
+
+    <p id="q38"><strong>38. Как снизить количество активных сессий (MAU) и оптимизировать расходы на пользователей с несколькими устройствами?</strong> <a class="anchor-link" href="#q38">#</a></p>
+    <p>Тарификация MAU привязана к уникальному <code>sub</code> пользователя, а не к числу устройств или токенов. Пользователь, совершивший 100 входов с 5 разных устройств в течение месяца, тарифицируется строго как 1 MAU. Увеличение времени жизни Refresh токенов снижает частоту полных циклов авторизации, разгружая сетевые шлюзы. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Понимание математики биллинга независимых пользовательских устройств.</span></p>
+
+    <p id="q39"><strong>39. Какова экономическая модель федеративных пользователей SAML и OIDC сверх бесплатного лимита?</strong> <a class="anchor-link" href="#q39">#</a></p>
+    <p>Для пользователей, авторизующихся через сторонние SAML/OIDC IdP, порог бесплатного уровня составляет всего 50 MAU (в отличие от 50 000 для локальных пользователей пула), после чего взимается фиксированная ставка $0.015 за каждого активного федеративного пользователя. См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Финансовый расчет стоимости внедрения корпоративного SSO.</span></p>
+
+    <p id="q40"><strong>40. Как использовать AWS Service Quotas для проактивного мониторинга и автоматического запроса увеличения квот?</strong> <a class="anchor-link" href="#q40">#</a></p>
+    <p>Через сервис AWS Service Quotas настраиваются CloudWatch алерты на приближение к порогу утилизации квот вызовов API (например, утилизация 80% от лимита <code>InitiateAuth</code>). При фиксации устойчивого роста трафика заранее оформляется запрос в AWS Support для повышения мягких лимитов до наступления высоконагруженных событий (Black Friday). См. <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Предотвращение производственных инцидентов троттлинга на пиковых нагрузках.</span></p>
+
+    <h2 id="part5">5 · SRE практики, аудит и комплаенс (41-50) <a class="anchor-link" href="#part5">#</a></h2>
+
+    <p id="q41"><strong>41. Какие ключевые метрики CloudWatch формируют SLI/SLO доступности сервиса аутентификации?</strong> <a class="anchor-link" href="#q41">#</a></p>
+    <p>Ключевыми SLI выступают: процент успешных аутентификаций (<code>SignInSuccessRate = Successes / TotalAttempts</code>), частота троттлинга (<code>CallThrottled</code>), задержка выполнения бессерверных триггеров (<code>LambdaDuration</code>) и ошибки авторизации на шлюзах (<code>AuthorizerLatency</code>, <code>AuthorizerError</code>). SLO доступности обычно устанавливается на уровне 99.99%. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Построение SRE-культуры управления надежностью критических сервисов.</span></p>
+
+    <p id="q42"><strong>42. Как организовать непрерывный аудит всех административных и пользовательских действий через AWS CloudTrail?</strong> <a class="anchor-link" href="#q42">#</a></p>
+    <p>Все вызовы Control Plane и Data Plane API Cognito фиксируются в CloudTrail. Настраивается многорегиональный трейл с непрерывной доставкой зашифрованных журналов в изолированный архивный бакет S3, защищенный политикой Object Lock (WORM), с последующей индексацией в Amazon OpenSearch или отправкой в SIEM (Splunk, Datadog). См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Соответствие требованиям комплаенса SOC 2 Type II и ISO 27001.</span></p>
+
+    <p id="q43"><strong>43. Как реализовать требование GDPR «Право на забвение» (Right to be Forgotten) в Cognito?</strong> <a class="anchor-link" href="#q43">#</a></p>
+    <p>При получении запроса на удаление бэкенд вызывает метод <code>AdminDeleteUser</code>, полностью стирающий профиль из User Pool. Одновременно инициируется событие в шину EventBridge, по которому бессерверные пайплайны находят и анонимизируют или удаляют персональные данные пользователя во всех связанных базах данных, бэкапах S3 и аналитических озерах данных. См. <a href="01.html">главу 01</a>.<br><span class="dim">Зачем спрашивают: Юридическое и техническое соответствие европейским регламентам защиты данных.</span></p>
+
+    <p id="q44"><strong>44. Как обеспечить соответствие стандарту HIPAA при хранении медицинских данных в атрибутах Cognito?</strong> <a class="anchor-link" href="#q44">#</a></p>
+    <p>Cognito является HIPAA Eligible сервисом. Компания обязана подписать Business Associate Addendum (BAA) с AWS, активировать шифрование всех данных в покое кастомным ключом AWS KMS (Customer Managed Key, CMK) с ежегодной ротацией, принудительно включить MFA для всех сотрудников и обеспечить непрерывный аудит доступа через CloudTrail. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Опыт работы с медицинскими данными и требованиями комплаенса в США.</span></p>
+
+    <p id="q45"><strong>45. Что такое механизм Graceful Degradation системы авторизации при недоступности внешних IdP?</strong> <a class="anchor-link" href="#q45">#</a></p>
+    <p>При отказе стороннего сервиса (например, авария на стороне Google или Okta) архитектура должна сохранять возможность входа локальных пользователей по паролю или Passkeys. Пользователям отображается понятное уведомление о временных работах у внешнего партнера без блокировки остальной части приложения. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Устойчивость распределенных систем к каскадным внешним отказам.</span></p>
+
+    <p id="q46"><strong>46. Как проводить регулярные тренировки по реагированию на инциденты безопасности (GameDays) для Cognito?</strong> <a class="anchor-link" href="#q46">#</a></p>
+    <p>В тестовом окружении симулируются боевые сценарии: атака подбора паролей с десятков IP через AWS WAF testing tools, попытка использования утекших токенов, внезапное падение триггера Pre Token Generation и превышение квоты API. Команда отрабатывает алерты, блокировки и восстановление доступности по утвержденным ранбукам (Runbooks). См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Проверка операционной готовности дежурных инженеров к реальным атакам.</span></p>
+
+    <p id="q47"><strong>47. Как настроить канареечное тестирование (Canary Deployment) для критических бессерверных триггеров Lambda?</strong> <a class="anchor-link" href="#q47">#</a></p>
+    <p>Используются псевдонимы (Aliases) AWS Lambda и сервис AWS CodeDeploy. Новая версия триггера развертывается по стратегии <code>LambdaCanary10Percent5Minutes</code>: 10% входящих запросов аутентификации обслуживаются новой версией, а при возникновении ошибок в CloudWatch Metrics происходит автоматический мгновенный откат трафика на стабильную версию. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Безопасное непрерывное развертывание критической логики в CI/CD.</span></p>
+
+    <p id="q48"><strong>48. Как гарантировать защиту от атак десинхронизации токенов при смене ролей пользователя?</strong> <a class="anchor-link" href="#q48">#</a></p>
+    <p>Если администратор понизил права пользователя (удалил из группы Admin), существующий Access Token остается валидным до истечения срока <code>exp</code> (до 60 минут). Для немедленного применения изменений административный бэкенд вызывает <code>AdminUserGlobalSignOut</code>, аннулируя Refresh Token, и сбрасывает локальный кэш прав в Redis, заставляя приложение запросить новый токен с актуальными ролями. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Обеспечение консистентности ролевой модели в распределенных средах.</span></p>
+
+    <p id="q49"><strong>49. Как структурировать постмортем (Postmortem) после инцидента отказа авторизации?</strong> <a class="anchor-link" href="#q49">#</a></p>
+    <p>Анализ проводится по методологии без обвинений (Blameless Postmortem): фиксируется хронология событий, показатели TTDD (время до обнаружения) и TTR (время до восстановления), непосредственные триггеры инцидента, глубинные причины по методике «5 почему», финансовый ущерб от недоступности и конкретный список корректирующих мер (Action Items) с назначенными владельцами и сроками. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Инженерная культура рефлексии и непрерывного повышения надежности.</span></p>
+
+    <p id="q50"><strong>50. В чем главная стратегическая роль внутриигрового лидера (IGL) в управлении корпоративной идентичностью?</strong> <a class="anchor-link" href="#q50">#</a></p>
+    <p>Лидер видит систему идентификации не как изолированный сервис, а как критический фундамент доверия и бизнеса всей компании. Задача IGL - балансировать максимальную безопасность и защиту от изощренных атак с минимальным трением для пользователей (конверсия входа), удерживать совокупную стоимость владения (TCO) в заданных рамках и обеспечивать безупречную прозрачность архитектуры для команд разработки, бизнеса и регуляторов. См. <a href="15.html">главу 15</a>.<br><span class="dim">Зачем спрашивают: Философское и стратегическое понимание роли технического лидера.</span></p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После проработки 50 квалификационных кейсов уровня IGL в вашем распоряжении находится полный стратегический инструментарий ведущего облачного архитектора:</p>
+      <ul>
+        <li>Методология выбора мультиарендной архитектуры пулов для B2B SaaS платформ.</li>
+        <li>Архитектура беспарольной аутентификации и перехода на фишинг-устойчивые стандарты FIDO2 Passkeys.</li>
+        <li>Паттерны бесшовной JIT-миграции миллионов пользователей без сброса паролей и деградации UX.</li>
+        <li>Стратегии финансового контроля FinOps, предотвращения атак SMS Toll Fraud и управления квотами API.</li>
+        <li>Практики SRE, обеспечение стандартов соответствия комплаенсу (SOC 2, HIPAA, GDPR) и протоколы ликвидации аварий.</li>
+      </ul>
     </div>
   
 
