@@ -1,0 +1,9 @@
+sequenceDiagram
+    autonumber
+    Terraform->>AWS: 1. Применение aws_cognito_user_pool
+    AWS-->>Terraform: 2. UserPoolId & ARN созданы
+    Client->>Cognito: 3. InitiateAuth (USER_SRP_AUTH: A, SRP_A)
+    Cognito-->>Client: 4. PASSWORD_VERIFIER Challenge (B, Salt)
+    Client->>Cognito: 5. RespondToAuthChallenge (HKDF Signature)
+    Note over Cognito: Проверка без передачи пароля в открытом виде
+    Cognito-->>Client: 6. Успешная аутентификация и токены

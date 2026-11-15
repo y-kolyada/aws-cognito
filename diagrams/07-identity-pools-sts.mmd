@@ -1,0 +1,9 @@
+sequenceDiagram
+    autonumber
+    Client->>IdentityPool: 1. GetId (User Pool JWT / OpenID)
+    IdentityPool-->>Client: 2. IdentityId (Идентификатор субъекта)
+    Client->>IdentityPool: 3. GetCredentialsForIdentity (IdentityId + Token)
+    IdentityPool->>STS: 4. AssumeRoleWithWebIdentity (IAM Role)
+    STS-->>IdentityPool: 5. Временные AccessKey, SecretKey, SessionToken
+    IdentityPool-->>Client: 6. AWS Credentials (TTL 1 час)
+    Client->>AWS: 7. Прямой запрос SigV4 (S3 / DynamoDB)

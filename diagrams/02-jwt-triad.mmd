@@ -1,0 +1,17 @@
+graph TD
+    Client["Клиентское приложение"]
+    AuthServer["Cognito IdP /oauth2/token"]
+    IDT["ID Token (Профиль пользователя)"]
+    AT["Access Token (Авторизация API)"]
+    RT["Refresh Token (Ротация сессии)"]
+    API["API Gateway / Resource Server"]
+    JWKS["/.well-known/jwks.json"]
+
+    Client -->|Авторизация| AuthServer
+    AuthServer -->|Выдача триады| Client
+    Client --- IDT
+    Client -->|Bearer Header| AT
+    AT --> API
+    API -->|Валидация подписи RSA| JWKS
+    Client -.->|Ротация истекшего токена| RT
+    RT -.->|Обновление| AuthServer

@@ -1,0 +1,8 @@
+sequenceDiagram
+    autonumber
+    User->>Cognito: 1. Вход через корпоративный IdP
+    Cognito->>IdP: 2. Редирект (SAML AuthnRequest / OIDC Auth)
+    IdP-->>User: 3. Форма аутентификации IdP (Okta / Google)
+    User->>Cognito: 4. Передача SAML Assertion / ID Token
+    Note over Cognito: JIT провижининг & маппинг атрибутов
+    Cognito-->>User: 5. Локальные токены Cognito User Pool

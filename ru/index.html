@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Практический справочник-ассессмент по AWS Cognito для инженера</h1>
-    <p class="page-size" data-words="2012">Слов: 2012</p>
+    <p class="page-size" data-words="2157">Слов: 2157</p>
     <p class="lead">Облачный сервис идентификации AWS: User Pools, аутентификация JWT/OIDC, федерация IdP, Identity Pools со временными ролями STS и защита периметра.</p>
 
     <div class="box key" id="key-idea">
@@ -103,6 +103,49 @@
       <p>В серии курсов AI Factory настоящий справочник замыкает и дополняет инженерную цепочку инфраструктурных сервисов (IAM -&gt; VPC -&gt; S3 -&gt; EC2 -&gt; ALB -&gt; EKS -&gt; CloudFront -&gt; WAF -&gt; Cognito). Если AWS IAM управляет идентификацией внутренних участников системы - разработчиков, администраторов, пайплайнов CI/CD и сервисных ролей для доступа к Control Plane облака, то Amazon Cognito выносит управление внешними пользователями приложений в изолированную плоскость данных (Application Plane). Попытка регистрировать конечных клиентов в IAM является грубейшей архитектурной ошибкой: лимит IAM составляет всего 5000 пользователей на аккаунт AWS, а права доступа в IAM не предназначены для гранулярной логики пользовательских приложений.</p>
       <p>Сервис Cognito решает эту задачу через две фундаментальные подсистемы: <strong>User Pools</strong> (каталоги пользователей, отвечающие за проверку подлинности, хранение профилей, многофакторную аутентификацию MFA и выдачу стандартизированных токенов JWT) и <strong>Identity Pools</strong> (федеративные пулы идентичностей, обменивающие токены User Pools или внешних провайдеров OIDC/SAML на временные криптографические ключи AWS STS для прямого безопасного вызова облачных сервисов S3, DynamoDB или SQS).</p>
       <p>Каждое утверждение об инструменте в этом курсе подтверждено воспроизводимым выполнением на локальном хосте: схемы параметров, форматы JSON, структуры JWT и допустимые перечисления получены через генерацию интерфейсов AWS CLI, разбор jq и строгие проверки без обращения к живому облаку.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема архитектурной модели Cognito: разделение User Pools и Identity Pools">
+  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Клиент (Web / Mobile)</text>
+
+  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,54 156,46 164,46" fill="currentColor"/>
+
+  <rect x="20" y="54" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="69" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Cognito User Pool (Каталог &amp; IdP)</text>
+  <text x="160" y="82" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Аутентификация • Токены JWT</text>
+
+  <path d="M 160 88 L 160 102 L 85 102 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,120 81,112 89,112" fill="currentColor"/>
+
+  <path d="M 160 88 L 160 102 L 235 102 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,120 231,112 239,112" fill="currentColor"/>
+
+  <rect x="15" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Бэкенд API</text>
+  <text x="85" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">JWT Authorizer</text>
+
+  <rect x="165" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Identity Pool</text>
+  <text x="235" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Федерация STS</text>
+
+  <line x1="85" y1="156" x2="85" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,180 81,172 89,172" fill="currentColor"/>
+
+  <line x1="235" y1="156" x2="235" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,180 231,172 239,172" fill="currentColor"/>
+
+  <rect x="15" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Микросервисы</text>
+  <text x="85" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">ALB • ECS • Lambda</text>
+
+  <rect x="165" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="235" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Сервисы AWS</text>
+  <text x="235" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">S3 • DynamoDB (SigV4)</text>
+      </svg>
+      <p class="dim">Схема 1. Архитектурная модель сервиса: User Pools (каталог и токены) против Identity Pools (роли STS).</p>
+    </div>
     </div>
 
     <h2 id="structure">1 · Что на этом сайте <a class="anchor-link" href="#structure">#</a></h2>
@@ -150,7 +193,10 @@
       <li><strong>Экономика и скрытые расходы:</strong> Базовый уровень Cognito бесплатен для первых 50 000 MAU. Однако подключение Advanced Security Features (ASF) переводит User Pool на тарификацию каждого активного пользователя, увеличивая счет в разы. Еще более опасной статьей расходов является SMS-аутентификация: отправка одного SMS в зависимости от страны может стоить до $0.05-0.10, что при атаке типа SMS Toll Fraud способно сгенерировать внезапный счет на десятки тысяч долларов за несколько часов.</li>
     </ul>
 
-    <h2 id="paths">4 · Маршруты изучения <a class="anchor-link" href="#paths">#</a></h2>
+    <h2 id="tools">4 · Навигатор и словарь понятий <a class="anchor-link" href="#tools">#</a></h2>
+    <p>Глава курса - это вертикаль: глубокий инженерный разбор одной темы от архитектуры User Pools и криптографии JWT до триггеров Lambda, внешней федерации SAML 2.0 / OIDC, защиты WAFv2 и протокола SRP. <a href="navigator.html">Инженерный навигатор</a> - горизонталь: девять аналитических призм, через которые оценивается любая промышленная система идентификации CIAM (компоненты, инфраструктурный код, сильные стороны, ограничения и квоты, связи в экосистеме, искусственный интеллект, мультирегиональное облако, практики DevOps и протоколы SRE). <a href="glossary.html">Словарь понятий</a> формирует терминологический фундамент из 81 статьи с рубрикацией по главам (#ch-01..#ch-15) и строгой квантификацией понятий; интерактивная карточка при нажатии на термин на любой странице открывает компактное определение и прямую ссылку в словарь.</p>
+
+    <h2 id="paths">5 · Маршруты изучения <a class="anchor-link" href="#paths">#</a></h2>
     <p>В зависимости от вашей текущей инженерной роли и практических задач рекомендуются три специализированных маршрута прохождения материалов:</p>
     <ul>
       <li><strong>Экспресс-погружение (Quickstart):</strong> Главы 01, 02, 03 и 10. Позволяет за несколько часов разобраться в базовой архитектуре User Pools, структуре токенов JWT, настройке App Clients и развернуть работающий прототип авторизации для веб-приложения.</li>

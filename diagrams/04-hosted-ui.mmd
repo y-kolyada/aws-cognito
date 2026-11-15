@@ -1,0 +1,14 @@
+graph TD
+    Browser["Пользовательский браузер"]
+    Route53["DNS Route 53 (auth.example.com)"]
+    CF["Amazon CloudFront (Hosted UI Edge)"]
+    ACM["AWS Certificate Manager (us-east-1)"]
+    UP["Cognito User Pool Core"]
+    App["Клиентское SPA / Приложение"]
+
+    Browser -->|HTTPS запрос| Route53
+    Route53 --> CF
+    CF --- ACM
+    CF -->|Авторизация & Брендинг| UP
+    UP -->|Redirect с Code| Browser
+    Browser -->|Коллбэк URL| App

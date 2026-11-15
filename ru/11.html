@@ -94,12 +94,55 @@
 
   <main id="main">
     <h1>Примеры · Pro</h1>
-    <p class="page-size" data-words="1129">Слов: 1129</p>
+    <p class="page-size" data-words="1169">Слов: 1169</p>
     <p class="lead">Промышленные сценарии Cognito: интеграция с API Gateway и ALB, Pre Token Generation триггер, Google OIDC, гранулярный S3 и защита через AWS WAFv2.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
       <p>Профессиональный уровень Pro в Amazon Cognito характеризуется проектированием комплексных межсервисных интеграций и выносом логики авторизации на сетевые рубежи облачной инфраструктуры. Инженер уровня Pro освобождает прикладные микросервисы от рутинной валидации токенов, делегируя проверку подписей JWKS <span class="term"><button type="button" class="term-btn" aria-expanded="false">балансировщикам ALB</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Аутентификация на ALB (ALB Authenticate-Cognito)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Правило слушателя балансировщика Application Load Balancer, автоматически перенаправляющее пользователя на логин в Cognito.</span><span class="term-links"><a href="glossary.html#alb-auth">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> и шлюзам API Gateway и GraphQL в <span class="term"><button type="button" class="term-btn" aria-expanded="false">AWS AppSync</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Авторизация AppSync (AppSync Cognito Auth)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Нативная модель авторизации в сервисе AWS AppSync, валидирующая JWT токены пула пользователей Cognito.</span><span class="term-links"><a href="glossary.html#appsync-auth">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, обогащает токены динамическими правами через триггер Pre Token Generation v2 и исключает бэкенд из цепочки передачи файлов через гранулярные политики STS в S3.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема сетевой интеграции: авторизаторы API Gateway, правила ALB и микросервисы">
+  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Клиентский запрос (HTTPS Bearer)</text>
+
+  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,54 156,46 164,46" fill="currentColor"/>
+
+  <rect x="20" y="54" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="69" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Сетевые шлюзы API Gateway / ALB</text>
+  <text x="160" y="82" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Cognito Authorizer • Проверка JWKS</text>
+
+  <path d="M 160 88 L 160 102 L 85 102 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,120 81,112 89,112" fill="currentColor"/>
+
+  <path d="M 160 88 L 160 102 L 235 102 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,120 231,112 239,112" fill="currentColor"/>
+
+  <rect x="15" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">ALB Authenticate</text>
+  <text x="85" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">OIDC редирект</text>
+
+  <rect x="165" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">JWT Authorizer</text>
+  <text x="235" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">HTTP API Gateway</text>
+
+  <line x1="85" y1="156" x2="85" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,180 81,172 89,172" fill="currentColor"/>
+
+  <line x1="235" y1="156" x2="235" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,180 231,172 239,172" fill="currentColor"/>
+
+  <rect x="15" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Заголовок claims</text>
+  <text x="85" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">X-Amzn-Oidc-Data</text>
+
+  <rect x="165" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="235" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Микросервисы</text>
+  <text x="235" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">ECS • Lambda • EKS</text>
+      </svg>
+      <p class="dim">Схема 12. Сетевая интеграция: авторизаторы API Gateway, правила ALB и микросервисы.</p>
+    </div>
     </div>
 
     <h2 id="scenario-apigw-rest-authorizer">1 · Защита REST API Gateway через Cognito User Pools Authorizer <a class="anchor-link" href="#scenario-apigw-rest-authorizer">#</a></h2>

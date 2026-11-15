@@ -1,0 +1,9 @@
+sequenceDiagram
+    autonumber
+    User->>App: 1. Вход по отпечатку (Passkey / FIDO2)
+    App->>Cognito: 2. Custom Auth Flow: DEFINE_AUTH_CHALLENGE
+    Cognito->>CreateLambda: 3. CREATE_AUTH_CHALLENGE (WebAuthn challenge)
+    CreateLambda-->>User: 4. Криптографический челлендж
+    User->>VerifyLambda: 5. VERIFY_AUTH_RESPONSE (Подпись аппаратного ключа)
+    VerifyLambda-->>Cognito: 6. Подпись валидна: issue_tokens = true
+    Cognito-->>User: 7. Выдача токенов без пароля

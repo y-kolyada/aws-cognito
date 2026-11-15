@@ -1,0 +1,14 @@
+graph TD
+    Event["События жизненного цикла User Pool"]
+    PreSign["Pre Sign-up (Валидация & авто-подтверждение)"]
+    PreToken["Pre Token Generation (Обогащение claims)"]
+    PostConf["Post Confirmation (Создание профиля в БД)"]
+    CustomMsg["Custom Message (Кастомизация email/SMS)"]
+    Core["Cognito User Pool Core"]
+
+    Event --> Core
+    Core -->|Синхронный хук| PreSign
+    Core -->|Модификация JWT| PreToken
+    Core -->|Асинхронный хук| PostConf
+    Core -->|Шаблонизация| CustomMsg
+    PreToken -.->|Возврат обогащенных claims| Core

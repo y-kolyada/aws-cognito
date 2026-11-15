@@ -1,0 +1,14 @@
+graph TD
+    Traffic["Входящий интернет-трафик"]
+    WAF["AWS WAFv2 (Web ACL: Bot Control & Rate Limit)"]
+    ASF["Cognito Advanced Security (ASF Риск-анализ)"]
+    CompCreds["Compromised Credentials Check"]
+    Action["Решение: Allow / Adaptive MFA / Block"]
+    UP["Cognito User Pool"]
+
+    Traffic --> WAF
+    WAF -->|Инспекция L7| ASF
+    ASF --- CompCreds
+    ASF --> Action
+    Action -->|Легитимный вход| UP
+    Action -.->|Высокий риск| Traffic
