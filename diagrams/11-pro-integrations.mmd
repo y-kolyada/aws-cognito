@@ -1,0 +1,11 @@
+graph TD
+    Client["Клиентский запрос (HTTPS Bearer)"]
+    Authorizer["Cognito Authorizer (API Gateway / ALB)"]
+    JWKS["Кэш публичных ключей JWKS"]
+    Backend["Микросервисы (ECS / Lambda / EKS)"]
+    PreToken["Pre Token Generation (Кастомные claims)"]
+
+    Client -->|Запрос с Access Token| Authorizer
+    Authorizer -->|Локальная валидация JWT| JWKS
+    Authorizer -->|Маршрутизация с claims| Backend
+    PreToken -.->|Инъекция ролей и tenant_id| Authorizer

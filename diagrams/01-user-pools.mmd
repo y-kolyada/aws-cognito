@@ -1,0 +1,12 @@
+graph TD
+    Client["Клиент (Регистрация / Вход)"]
+    UP["User Pool (Каталог пользователей)"]
+    Attr["Схема атрибутов (Standard & Custom)"]
+    Sec["Политика паролей & MFA"]
+    Confirm["Верификация (Email / SMS OTP)"]
+
+    Client -->|SignUp / SignIn| UP
+    UP --- Attr
+    UP --- Sec
+    UP -->|Генерация кода| Confirm
+    Confirm -.->|Подтверждение кода| UP

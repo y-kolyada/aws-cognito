@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 14 · devops-aws-cognito · ai|</title>
+<title>Вопросы · Pro · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Пятьдесят углубленных вопросов технического собеседования по AWS Cognito: SAML и OIDC федерация, триггеры Lambda, Identity Pools, API Gateway, ALB и WAFv2.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/14.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/14.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/14.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 14">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Вопросы · Pro">
+<meta property="og:description" content="Пятьдесят углубленных вопросов технического собеседования по AWS Cognito: SAML и OIDC федерация, триггеры Lambda, Identity Pools, API Gateway, ALB и WAFv2.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/14.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 14","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/14.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Вопросы · Pro","description":"Пятьдесят углубленных вопросов технического собеседования по AWS Cognito: SAML и OIDC федерация, триггеры Lambda, Identity Pools, API Gateway, ALB и WAFv2.","url":"https://y-kolyada.github.io/aws-cognito/ru/14.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html" aria-current="page"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html" aria-current="page"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,243 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 14</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Вопросы · Pro</h1>
+    <p class="page-size" data-words="3290">Слов: 3290</p>
+    <p class="lead">Пятьдесят углубленных вопросов технического собеседования по AWS Cognito: SAML и OIDC федерация, триггеры Lambda, Identity Pools, API Gateway, ALB и WAFv2.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Уровень квалификации Pro проверяет способность инженера проектировать надежные и масштабируемые интеграции Cognito в распределенной корпоративной инфраструктуре. Кандидат уровня Pro должен виртуозно владеть протоколами корпоративной федерации SAML 2.0 и OIDC, архитектурой жизненного цикла бессерверных триггеров Lambda, тонкостями обмена токенов на временные ключи STS через Identity Pools, механизмами терминации аутентификации на сетевых шлюзах API Gateway и балансировщиках ALB, а также методами отражения атак с помощью AWS WAFv2.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема инженерной матрицы 2х2 для квалификации уровня Pro">
+  <!-- 2x2 Grid Row 1 -->
+  <rect x="15" y="8" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="82" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Триггеры (1-10)</text>
+  <text x="82" y="38" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Pre Token &amp; Claims</text>
+
+  <rect x="170" y="8" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="237" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">IdP (11-20)</text>
+  <text x="237" y="38" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">SAML 2.0 &amp; OIDC</text>
+
+  <!-- Connectors Row 1 to Row 2 -->
+  <line x1="82" y1="48" x2="82" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,66 78,58 86,58" fill="currentColor"/>
+
+  <line x1="237" y1="48" x2="237" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,66 233,58 241,58" fill="currentColor"/>
+
+  <!-- 2x2 Grid Row 2 -->
+  <rect x="15" y="66" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="82" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">STS Роли (21-30)</text>
+  <text x="82" y="96" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Identity Pools</text>
+
+  <rect x="170" y="66" width="135" height="40" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="237" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Защита (31-40)</text>
+  <text x="237" y="96" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">WAFv2 &amp; ASF</text>
+
+  <!-- Connectors to Pro Hub -->
+  <line x1="82" y1="106" x2="82" y2="116" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,124 78,116 86,116" fill="currentColor"/>
+
+  <line x1="237" y1="106" x2="237" y2="116" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,124 233,116 241,116" fill="currentColor"/>
+
+  <!-- Block 5 + Pro Hub Banner -->
+  <rect x="20" y="124" width="280" height="40" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="141" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">5. Terraform IaC (41-50)</text>
+  <text x="160" y="155" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Интеграция с ALB и API Gateway</text>
+
+  <!-- Connector Pro Hub to Qualification Banner -->
+  <line x1="160" y1="164" x2="160" y2="176" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,184 156,176 164,176" fill="currentColor"/>
+
+  <rect x="40" y="184" width="240" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="202" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Квалификация: Инженер Pro</text>
+      </svg>
+      <p class="dim">Схема 15. Структура квалификационного ассессмента Pro: карта 50 вопросов.</p>
+    </div>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="part1">1 · Федерация SAML 2.0 и социальный вход OIDC (1-10) <a class="anchor-link" href="#part1">#</a></h2>
+
+    <p id="q1"><strong>1. Как устроен процесс Just-In-Time (JIT) провижининга при входе через внешнего провайдера SAML или OIDC?</strong> <a class="anchor-link" href="#q1">#</a></p>
+    <p>При первом успешном входе пользователя через внешний IdP (например, Okta или Google) сервис Cognito автоматически создает новую запись пользователя в User Pool. Атрибуты из утверждения SAML или ID токена OIDC сопоставляются со схемой пула на основе таблицы AttributeMapping, при этом пользователю генерируется постоянный внутренний <code>sub</code> UUID. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Понимание того, как внешние сущности материализуются в каталоге Cognito.</span></p>
+
+    <p id="q2"><strong>2. Как связать профиль федеративного пользователя с существующим локальным профилем Cognito?</strong> <a class="anchor-link" href="#q2">#</a></p>
+    <p>Связывание выполняется административным методом API <code>AdminLinkProviderForUser</code>. В параметрах передаются идентификаторы локального пользователя (DestinationUser) и внешнего провайдера (SourceUser). Это позволяет предотвратить дублирование учетных записей, если пользователь зарегистрировался по email, а затем вошел через корпоративный SAML. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Решение классической проблемы дублирования аккаунтов при омниканальной авторизации.</span></p>
+
+    <p id="q3"><strong>3. Что такое Assertion Consumer Service (ACS) URL и каков его формат в Cognito?</strong> <a class="anchor-link" href="#q3">#</a></p>
+    <p>ACS URL - это защищенная конечная точка в Cognito, на которую внешний провайдер SAML (IdP) отправляет подписанный криптографический ответ (SAML Response) с утверждениями о пользователе. Формат URL: <code>https://{yourDomainPrefix}.auth.{region}.amazoncognito.com/saml2/idpresponse</code>. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Практический навык настройки интеграции с корпоративными Okta и Entra ID.</span></p>
+
+    <p id="q4"><strong>4. Что такое Entity ID (Audience URI) в конфигурации SAML User Pool?</strong> <a class="anchor-link" href="#q4">#</a></p>
+    <p>Entity ID выступает уникальным глобальным идентификатором провайдера услуг (Service Provider, SP), которым является User Pool. Значение Entity ID формируется в виде URN: <code>urn:amazon:cognito:sp:{userPoolId}</code>. Внешний IdP обязан шифровать утверждения именно для этого получателя. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Опыт создания и валидации XML-метаданных федерации.</span></p>
+
+    <p id="q5"><strong>5. Почему при федерации через Google или Apple в атрибуте username появляется префикс провайдера?</strong> <a class="anchor-link" href="#q5">#</a></p>
+    <p>Cognito формирует системный username федеративного пользователя в виде <code>{ProviderName}_{ProviderSubjectId}</code> (например, <code>Google_1182390123...</code>). Это предотвращает коллизии имен между пользователями, зарегистрированными через разные источники идентичности. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Знание внутренней структуры идентификаторов федеративных пользователей.</span></p>
+
+    <p id="q6"><strong>6. Как обновить метаданные SAML-провайдера при ротации его сертификатов?</strong> <a class="anchor-link" href="#q6">#</a></p>
+    <p>Если провайдер настроен через URL XML-метаданных (MetadataURL), Cognito периодически опрашивает этот адрес и автоматически обновляет публичные ключи подписи. Если метаданные были загружены как статический XML-файл (MetadataFile), администратор обязан выполнить вызов <code>update-identity-provider</code> с обновленным файлом до истечения срока старого сертификата. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Предотвращение внезапного отказа корпоративного SSO при ротации ключей.</span></p>
+
+    <p id="q7"><strong>7. Что происходит, если обязательный атрибут схемы пула не передан внешним SAML IdP?</strong> <a class="anchor-link" href="#q7">#</a></p>
+    <p>Процесс авторизации завершается аварийной ошибкой со статусом 400 и сообщением об отсутствии обязательного поля. Пользователь не может войти до тех пор, пока внешний IdP не начнет передавать этот атрибут, либо пока в триггере Pre Sign-up не будет реализовано его синтетическое заполнение. См. <a href="05.html">главу 05</a> и <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Понимание взаимодействия схемы обязательных атрибутов с внешними источниками.</span></p>
+
+    <p id="q8"><strong>8. Поддерживает ли Cognito процесс IdP-Initiated SAML SSO?</strong> <a class="anchor-link" href="#q8">#</a></p>
+    <p>Да, Cognito поддерживает IdP-Initiated SSO, когда пользователь начинает вход прямо с корпоративного портала Okta/Entra ID без предварительного перехода на сайт приложения. В ответе SAML передается параметр RelayState, указывающий на целевой URL в приложении. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Знание корпоративных стандартов корпоративного доступа сотрудников.</span></p>
+
+    <p id="q9"><strong>9. Как передать список групп Active Directory из SAML в клеймы токена Cognito?</strong> <a class="anchor-link" href="#q9">#</a></p>
+    <p>В сопоставлении атрибутов провайдера (AttributeMapping) настраивается связь между атрибутом SAML-утверждения (например, <code>http://schemas.microsoft.com/ws/2008/06/identity/claims/groups</code>) и кастомным атрибутом пула (<code>custom:ad_groups</code>), либо группы динамически внедряются в токен через триггер Pre Token Generation. См. <a href="05.html">главу 05</a>.<br><span class="dim">Зачем спрашивают: Построение <span class="term"><button type="button" class="term-btn" aria-expanded="false">ролевой модели доступа RBAC</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Ролевой доступ (Role-Based Access Control, RBAC)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Модель разграничения прав доступа к ресурсам на основе назначенных пользователю ролей или членства в группах.</span><span class="term-links"><a href="glossary.html#rbac">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> на базе корпоративных каталогов.</span></p>
+
+    <p id="q10"><strong>10. В чем отличие интеграции IdP в User Pool от интеграции IdP напрямую в Identity Pool?</strong> <a class="anchor-link" href="#q10">#</a></p>
+    <p>Интеграция IdP в User Pool позволяет хранить единый профиль пользователя, обогащать токены атрибутами и использовать единый токен доступа для всех своих микросервисов. Прямая интеграция IdP в Identity Pool минует User Pool и предназначена исключительно для немедленной выдачи временных IAM-ключей STS для доступа к инфраструктуре AWS. См. <a href="05.html">главу 05</a> и <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Архитектурное разделение задач каталога пользователей и федерации STS.</span></p>
+
+    <h2 id="part2">2 · Бессерверные триггеры Lambda и события (11-20) <a class="anchor-link" href="#part2">#</a></h2>
+
+    <p id="q11"><strong>11. Какие триггеры Lambda в Cognito выполняются синхронно, а какие асинхронно?</strong> <a class="anchor-link" href="#q11">#</a></p>
+    <p>Большинство критических триггеров выполняются синхронно: Pre Sign-up, Pre Authentication, Pre Token Generation, Custom Challenge и User Migration. Cognito ожидает их завершения и использует возвращенный ответ. Асинхронно выполняются только триггеры уведомлений и аудита, например Post Confirmation и Post Authentication (в ряде конфигураций). См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Понимание влияния времени выполнения Lambda на задержку (latency) входа пользователя.</span></p>
+
+    <p id="q12"><strong>12. Что происходит с операцией аутентификации или регистрации, если синхронная Lambda падает с ошибкой?</strong> <a class="anchor-link" href="#q12">#</a></p>
+    <p>Cognito немедленно прерывает транзакцию и возвращает клиенту ошибку со статусом 400. Пользователю отображается текст исключения, выброшенного из функции (или стандартное сообщение <code>PreSignUp failed with error...</code>). Это делает синхронные триггеры мощным инструментом валидации и принудительного контроля. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Механика обработки ошибок и прерывания невалидных транзакций.</span></p>
+
+    <p id="q13"><strong>13. Каков максимальный таймаут ожидания ответа от триггера Lambda со стороны Cognito?</strong> <a class="anchor-link" href="#q13">#</a></p>
+    <p>Cognito ожидает ответ от функции Lambda строго в течение 5 секунд. При превышении этого интервала Cognito повторяет вызов до трех раз и, если ответ не получен, возвращает ошибку таймаута. Медленные функции Lambda блокируют вход пользователей. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Проектирование высоконагруженных и устойчивых к таймаутам функций.</span></p>
+
+    <p id="q14"><strong>14. Для чего используется флаг autoConfirmUser в триггере Pre Sign-up?</strong> <a class="anchor-link" href="#q14">#</a></p>
+    <p>Выставление <code>event.response.autoConfirmUser = true</code> автоматически подтверждает аккаунт пользователя без необходимости ввода кода верификации. Это применяется при миграциях, интеграциях с доверенными внешними системами или регистрации по приглашениям. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Управление жизненным циклом подтверждения аккаунта без ручных действий.</span></p>
+
+    <p id="q15"><strong>15. В чем разница между версиями V1_0 и V2_0 триггера Pre Token Generation?</strong> <a class="anchor-link" href="#q15">#</a></p>
+    <p>Версия <code>V1_0</code> позволяла модифицировать только клеймы ID токена (<code>claimsOverrideDetails</code>). Современная версия <code>V2_0</code> позволяет динамически внедрять, переопределять или удалять клеймы и скоупы как в ID Token, так и в Access Token (<code>claimsAndScopeOverrideDetails</code>), что критично для микросервисной авторизации. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Знание эволюции возможностей обогащения токенов доступа.</span></p>
+
+    <p id="q16"><strong>16. Можно ли переопределить стандартные клеймы iss, sub и aud в Pre Token Generation?</strong> <a class="anchor-link" href="#q16">#</a></p>
+    <p>Нет, системные клеймы спецификации JWT/OIDC (<code>iss</code>, <code>sub</code>, <code>aud</code>, <code>client_id</code>, <code>auth_time</code>, <code>token_use</code>) защищены от модификации. Попытка переопределить их игнорируется сервисом для сохранения целостности протокола. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Понимание границ безопасности модификации полезной нагрузки токена.</span></p>
+
+    <p id="q17"><strong>17. Для чего предназначен триггер Custom Message?</strong> <a class="anchor-link" href="#q17">#</a></p>
+    <p>Триггер перехватывает исходящие сообщения верификации email и SMS и позволяет динамически кастомизировать текст, тему письма и внедрять брендированные HTML-шаблоны или глубокие ссылки (Deep Links) со сгенерированным кодом. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Брендинг и локализация транзакционных сообщений.</span></p>
+
+    <p id="q18"><strong>18. Как триггер Post Confirmation используется в корпоративных системах?</strong> <a class="anchor-link" href="#q18">#</a></p>
+    <p>Триггер вызывается сразу после того, как пользователь подтвердил регистрацию кодом. В нем инициализируется создание рабочего пространства в DynamoDB, выделяются ресурсы тенанта, отправляются приветственные вебхуки в CRM (Salesforce, HubSpot) и назначаются дефолтные группы доступа. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Автоматизация пост-регистрационных процедур провижининга.</span></p>
+
+    <p id="q19"><strong>19. Какие права IAM (Resource-based Policy) требуются для того, чтобы Cognito мог вызвать Lambda?</strong> <a class="anchor-link" href="#q19">#</a></p>
+    <p>Функция Lambda обязана иметь разрешение в политике доступа ресурса (Resource Policy), разрешающее вызов <code>lambda:InvokeFunction</code> принципалу <code>cognito-idp.amazonaws.com</code> со строгим условием <code>SourceArn</code>, указывающим на ARN конкретного пула пользователей. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Настройка прав доступа при инфраструктурном развертывании в Terraform.</span></p>
+
+    <p id="q20"><strong>20. Как избежать задержки холодного старта (Cold Start) в триггерах Lambda на пути входа?</strong> <a class="anchor-link" href="#q20">#</a></p>
+    <p>Используют легковесные рантаймы (Node.js, Python, Rust), минимизируют размер бандла зависимостей, избегают тяжелых ORM при инициализации, размещают функцию вне VPC (если не требуется доступ к приватным базам) либо подключают Provisioned Concurrency для удержания теплого пула инстансов. См. <a href="06.html">главу 06</a>.<br><span class="dim">Зачем спрашивают: Практики оптимизации производительности бессерверных архитектур.</span></p>
+
+    <h2 id="part3">3 · Identity Pools, STS и гранулярный IAM (21-30) <a class="anchor-link" href="#part3">#</a></h2>
+
+    <p id="q21"><strong>21. По какому трехшаговому алгоритму Identity Pool обменивает JWT на ключи AWS STS?</strong> <a class="anchor-link" href="#q21">#</a></p>
+    <p>1. Клиент вызывает <code>GetId</code> с токеном аутентификации и получает постоянный <code>IdentityId</code>. 2. Клиент отправляет <code>GetCredentialsForIdentity</code> с полученным IdentityId. 3. Cognito валидирует токен, вычисляет правила RoleMappings, запрашивает сервис STS методом <code>AssumeRoleWithWebIdentity</code> и возвращает клиенту временные <code>AccessKeyId</code>, <code>SecretAccessKey</code> и <code>SessionToken</code>. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Базовая последовательность федеративного обмена ключей STS.</span></p>
+
+    <p id="q22"><strong>22. Что такое переменная политики ${cognito-identity.amazonaws.com:sub} в политиках IAM?</strong> <a class="anchor-link" href="#q22">#</a></p>
+    <p>Это контекстная переменная подстановки IAM, в которую сервис STS динамически внедряет уникальный <code>IdentityId</code> вызывающего пользователя. Она используется для гранулярной изоляции персональных папок в бакетах S3 (<code>arn:aws:s3:::bucket/users/${...}/*</code>) и строковых ключей в DynamoDB. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Ключевой паттерн изоляции данных между пользователями в бессерверных приложениях.</span></p>
+
+    <p id="q23"><strong>23. Зачем в политике доверия роли IAM проверяются условия cognito-identity.amazonaws.com:aud и amr?</strong> <a class="anchor-link" href="#q23">#</a></p>
+    <p>Условие <code>aud</code> гарантирует, что роль может запросить только конкретный Identity Pool (защита от уязвимости Confused Deputy). Условие <code>amr: authenticated</code> гарантирует, что привилегированная роль не может быть получена неавторизованным гостевым пользователем. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Знание стандартов безопасного проектирования политик доверия IAM.</span></p>
+
+    <p id="q24"><strong>24. В чем разница между правилами сопоставления ролей Token-based и Rules-based в RoleMappings?</strong> <a class="anchor-link" href="#q24">#</a></p>
+    <p>При сопоставлении на основе токена (Token-based) роль выбирается из клейма <code>cognito:roles</code> или <code>cognito:preferred_role</code>, сформированного группами User Pool. При Rules-based администратор задает до 25 явных логических условий на основе любого клейма токена (например, <code>custom:department Equals Security</code>). См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Управление динамическим назначением ролей IAM в федеративных средах.</span></p>
+
+    <p id="q25"><strong>25. Что означает параметр AmbiguousRoleResolution и какие значения он принимает?</strong> <a class="anchor-link" href="#q25">#</a></p>
+    <p>Параметр определяет действие системы, если пользователь подошел под несколько конфликтующих правил или не подошел ни под одно. Допустимы значения <code>AuthenticatedRole</code> (выдать базовую авторизованную роль) и <code>Deny</code> (отказать в выдаче учетных данных STS во избежание назначения некорректных прав). См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Безопасное разрешение коллизий прав доступа.</span></p>
+
+    <p id="q26"><strong>26. В чем разница между Classic Flow и Enhanced Flow в Identity Pools?</strong> <a class="anchor-link" href="#q26">#</a></p>
+    <p>В Classic Flow клиент получал промежуточный OpenID токен и сам вызывал STS <code>AssumeRoleWithWebIdentity</code>, зная ARN роли в клиентском коде. В Enhanced Flow (режим по умолчанию) клиент вызывает только Cognito метод <code>GetCredentialsForIdentity</code>, сервис сам вычисляет роли и обращается в STS, скрывая инфраструктурные ARN от клиента. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Понимание архитектурных преимуществ современного расширенного протокола авторизации.</span></p>
+
+    <p id="q27"><strong>27. Что такое неавторизованные идентичности (Unauthenticated Identities) и когда их применение оправдано?</strong> <a class="anchor-link" href="#q27">#</a></p>
+    <p>Они позволяют гостям приложения получать временный <code>IdentityId</code> и ограниченные права IAM без входа. Это оправдано для просмотра публичных каталогов в S3, записи аналитических логов в Kinesis или генерации временной гостевой корзины товаров до момента оформления заказа. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Сценарии работы с гостевым трафиком в мобильных и веб-приложениях.</span></p>
+
+    <p id="q28"><strong>28. Что происходит с гостевыми данными, когда пользователь решает зарегистрироваться?</strong> <a class="anchor-link" href="#q28">#</a></p>
+    <p>При передаче токена входа для существующего гостевого <code>IdentityId</code> сервис Cognito объединяет (Merge) профили, сохраняя за пользователем его постоянный IdentityId. Все файлы в S3 и записи в базе, привязанные к этому ID, остаются доступны авторизованному аккаунту. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Бесшовное объединение гостевого и авторизованного пользовательского опыта.</span></p>
+
+    <p id="q29"><strong>29. Как ограничить доступ к строкам таблицы DynamoDB через параметр dynamodb:LeadingKeys?</strong> <a class="anchor-link" href="#q29">#</a></p>
+    <p>В политике IAM указывается условие <code>"ForAllValues:StringEquals": { "dynamodb:LeadingKeys": ["${cognito-identity.amazonaws.com:sub}"] }</code>. Это разрешает операции чтения и записи только для элементов, чей ключ партиции (Partition Key) в точности равен <code>IdentityId</code> пользователя. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Построение бессерверных баз данных с изоляцией строк на уровне IAM.</span></p>
+
+    <p id="q30"><strong>30. Что такое Session Tagging (Principal Tags) в связке Identity Pools и STS?</strong> <a class="anchor-link" href="#q30">#</a></p>
+    <p>Механизм позволяет транслировать атрибуты токена (например, <code>department</code> или <code>cost_center</code>) в теги сессии STS. Это дает возможность реализовывать динамический контроль доступа на основе атрибутов (ABAC) через условие <code>aws:PrincipalTag</code> в политиках IAM целевых сервисов. См. <a href="07.html">главу 07</a>.<br><span class="dim">Зачем спрашивают: Продвинутые техники динамического управления доступом ABAC в AWS.</span></p>
+
+    <h2 id="part4">4 · Интеграция с API Gateway, ALB и сервисами (31-40) <a class="anchor-link" href="#part4">#</a></h2>
+
+    <p id="q31"><strong>31. Как работает нативный Cognito User Pools Authorizer в REST API Gateway?</strong> <a class="anchor-link" href="#q31">#</a></p>
+    <p>Шлюз API Gateway перехватывает заголовок Authorization, проводит <span class="term"><button type="button" class="term-btn" aria-expanded="false">асимметричную верификацию подписи токена</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Асимметричная верификация (Asymmetric Verification)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Проверка цифровой подписи токена с использованием открытого ключа провайдера без обращения к закрытому секрету.</span><span class="term-links"><a href="glossary.html#asymmetric-verification">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> RS256 по открытым ключам JWKS и срок действия. При успешной валидации запрос пропускается к бэкенду, а проверенные клеймы пользователя автоматически становятся доступны в объекте <code>$context.authorizer.claims</code>. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Базовый способ бессерверной защиты REST API без накладных расходов Lambda.</span></p>
+
+    <p id="q32"><strong>32. В чем преимущества JWT Authorizer в HTTP API Gateway v2 перед классическим REST Authorizer?</strong> <a class="anchor-link" href="#q32">#</a></p>
+    <p>JWT Authorizer встроен непосредственно в ядро HTTP API v2: он работает с ультранизкой задержкой (субмиллисекунды), автоматически опрашивает discovery-эндпоинт эмитента, поддерживает быструю проверку audience и стоит в 3 раза дешевле классического REST API. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Выбор оптимального типа API Gateway с точки зрения задержки и затрат.</span></p>
+
+    <p id="q33"><strong>33. Как Application Load Balancer (ALB) валидирует сессию пользователя при аутентификации через Cognito?</strong> <a class="anchor-link" href="#q33">#</a></p>
+    <p>ALB сохраняет зашифрованную сессионную куку <code>AWSELBAuthSessionCookie</code>. При каждом входящем HTTP-запросе балансировщик расшифровывает куку, проверяет актуальность токенов, при необходимости обновляет их через Refresh Token и пробрасывает проверенные клеймы бэкенду в заголовке <code>x-amzn-oidc-data</code>. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Архитектура переноса задач аутентификации на уровень сетевого балансировщика.</span></p>
+
+    <p id="q34"><strong>34. Как бэкенд за балансировщиком ALB проверяет подлинность заголовка x-amzn-oidc-data?</strong> <a class="anchor-link" href="#q34">#</a></p>
+    <p>Заголовок представляет собой подписанный JWT. Сервер извлекает идентификатор ключа из заголовка <code>x-amzn-oidc-key-id</code>, загружает публичный ключ ALB по адресу <code>https://public-keys.auth.elb.{region}.amazonaws.com/{key-id}</code> и криптографически проверяет подпись, исключая подделку заголовков из внутренней сети. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Защита периметра Zero Trust за балансировщиком нагрузки.</span></p>
+
+    <p id="q35"><strong>35. Какую роль играет параметр scope в правиле слушателя authenticate-cognito на балансировщике ALB?</strong> <a class="anchor-link" href="#q35">#</a></p>
+    <p>Он задает список запрашиваемых скоупов OAuth 2.0 (по умолчанию <code>openid</code>, часто дополняется <code>email profile</code>). Без скоупа <code>email</code> балансировщик не сможет получить адрес электронной почты пользователя из ID токена и передать его бэкенд-приложению. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Устранение дефектов отсутствия пользовательских атрибутов в сессии ALB.</span></p>
+
+    <p id="q36"><strong>36. Как настроить проверку членства пользователя в группах пула в API Gateway?</strong> <a class="anchor-link" href="#q36">#</a></p>
+    <p>В полезной нагрузке токена группы пользователя передаются массивом в клейме <code>cognito:groups</code>. На уровне метода API Gateway настраивается маппинг параметров, либо развертывается легковесный Lambda Authorizer, инспектирующий массив групп перед передачей запроса интеграции. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Реализация ролевого контроля доступа (RBAC) на пограничном шлюзе.</span></p>
+
+    <p id="q37"><strong>37. Что такое AppSync Cognito Authorization и как он защищает GraphQL-запросы?</strong> <a class="anchor-link" href="#q37">#</a></p>
+    <p>AWS AppSync нативно интегрируется с Cognito: директивы схемы <code>@aws_auth(cognito_groups: ["Admin"])</code> позволяют декларативно ограничивать доступ к конкретным типам, мутациям и полям GraphQL на основе групп или атрибутов пользователя из токена. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Гранулярная авторизация полей в GraphQL API.</span></p>
+
+    <p id="q38"><strong>38. Почему антипаттерном считается вызов метода GetUser внутри микросервиса на каждый входящий HTTP-запрос?</strong> <a class="anchor-link" href="#q38">#</a></p>
+    <p>Метод <code>GetUser</code> имеет жесткий региональный лимит вызовов (обычно 25-50 RPS). При нагрузке в сотни запросов в секунду лимит мгновенно исчерпывается, и Cognito начинает отвечать ошибкой <code>TooManyRequestsException</code>, вызывая отказ всей системы. Валидация обязана производиться автономно по JWKS. См. <a href="09.html">главу 09</a> и <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Проверка архитектурной зрелости и предотвращение каскадных сбоев под нагрузкой.</span></p>
+
+    <p id="q39"><strong>39. Как организовать кэширование открытых ключей JWKS в микросервисах?</strong> <a class="anchor-link" href="#q39">#</a></p>
+    <p>Ключи загружаются один раз при инициализации процесса и кэшируются в оперативной памяти с TTL от 12 до 24 часов. Обновление набора ключей инициируется только в том случае, если входящий токен содержит неизвестный <code>kid</code>, что гарантирует мгновенную валидацию без сетевых задержек. См. <a href="02.html">главу 02</a>.<br><span class="dim">Зачем спрашивают: Оптимизация локальной криптографической проверки токенов.</span></p>
+
+    <p id="q40"><strong>40. Как передать токен пользователя из внешнего фронтенда в контейнеры Kubernetes EKS?</strong> <a class="anchor-link" href="#q40">#</a></p>
+    <p>Фронтенд отправляет Access Token в заголовке <code>Authorization: Bearer &lt;token&gt;</code>. Ingress-контроллер (AWS Load Balancer Controller, Traefik, NGINX) валидирует токен на входе в кластер или пробрасывает его сервисной сетке (Istio / Envoy), которая выполняет проверку подписи через фильтр JWT Auth. См. <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Паттерны сквозной аутентификации в контейнерных средах Kubernetes.</span></p>
+
+    <h2 id="part5">5 · Безопасность ASF и сетевой экран WAFv2 (41-50) <a class="anchor-link" href="#part5">#</a></h2>
+
+    <p id="q41"><strong>41. В чем разница между режимами работы Advanced Security: AUDIT и ENFORCED?</strong> <a class="anchor-link" href="#q41">#</a></p>
+    <p>В режиме <code>AUDIT</code> система машинного обучения анализирует запросы, скорит риски и собирает метрики в CloudWatch без реального вмешательства в авторизацию. В режиме <code>ENFORCED</code> система активно реагирует на угрозы: блокирует подозрительные сессии, отправляет уведомления о попытках взлома и принудительно запрашивает второй фактор MFA при высоком риске. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Безопасное поэтапное внедрение защитных механизмов без риска блокировки пользователей.</span></p>
+
+    <p id="q42"><strong>42. Какие факторы анализирует адаптивная аутентификация (Adaptive Authentication) для скоринга рисков?</strong> <a class="anchor-link" href="#q42">#</a></p>
+    <p>Оценивается репутация IP-адреса (анонимайзеры, прокси, Tor), географическая локация и аномальная скорость перемещения (Impossible Travel), отпечаток браузера и устройства, история входов конкретного пользователя и сигнатуры поведения в сеансе. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Понимание многофакторного поведенческого скоринга угроз.</span></p>
+
+    <p id="q43"><strong>43. Как работает механизм Compromised Credentials Detection в Cognito?</strong> <a class="anchor-link" href="#q43">#</a></p>
+    <p>При каждой регистрации, смене пароля или входе Cognito в реальном времени проверяет хэш пароля по глобальной базе данных скомпрометированных учетных записей (миллиарды утекших паролей из Dark Web). Если пароль найден в базе утечек, операция блокируется с требованием выбрать уникальный пароль. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Защита от атак массового использования утекших паролей (Credential Stuffing).</span></p>
+
+    <p id="q44"><strong>44. Зачем передавать структуру ContextData при вызове AdminInitiateAuth из серверного бэкенда?</strong> <a class="anchor-link" href="#q44">#</a></p>
+    <p>При вызовах с бэкенда Cognito видит IP-адрес сервера приложения. Без передачи <code>ContextData</code> (содержащего реальный IP пользователя, заголовки браузера и слепок устройства) модели Advanced Security либо ошибочно сочтут сервер источником атаки, либо пропустят атаку злоумышленника, спрятанного за прокси. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Правильная организация архитектуры Backend-for-Frontend (BFF) с сохранением контекста.</span></p>
+
+    <p id="q45"><strong>45. Какие преимущества дает привязка AWS WAFv2 WebACL непосредственно к пулу пользователей User Pool?</strong> <a class="anchor-link" href="#q45">#</a></p>
+    <p>WAF инспектирует трафик на границе сети до того, как запросы поступят в вычислительную логику Cognito. Это защищает квоты API от исчерпания, блокирует вредоносных ботов через Bot Control, отсекает известные IP-адреса атакующих и позволяет включать WAF Captcha на формах авторизации. См. <a href="08.html">главу 08</a> и <a href="11.html">главу 11</a>.<br><span class="dim">Зачем спрашивают: Эшелонированная защита периметра аутентификации.</span></p>
+
+    <p id="q46"><strong>46. Как настроить Rate-based правило в AWS WAF для защиты эндпоинтов авторизации?</strong> <a class="anchor-link" href="#q46">#</a></p>
+    <p>Создается правило WAF со стейтментом <code>rate_based_statement</code>, агрегирующее запросы по IP-адресу с порогом (например, не более 100 запросов за 5 минут) и условием совпадения URL с путями авторизации (<code>/oauth2/token</code>, <code>/login</code>). При превышении лимита WAF блокирует IP на период охлаждения. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Предотвращение атак полного перебора паролей на сетевом уровне.</span></p>
+
+    <p id="q47"><strong>47. Что такое правило WAF Bot Control и как оно помогает Cognito?</strong> <a class="anchor-link" href="#q47">#</a></p>
+    <p>Управляемый набор <code>AWSManagedRulesBotControlRuleSet</code> классифицирует входящий трафик на подтвержденных ботов (поисковые роботы) и подозрительные скраперы/атакующие ботнеты. Правило блокирует попытки автоматизированного спама регистраций и фрода. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Автоматизация борьбы с ботнетами на границе облака.</span></p>
+
+    <p id="q48"><strong>48. Как настроить оповещение пользователей о подозрительных входах в аккаунт через EventBridge?</strong> <a class="anchor-link" href="#q48">#</a></p>
+    <p>Cognito транслирует события аудита и оценки рисков Advanced Security в Amazon EventBridge. Настраивается правило EventBridge с фильтром по <code>detail-type: "Cognito Advanced Security Event"</code> и уровню риска <code>HIGH</code>, которое инициирует отправку уведомления в очередь SQS или топик SNS для немедленной доставки пользователю. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Построение событийно-ориентированной архитектуры реагирования на инциденты.</span></p>
+
+    <p id="q49"><strong>49. Как исключить доверенные корпоративные IP-адреса из проверок Advanced Security?</strong> <a class="anchor-link" href="#q49">#</a></p>
+    <p>В конфигурации управления рисками (Risk Exception Configuration) задаются белые списки диапазонов IP-адресов (IP range allowlist). Запросы из этих диапазонов освобождаются от скоринга рисков и блокировок, что предотвращает помехи в работе офисов и внутренних VPN компании. См. <a href="08.html">главу 08</a>.<br><span class="dim">Зачем спрашивают: Тонкая настройка систем скоринга рисков для enterprise-окружений.</span></p>
+
+    <p id="q50"><strong>50. Как соотносится стоимость Advanced Security Features с тарифными планами пула?</strong> <a class="anchor-link" href="#q50">#</a></p>
+    <p>В тарифном плане <code>ESSENTIALS</code> функции ASF отсутствуют. Перевод пула в тарифный план <code>PLUS</code> автоматически активирует функции Advanced Security для всех активных пользователей пула со ставкой $0.015 за MAU с первого пользователя после бесплатного порога, устраняя необходимость покупки отдельных устаревших аддонов. См. <a href="08.html">главу 08</a> и <a href="09.html">главу 09</a>.<br><span class="dim">Зачем спрашивают: Знание обновленной тарифной модели AWS Cognito (2024+).</span></p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения 50 углубленных вопросов уровня Pro вы обладаете профессиональными знаниями для интеграции Cognito в enterprise-инфраструктуру:</p>
+      <ul>
+        <li>Механизмы принудительного <span class="term"><button type="button" class="term-btn" aria-expanded="false">отзыва токенов (Token Revocation)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Отзыв токенов (Token Revocation)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Стандартизированная процедура немедленной инвалидации долгоживущего Refresh токена и всех активных сессий пользователя.</span><span class="term-links"><a href="glossary.html#token-revocation">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</li>
+        <li>Методология <span class="term"><button type="button" class="term-btn" aria-expanded="false">сквозного тестирования (Ephemeral Testing)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Сквозное тестирование (Ephemeral Testing)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Методология автоматизированного тестирования авторизации в CI/CD с использованием временных пулов или локальных эмуляторов.</span><span class="term-links"><a href="glossary.html#ephemeral-testing">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> в CI/CD.</li>
+        <li>Тонкости настройки корпоративной федерации SAML 2.0 и связывания аккаунтов через <code>AdminLinkProviderForUser</code>.</li>
+        <li>Архитектура синхронных и асинхронных триггеров Lambda и оптимизация холодного старта.</li>
+        <li>Механика трансляции токенов в ключи STS с гранулярной изоляцией ресурсов в S3 и DynamoDB.</li>
+        <li>Шаблоны интеграции авторизации на пограничных сетевых шлюзах API Gateway и балансировщиках ALB.</li>
+        <li>Практики эшелонированной защиты от ботов и подбора паролей с помощью AWS WAFv2 и Advanced Security.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="15.html">Раздел 15</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="13.html">Раздел 13</a></p>
+        <p class="pager-next">Следующая тема: <a href="15.html">Вопросы · IGL</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="13.html">Вопросы · Noob</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

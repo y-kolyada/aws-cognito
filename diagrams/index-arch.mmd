@@ -1,0 +1,15 @@
+graph TD
+    User["Пользователь (Браузер / Приложение)"]
+    UP["Cognito User Pool (Каталог & IdP)"]
+    IP["Cognito Identity Pool (Федерация)"]
+    STS["AWS STS (AssumeRoleWithWebIdentity)"]
+    AppAPI["Бэкенд API (JWT Authorizer)"]
+    AWSSvc["Сервисы AWS (S3, DynamoDB)"]
+
+    User -->|1. Логин / Пароль / SRP| UP
+    UP -->|2. Токены ID, Access, Refresh| User
+    User -->|3. Access Token / Bearer| AppAPI
+    User -->|4. ID Token / GetCredentials| IP
+    IP -->|5. Запрос временных ключей| STS
+    STS -->|6. SigV4 Credentials| User
+    User -->|7. Прямой доступ SigV4| AWSSvc

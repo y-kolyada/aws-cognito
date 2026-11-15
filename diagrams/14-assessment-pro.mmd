@@ -1,0 +1,13 @@
+graph TD
+    Hub["Квалификационный ассессмент: Pro"]
+    Triggers["Lambda Triggers (1-10)"]
+    Fed["SAML 2.0 & OIDC Федерация (11-20)"]
+    STS["Identity Pools & STS Роли (21-30)"]
+    Security["WAFv2 & Advanced Security (31-40)"]
+    IaC["Terraform & Интеграции (41-50)"]
+
+    Hub --- Triggers
+    Hub --- Fed
+    Hub --- STS
+    Hub --- Security
+    Hub --- IaC

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 8 · devops-aws-cognito · ai|</title>
+<title>Безопасность и WAF · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Эшелонированная защита каталога Cognito: Advanced Security Features, адаптивная аутентификация по рискам, проверка утечек паролей и интеграция с AWS WAFv2.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/08.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/08.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/08.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 8">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Безопасность и WAF">
+<meta property="og:description" content="Эшелонированная защита каталога Cognito: Advanced Security Features, адаптивная аутентификация по рискам, проверка утечек паролей и интеграция с AWS WAFv2.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/08.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 8","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Безопасность и WAF","description":"Эшелонированная защита каталога Cognito: Advanced Security Features, адаптивная аутентификация по рискам, проверка утечек паролей и интеграция с AWS WAFv2.","url":"https://y-kolyada.github.io/aws-cognito/ru/08.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html" aria-current="page"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html" aria-current="page"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,141 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 8</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Безопасность и WAF</h1>
+    <p class="page-size" data-words="1183">Слов: 1183</p>
+    <p class="lead">Эшелонированная защита каталога Cognito: Advanced Security Features, адаптивная аутентификация по рискам, проверка утечек паролей и интеграция с AWS WAFv2.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Каталог пользователей Amazon Cognito User Pool представляет собой привлекательную цель для автоматизированных атак: распределенного подбора паролей (credential stuffing), атак по словарям утечек, захвата учетных записей (account takeover) и фродовых массовых регистраций. Построение надежной защиты требует эшелонированного подхода на двух рубежах: поведенческий анализ на базе прикладного машинного обучения <span class="term"><button type="button" class="term-btn" aria-expanded="false">Advanced Security Features (ASF)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Расширенная безопасность (Advanced Security Features, ASF)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Встроенный движок поведенческой безопасности Cognito, использующий машинное обучение для выявления подозрительных попыток входа.</span><span class="term-links"><a href="glossary.html#asf">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, оценивающий риски входа по контексту устройств и сетевым аномалиям, и пограничная фильтрация <span class="term"><button type="button" class="term-btn" aria-expanded="false">сетевого экрана AWS WAFv2</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Сетевой экран WAF (AWS WAFv2)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Служба фильтрации прикладного веб-трафика L7, подключаемая напрямую к домену User Pool для блокировки вредоносных запросов.</span><span class="term-links"><a href="glossary.html#wafv2">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, отсекающая ботнеты и вредоносный HTTP-трафик до его достижения вычислительных мощностей каталога.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема воронки эшелонированной безопасности WAF и Cognito ASF">
+  <!-- Top: Raw Web Traffic -->
+  <rect x="30" y="8" width="260" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Входящий интернет-трафик</text>
+
+  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,54 156,46 164,46" fill="currentColor"/>
+
+  <!-- Level 1 Filter: AWS WAFv2 -->
+  <rect x="30" y="54" width="260" height="32" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Уровень L7: AWS WAFv2 Web ACL</text>
+  <text x="160" y="81" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Bot Control • Rate Limiting</text>
+
+  <line x1="160" y1="86" x2="160" y2="100" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,106 156,98 164,98" fill="currentColor"/>
+
+  <!-- Level 2 Filter: Cognito ASF -->
+  <rect x="30" y="106" width="260" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Уровень CIAM: Cognito ASF</text>
+  <text x="160" y="133" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Адаптивный риск • Утечки паролей</text>
+
+  <!-- Fork to Actions -->
+  <path d="M 160 138 L 160 152 L 85 152 L 85 164" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,170 81,162 89,162" fill="currentColor"/>
+
+  <path d="M 160 138 L 160 152 L 235 152 L 235 164" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,170 231,162 239,162" fill="currentColor"/>
+
+  <!-- Action Left: Step-Up MFA -->
+  <rect x="15" y="170" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="85" y="187" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Низкий / Средний</text>
+  <text x="85" y="200" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Allow / Вызов MFA</text>
+
+  <!-- Action Right: Block -->
+  <rect x="165" y="170" width="140" height="38" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="235" y="187" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Высокий риск</text>
+  <text x="235" y="200" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Блокировка / Отказ</text>
+      </svg>
+      <p class="dim">Схема 9. Эшелонированная защита каталога: интеграция AWS WAFv2 и Cognito ASF.</p>
+    </div>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="asf-modes">1 · Режимы Advanced Security Features: OFF, AUDIT и ENFORCED <a class="anchor-link" href="#asf-modes">#</a></h2>
+    <p>Функциональность расширенной безопасности настраивается в блоке <code>UserPoolAddOns</code>, содержащем два параметра: <code>AdvancedSecurityAdditionalFlows</code> и режим работы <code>AdvancedSecurityMode</code>.</p>
+    <p>Режим <code>AdvancedSecurityMode</code> принимает три градации защиты:</p>
+    <ul>
+      <li><code>OFF</code>: базовая функциональность User Pool без машинного анализа рисков и эвристик безопасности.</li>
+      <li><code>AUDIT</code>: режим пассивного мониторинга. Сервис Cognito собирает расширенную телеметрию каждой попытки входа, оценивает вероятность компрометации и публикует метрики рисков в Amazon CloudWatch Logs. Однако сервис не блокирует сессии и не требует прохождения принудительного MFA. Режим AUDIT обязателен для начального развертывания системы в течение 2-4 недель, позволяя инженерам оценить уровень ложных срабатываний (False Positives) на реальном пользовательском трафике.</li>
+      <li><code>ENFORCED</code>: активный защитный режим. Сервис автоматически применяет настроенные политики противодействия: блокирует опасные запросы, инициирует дополнительную проверку MFA или отправляет уведомления пользователям о подозрительной активности.</li>
+    </ul>
+
+    <h2 id="adaptive-auth">2 · Адаптивная аутентификация и скоринг рисков входа <a class="anchor-link" href="#adaptive-auth">#</a></h2>
+    <p>Механизм <span class="term"><button type="button" class="term-btn" aria-expanded="false">адаптивной аутентификации (Adaptive Authentication)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Адаптивная аутентификация (Adaptive Authentication)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Механизм гибкого реагирования на риски: запрашивает дополнительный фактор MFA или блокирует вход при подозрительных сессиях.</span><span class="term-links"><a href="glossary.html#adaptive-auth">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> оценивает каждую попытку входа по шкале рисков: <code>Low</code>, <code>Medium</code> или <code>High</code>. Конфигурация вызывается через <code>set-risk-configuration</code>, настраивая пять параметров: <code>AccountTakeoverRiskConfiguration</code>, <code>ClientId</code>, <code>CompromisedCredentialsRiskConfiguration</code>, <code>RiskExceptionConfiguration</code> и <code>UserPoolId</code>.</p>
+    <p>Модель машинного обучения анализирует комплексный вектор контекстных сигналов:</p>
+    <ul>
+      <li>Сетевая локация: IP-адрес, географическая страна и город, номер автономной системы (ASN), признак принадлежности к дата-центрам, анонимным прокси-серверам или выходным узлам сети Tor.</li>
+      <li>Географическая аномалия: невозможное перемещение (Impossible Travel), когда вход совершается из Лондона, а через 10 минут - из Сингапура.</li>
+      <li>Контекст устройства: отпечаток клиентского устройства (Device Fingerprint), строка User-Agent, разрешение экрана, временная зона и история предыдущих входов.</li>
+    </ul>
+    <p>В блоке <code>AccountTakeoverRiskConfiguration</code> задаются автоматические действия:</p>
+    <ul>
+      <li>При низком риске (Low): штатный вход без дополнительного трения для пользователя.</li>
+      <li>При среднем риске (Medium): принудительный запрос второго фактора (MFA Challenge), даже если для данного пользователя MFA не был обязательным по умолчанию.</li>
+      <li>При высоком риске (High): немедленная блокировка сессии (Block) с отправкой тревожного письма владельцу аккаунта с предложением сбросить пароль.</li>
+    </ul>
+
+    <h2 id="compromised-credentials">3 · Обнаружение скомпрометированных паролей в глобальных утечках <a class="anchor-link" href="#compromised-credentials">#</a></h2>
+    <p>Атака Credential Stuffing базируется на психологической привычке пользователей использовать один и тот же пароль на десятках различных веб-сайтов. Утечка базы данных стороннего форума приводит к массовому захвату аккаунтов в банковских и корпоративных приложениях.</p>
+    <p>Cognito решает эту проблему через механизм <span class="term"><button type="button" class="term-btn" aria-expanded="false">обнаружения скомпрометированных паролей</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Скомпрометированные пароли (Compromised Credentials)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Функция ASF, сличающая вводимые пользователями пароли с глобальными базами данных утекших учетных записей.</span><span class="term-links"><a href="glossary.html#compromised-credentials">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, настраивающий два параметра: действия <code>Actions</code> и фильтр событий <code>EventFilter</code> (допустимы <code>SIGN_IN</code>, <code>SIGN_UP</code> и <code>PASSWORD_CHANGE</code>).</p>
+    <p>Инженеры безопасности AWS непрерывно агрегируют базы утекших учетных данных из открытых и теневых источников глобального интернета (Dark Web). При каждой регистрации или смене пароля Cognito в реальном времени проверяет хэш пароля по миллиардам скомпрометированных записей. Если обнаружено совпадение, сервис блокирует операцию с понятным требованием выбрать уникальный пароль, ликвидируя угрозу повторного использования паролей еще до ее реализации.</p>
+
+    <h2 id="waf-integration">4 · Пограничная фильтрация трафика через AWS WAFv2 <a class="anchor-link" href="#waf-integration">#</a></h2>
+    <p>Для защиты от DDoS-атак уровня приложений (L7 OSI), сканеров уязвимостей и спам-ботов User Pool нативно интегрируется с сетевым экраном AWS WAFv2. Связывание выполняется командой <code>associate-web-acl</code>, принимающей два параметра: ARN пула пользователей <code>ResourceArn</code> и ARN <span class="term"><button type="button" class="term-btn" aria-expanded="false">списка контроля доступа WebACL</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Список контроля веб-доступа (WebACL)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Основной конфигурационный объект AWS WAFv2, объединяющий набор правил фильтрации с приоритетами выполнения.</span><span class="term-links"><a href="glossary.html#web-acl">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> (параметр <code>WebACLArn</code>).</p>
+    <p>Преимущество интеграции состоит в ранней фильтрации трафика: сетевой экран WAF инспектирует входящие HTTP-запросы к эндпоинтам Hosted UI и методам API до того, как они попадут в логику обработки Cognito. Это защищает квоты вызовов API и снимает вычислительную нагрузку.</p>
+    <p>В конфигурацию WebACL подключаются управляемые наборы правил AWS Managed Rules:</p>
+    <ul>
+      <li><code>AWSManagedRulesCommonRuleSet</code>: базовый набор защиты от распространенных сетевых угроз (SQL Injection, Cross-Site Scripting, LFI/RFI).</li>
+      <li><code>AWSManagedRulesKnownBadInputsRuleSet</code>: блокировка запросов с известными эксплойтами и некорректными заголовками.</li>
+      <li><code>AWSManagedRulesBotControlRuleSet</code>: классификация и отсечение автоматизированных ботов и парсеров.</li>
+    </ul>
+
+    <h2 id="rate-limiting">5 · Защита от перебора через Rate-based Rules <a class="anchor-link" href="#rate-limiting">#</a></h2>
+    <p>Для противодействия атакам полного перебора паролей (Brute Force) в AWS WAFv2 настраиваются кастомные правила <span class="term"><button type="button" class="term-btn" aria-expanded="false">ограничения частоты запросов Rate Limiting (Rate-based Rules)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Ограничение частоты запросов (Rate Limiting)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Правило безопасности WAF, ограничивающее количество запросов с одного IP-адреса за скользящий 5-минутный интервал.</span><span class="term-links"><a href="glossary.html#rate-limiting">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</p>
+    <p>Правило анализирует количество запросов с одного IP-адреса за скользящее пятиминутное окно. Например, если с одного IP поступает более 100 запросов на эндпоинты авторизации <code>/oauth2/token</code> или методы <code>InitiateAuth</code>, WAF переводит IP-адрес в блокирующий список на период охлаждения (например, 10 минут) с возвратом HTTP-кода 429 Too Many Requests.</p>
+    <p>Такой подход защищает учетные записи легитимных клиентов от временной блокировки из-за превышения числа неверных попыток ввода пароля, предотвращая атаку типа Denial of Service на конкретных пользователей платформы.</p>
+
+    <h2 id="context-data">6 · Передача контекста пользователя ContextData при серверных вызовах <a class="anchor-link" href="#context-data">#</a></h2>
+    <p>В современной микросервисной архитектуре фронтенд часто взаимодействует с User Pool через промежуточный бэкенд (паттерн Backend-for-Frontend, BFF). В этом случае все вызовы API Cognito (например, метод <code>AdminInitiateAuth</code>) отправляются с IP-адресов серверов приложений или NAT-шлюзов VPC.</p>
+    <p>Если бэкенд отправляет запросы без передачи исходного контекста, аналитические модели Advanced Security видят тысячи входов с одного серверного IP-адреса и помечают их как аномальную атаку либо, наоборот, пропускают атаки злоумышленников, скрытых за серверным прокси.</p>
+    <p>Для решения этой проблемы бэкенд обязан собирать контекстные метаданные исходного браузера и передавать их в структуре <code>ContextData</code> при вызове методов аутентификации. Структура настраивает пять параметров:</p>
+    <ul>
+      <li><code>IpAddress</code>: публичный IPv4 или IPv6 адрес конечного клиента, извлеченный из заголовка X-Forwarded-For доверенного балансировщика.</li>
+      <li><code>ServerName</code> и <code>ServerPath</code>: доменное имя и маршрут сервера приложений, принявшего входящий запрос.</li>
+      <li><code>HttpHeaders</code>: массив критических заголовков браузера клиента (включая User-Agent, Accept-Language, Sec-Ch-Ua).</li>
+      <li><code>EncodedData</code>: криптографический контекстный слепок устройства, собранный клиентским SDK Amazon Cognito Advanced Security на стороне браузера или мобильного приложения.</li>
+    </ul>
+
+    <pre><code># Пример передачи ContextData в AdminInitiateAuth через AWS CLI
+aws cognito-idp admin-initiate-auth \
+  --user-pool-id us-east-1_ExamplePool \
+  --client-id 1example234567890abcdef \
+  --auth-flow ADMIN_USER_PASSWORD_AUTH \
+  --auth-parameters USERNAME=pilot,PASSWORD=Secret123! \
+  --context-data '{"IpAddress":"203.0.113.195","ServerName":"api.example.com","ServerPath":"/auth/login","HttpHeaders":[{"headerName":"User-Agent","headerValue":"Mozilla/5.0"}],"EncodedData":"e30="}'</code></pre>
+
+    <div class="prints">
+      <strong>Рекомендация для BFF:</strong> Передача полной структуры ContextData восстанавливает сквозную видимость для моделей скоринга рисков Advanced Security, надежно защищает пулы соединений серверов приложений от ошибочных блокировок и гарантирует детальную оценку безопасности каждой индивидуальной пользовательской сессии в CloudWatch.
+    </div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы освоили эшелонированную архитектуру безопасности Amazon Cognito:</p>
+      <ul>
+        <li>Понимание трех режимов Advanced Security: OFF, AUDIT для сбора метрик и ENFORCED для блокировки атак.</li>
+        <li>Архитектура скоринга рисков Adaptive Authentication по сетевым и поведенческим сигнатурам.</li>
+        <li>Автоматическое выявление утекших паролей через <code>CompromisedCredentialsRiskConfiguration</code>.</li>
+        <li>Нативная интеграция User Pool с сетевым экраном AWS WAFv2 и подключение наборов управляемых правил.</li>
+        <li>Ограничение частоты запросов (Rate Limiting) и сохранение контекста пользователей через <code>ContextData</code> в BFF.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="09.html">Раздел 9</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="07.html">Раздел 7</a></p>
+        <p class="pager-next">Следующая тема: <a href="09.html">Лимиты и экономика</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="07.html">Identity Pools и STS</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

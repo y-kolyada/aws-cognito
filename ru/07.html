@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 7 · devops-aws-cognito · ai|</title>
+<title>Identity Pools и STS · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Федеративные пулы идентичностей Cognito: обмен JWT-токенов на временные ключи AWS STS, авторизованные и гостевые роли IAM, правила сопоставления RoleMappings.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/07.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/07.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/07.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 7">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Identity Pools и STS">
+<meta property="og:description" content="Федеративные пулы идентичностей Cognito: обмен JWT-токенов на временные ключи AWS STS, авторизованные и гостевые роли IAM, правила сопоставления RoleMappings.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/07.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 7","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/07.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Identity Pools и STS","description":"Федеративные пулы идентичностей Cognito: обмен JWT-токенов на временные ключи AWS STS, авторизованные и гостевые роли IAM, правила сопоставления RoleMappings.","url":"https://y-kolyada.github.io/aws-cognito/ru/07.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html" aria-current="page"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html" aria-current="page"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,140 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 7</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Identity Pools и STS</h1>
+    <p class="page-size" data-words="1262">Слов: 1262</p>
+    <p class="lead">Федеративные пулы идентичностей Cognito: обмен JWT-токенов на временные ключи AWS STS, авторизованные и гостевые роли IAM, правила сопоставления RoleMappings.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Если Amazon Cognito User Pool отвечает за прикладную аутентификацию (удостоверение личности пользователя и выпуск стандартизированных JWT-токенов), то <span class="term"><button type="button" class="term-btn" aria-expanded="false">Amazon Cognito Identity Pool</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Пул идентичностей (Identity Pool)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Компонент Cognito для обмена токенов удостоверения на временные учетные данные AWS STS с правами IAM ролей.</span><span class="term-links"><a href="glossary.html#identity-pool">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> отвечает за облачную авторизацию в инфраструктуре AWS. Назначение Identity Pool состоит в обмене внешних токенов аутентификации (Cognito User Pools, Google, Apple, SAML или OIDC) на временные криптографические учетные данные службы <span class="term"><button type="button" class="term-btn" aria-expanded="false">AWS Security Token Service (STS)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Служба временных токенов (AWS STS)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Глобальный сервис AWS Security Token Service, генерирующий временные ограниченные криптографические ключи доступа.</span><span class="term-links"><a href="glossary.html#sts">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. Это позволяет мобильным и браузерным клиентам безопасно обращаться к целевым сервисам AWS (Amazon S3, Amazon DynamoDB, Amazon SQS) напрямую через официальные SDK, полностью исключая необходимость написания, поддержки и масштабирования промежуточных серверных прокси-бэкендов.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема 4-ступенчатой цепочки делегирования прав STS через Identity Pool">
+  <!-- Step 1: User Pool Token -->
+  <rect x="20" y="10" width="280" height="30" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="28" text-anchor="middle" font-size="12" fill="currentColor">1. User Pool ID Token (OpenID)</text>
+
+  <line x1="160" y1="40" x2="160" y2="58" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,66 156,58 164,58" fill="currentColor"/>
+
+  <!-- Step 2: Identity Pool GetId -->
+  <rect x="20" y="66" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">2. Identity Pool (GetId)</text>
+  <text x="160" y="94" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Роли Authenticated / Unauth</text>
+
+  <line x1="160" y1="100" x2="160" y2="116" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,124 156,116 164,116" fill="currentColor"/>
+
+  <!-- Step 3: AWS STS -->
+  <rect x="20" y="124" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">3. AWS STS (AssumeRoleWithWebIdentity)</text>
+  <text x="160" y="152" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Временные ключи SessionToken</text>
+
+  <line x1="160" y1="158" x2="160" y2="174" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,182 156,176 164,176" fill="currentColor"/>
+
+  <!-- Step 4: Direct SigV4 Call -->
+  <rect x="20" y="182" width="280" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="200" text-anchor="middle" font-size="12" fill="currentColor">4. Прямой доступ к AWS (S3 / DynamoDB)</text>
+      </svg>
+      <p class="dim">Схема 8. Обмен токенов на временные учетные данные AWS STS через Identity Pool.</p>
+    </div>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="architecture-flow">1 · Архитектура обмена: от токена OIDC к учетным данным STS <a class="anchor-link" href="#architecture-flow">#</a></h2>
+    <p>Создание федеративного пула идентичностей через вызов <code>create-identity-pool</code> настраивает девять параметров конфигурации: <code>AllowClassicFlow</code>, <code>AllowUnauthenticatedIdentities</code>, <code>CognitoIdentityProviders</code>, <code>DeveloperProviderName</code>, <code>IdentityPoolName</code>, <code>IdentityPoolTags</code>, <code>OpenIdConnectProviderARNs</code>, <code>SamlProviderARNs</code> и <code>SupportedLoginProviders</code>.</p>
+    <p>Процесс получения доступа к сервисам AWS выполняется по строгому трехшаговому алгоритму:</p>
+    <ol>
+      <li><strong>Получение идентификатора идентичности (GetId):</strong> Клиентское приложение отправляет вызов <code>GetId</code> в сервис Cognito Identity, передавая идентификатор Identity Pool и карту логинов (Logins map), содержащую токен аутентификации (например, <code>cognito-idp.eu-central-1.amazonaws.com/eu-central-1_abc123: &lt;id_token&gt;</code>). Сервис проверяет цифровую подпись токена и возвращает клиенту постоянный региональный идентификатор идентичности <code>IdentityId</code> формата <code>&lt;region&gt;:&lt;uuid&gt;</code>.</li>
+      <li><strong>Запрос временных учетных данных (GetCredentialsForIdentity):</strong> Клиент отправляет вызов <code>GetCredentialsForIdentity</code>, передавая полученный <code>IdentityId</code> и карту токенов. Сервис Cognito Identity валидирует сессию, определяет соответствующую роль IAM и вызывает сервис AWS STS методом <code>AssumeRoleWithWebIdentity</code>.</li>
+      <li><strong>Выпуск криптографических ключей STS:</strong> Служба STS возвращает клиенту комплект временных учетных данных: <code>AccessKeyId</code>, <code>SecretAccessKey</code>, <code>SessionToken</code> и метку истечения срока <code>Expiration</code> (по умолчанию 1 час). Клиентский AWS SDK автоматически использует эти ключи для подписи HTTP-запросов алгоритмом <span class="term"><button type="button" class="term-btn" aria-expanded="false">AWS Signature Version 4 (SigV4)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Протокол подписи SigV4 (Signature Version 4)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Обязательный криптографический протокол подписи HTTP-запросов к API интерфейсам сервисов Amazon Web Services.</span><span class="term-links"><a href="glossary.html#sigv4">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</li>
+    </ol>
+
+    <h2 id="iam-roles">2 · Авторизованные и гостевые роли IAM <a class="anchor-link" href="#iam-roles">#</a></h2>
+    <p>Привязка ролей к Identity Pool конфигурирует три блока настроек: идентификатор пула <code>IdentityPoolId</code>, правила сопоставления <code>RoleMappings</code> и базовый словарь ролей <code>Roles</code>.</p>
+    <p>В блоке <code>Roles</code> объявляются две базовые роли IAM:</p>
+    <ul>
+      <li><strong><span class="term"><button type="button" class="term-btn" aria-expanded="false">Авторизованная роль (Authenticated Role)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Авторизованная роль (Authenticated Role)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">IAM-роль, назначаемая пользователям, успешно подтвердившим свою подлинность через провайдера идентификации.</span><span class="term-links"><a href="glossary.html#authenticated-role">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>:</strong> Назначается пользователям, успешно подтвердившим личность через доверенный источник (User Pool, корпоративный SAML IdP или социальную сеть). Предоставляет доступ к защищенным бизнес-ресурсам приложения (чтение персональных данных, запись файлов, отправка сообщений в очереди).</li>
+      <li><strong><span class="term"><button type="button" class="term-btn" aria-expanded="false">Гостевая роль (Unauthenticated Role)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Гостевая роль (Unauthenticated Role)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">IAM-роль, предоставляющая строго ограниченный доступ анонимным пользователям приложения без прохождения логина.</span><span class="term-links"><a href="glossary.html#unauthenticated-role">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>:</strong> Активируется только при явном включении флага <code>AllowUnauthenticatedIdentities=true</code>. Позволяет неавторизованным гостям приложения получать временный <code>IdentityId</code> и ограниченные учетные данные STS. Типичные сценарии: предоставление гостям доступа к просмотру публичного каталога медиафайлов в S3, сохранение локальной корзины товаров в DynamoDB или генерация речи через Amazon Polly.</li>
+    </ul>
+    <p>При последующей регистрации гостя через User Pool сервис Cognito объединяет временный гостевой <code>IdentityId</code> с новым авторизованным профилем, сохраняя историю действий и данные корзины без потери пользовательского контекста.</p>
+
+    <h2 id="trust-policy">3 · Политика доверия Role Trust Policy и условия aud/amr <a class="anchor-link" href="#trust-policy">#</a></h2>
+    <p>Каждая роль IAM, привязываемая к Identity Pool, обязана иметь строгую политику доверия (Assume Role Policy), предотвращающую несанкционированное использование роли сторонними сущностями.</p>
+    <p>Политика доверия обязана содержать следующие элементы:</p>
+    <ul>
+      <li><code>Principal</code>: федеративный субъект сервиса идентичности <code>"Federated": "cognito-identity.amazonaws.com"</code>.</li>
+      <li><code>Action</code>: право вызова метода генерации токенов <code>"sts:AssumeRoleWithWebIdentity"</code>.</li>
+      <li><code>Condition</code>: строгие условия валидации входящего контекста. Условие <code>"StringEquals": { "cognito-identity.amazonaws.com:aud": "&lt;IdentityPoolId&gt;" }</code> гарантирует, что роль может быть запрошена только вызовами из данного конкретного Identity Pool, полностью исключая уязвимость Confused Deputy. Условие <code>"ForAnyValue:StringLike": { "cognito-identity.amazonaws.com:amr": "authenticated" }</code> гарантирует, что авторизованная роль физически не может быть выдана гостевой сессии.</li>
+    </ul>
+
+    <h2 id="role-mappings">4 · Правила сопоставления ролей RoleMappings по клеймам токена <a class="anchor-link" href="#role-mappings">#</a></h2>
+    <p>В корпоративных системах назначение одной общей авторизованной роли всем пользователям неприемлемо: администраторы, аудиторы и обычные сотрудники требуют принципиально разных прав доступа в облаке. Эту задачу решает <span class="term"><button type="button" class="term-btn" aria-expanded="false">сопоставление ролей RoleMappings</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Сопоставление ролей (Role Mapping)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Механизм Identity Pool, динамически выбирающий целевую IAM-роль на основе клеймов или групп входящего токена.</span><span class="term-links"><a href="glossary.html#role-mapping">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, определяющий тип правила <code>Type</code> и стратегию разрешения коллизий <code>AmbiguousRoleResolution</code>.</p>
+    <p>Поддерживаются два типа сопоставления:</p>
+    <ul>
+      <li><strong>На основе токена (Type = "Token"):</strong> Роль определяется напрямую из клеймов токена <code>cognito:roles</code> или <code>cognito:preferred_role</code>, формируемых группами User Pool.</li>
+      <li><strong>На основе правил (Type = "Rules"):</strong> Блок <code>RulesConfiguration.Rules</code> задает до 25 упорядоченных правил сопоставления. Каждое правило настраивает четыре параметра: имя клейма в токене <code>Claim</code> (например, <code>custom:department</code>), условие сопоставления <code>MatchType</code> (допустимы <code>Equals</code>, <code>Contains</code>, <code>StartsWith</code> и <code>NotEqual</code>), целевое значение <code>Value</code> (например, <code>SecurityAuditor</code>) и ARN назначаемой роли IAM <code>RoleARN</code>.</li>
+    </ul>
+    <p>Параметр <code>AmbiguousRoleResolution</code> определяет поведение системы, если пользователь удовлетворяет нескольким конфликтующим правилам или не подошел ни под одно: значение <code>AuthenticatedRole</code> назначает базовую роль по умолчанию, а значение <code>Deny</code> полностью блокирует выдачу учетных данных STS, предотвращая несанкционированный доступ при ошибках конфигурации ролей.</p>
+
+    <h2 id="s3-granularity">5 · Гранулярный доступ к AWS S3 и DynamoDB на уровне пользователя <a class="anchor-link" href="#s3-granularity">#</a></h2>
+    <p>Наиболее востребованным архитектурным паттерном применения Identity Pools является прямая изоляция пользовательских файлов в объектном хранилище Amazon S3 и строковая изоляция записей в базе данных Amazon DynamoDB без написания промежуточной серверной прослойки.</p>
+    <p>Для реализации этого паттерна в хранилище файлов политика IAM авторизованной роли использует контекстную переменную политики <code>${cognito-identity.amazonaws.com:sub}</code>:</p>
+    <pre><code>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::my-app-storage/users/${cognito-identity.amazonaws.com:sub}/*"
+    }
+  ]
+}</code></pre>
+    <p>При вызове <code>AssumeRoleWithWebIdentity</code> сервис AWS STS динамически подставляет уникальный <code>IdentityId</code> пользователя вместо переменной подстановки. В результате клиент получает доступ строго к собственному префиксу в S3-бакете. Попытка запросить файл с чужим идентификатором пресекается ядром авторизации AWS IAM на сетевом уровне с кодом 403 Access Denied, обеспечивая абсолютную изоляцию клиентских данных.</p>
+    <p>Аналогичный механизм гранулярного контроля (Fine-Grained Access Control, FGAC) применяется для высокопроизводительных баз данных Amazon DynamoDB. В условии политики IAM задается условие <code>dynamodb:LeadingKeys</code>, привязывающее ключ партиции (Partition Key) таблицы к идентификатору пользователя:</p>
+    <pre><code>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:Query"],
+      "Resource": "arn:aws:dynamodb:eu-central-1:123456789012:table/UserProfileTable",
+      "Condition": {
+        "ForAllValues:StringEquals": {
+          "dynamodb:LeadingKeys": ["${cognito-identity.amazonaws.com:sub}"]
+        }
+      }
+    }
+  ]
+}</code></pre>
+    <p>Такая конфигурация гарантирует, что пользователь физически не способен выполнить операцию Scan всей таблицы или прочитать записи с чужим Partition Key. Дополнительно Identity Pools поддерживают атрибуты Principal Tags (Session Tagging), позволяя передавать кастомные клеймы токена (например, <code>department</code> или <code>tenant_id</code>) непосредственно в контекст сессии STS для реализации динамического управления доступом на основе атрибутов (ABAC).</p>
+
+    <h2 id="classic-vs-enhanced">6 · Классический против расширенного потока авторизации <a class="anchor-link" href="#classic-vs-enhanced">#</a></h2>
+    <p>Параметр <code>AllowClassicFlow</code> управляет протоколом взаимодействия клиента с Identity Pool:</p>
+    <ul>
+      <li><strong>Классический поток (Classic Authflow):</strong> Устаревший двухэтапный протокол. Клиент сначала вызывал <code>GetId</code>, затем метод <code>GetOpenIdToken</code> для получения специального временного токена от Cognito Identity, и затем самостоятельно отправлял запрос <code>AssumeRoleWithWebIdentity</code> напрямую в сервис AWS STS, передавая ARN желаемой роли. Этот подход требовал внедрения инфраструктурных ARN ролей IAM в клиентский код приложения и усложнял обработку ошибок.</li>
+      <li><strong>Расширенный поток (Enhanced Authflow, по умолчанию):</strong> Современный оптимизированный протокол. Клиент отправляет вызов <code>GetCredentialsForIdentity</code> напрямую в Cognito Identity. Сервис берет на себя вычисление правил <code>RoleMappings</code>, самостоятельно обращается в STS и возвращает клиенту готовые учетные данные в едином компактном сетевом ответе. Клиентское приложение полностью изолировано от деталей IAM-инфраструктуры.</li>
+    </ul>
+    <p>Официальные клиентские библиотеки AWS Amplify и AWS SDK автоматически кэшируют полученные учетные данные STS в локальном хранилище устройства и инициируют их прозрачное фоновое обновление за 5 минут до истечения срока действия (Expiration), исключая прерывание пользовательских операций.</p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы освоили бессерверную модель авторизации через Identity Pools и STS:</p>
+      <ul>
+        <li>Понимание различий ответственности: User Pools (идентичность) против Identity Pools (права в облаке).</li>
+        <li>Трехшаговый алгоритм трансляции токенов OIDC во временные криптографические ключи STS SigV4.</li>
+        <li>Настройка безопасных политик доверия IAM с проверкой условий <code>aud</code> и <code>amr</code>.</li>
+        <li>Гранулярное управление доступом через правила <code>RoleMappings</code> и переменные политик <code>${cognito-identity.amazonaws.com:sub}</code> в S3.</li>
+        <li>Преимущества современного расширенного потока (Enhanced Flow) перед устаревшим классическим.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="08.html">Раздел 8</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="06.html">Раздел 6</a></p>
+        <p class="pager-next">Следующая тема: <a href="08.html">Безопасность и WAF</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="06.html">События и триггеры</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

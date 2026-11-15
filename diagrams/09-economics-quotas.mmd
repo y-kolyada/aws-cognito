@@ -1,0 +1,11 @@
+graph TD
+    Users["Активные пользователи каталога"]
+    Tier["Тарификация MAU: 50K Free Tier"]
+    TollFraud["Защита от SMS Toll Fraud (SNS Quotas)"]
+    APILimits["Лимиты вызовов API (TPS & Burst)"]
+    CostOptimization["Оптимизация: TOTP MFA вместо SMS"]
+
+    Users --> Tier
+    Tier --- CostOptimization
+    Users --> APILimits
+    CostOptimization --> TollFraud

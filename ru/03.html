@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 3 · devops-aws-cognito · ai|</title>
+<title>Клиенты и OAuth 2.0 · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Конфигурация App Clients в Cognito: публичные и конфиденциальные клиенты, защита PKCE, потоки OAuth 2.0 и кастомные области видимости Resource Servers.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/03.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/03.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/03.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 3">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Клиенты и OAuth 2.0">
+<meta property="og:description" content="Конфигурация App Clients в Cognito: публичные и конфиденциальные клиенты, защита PKCE, потоки OAuth 2.0 и кастомные области видимости Resource Servers.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/03.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 3","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/03.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Клиенты и OAuth 2.0","description":"Конфигурация App Clients в Cognito: публичные и конфиденциальные клиенты, защита PKCE, потоки OAuth 2.0 и кастомные области видимости Resource Servers.","url":"https://y-kolyada.github.io/aws-cognito/ru/03.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html" aria-current="page"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html" aria-current="page"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,114 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 3</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Клиенты и OAuth 2.0</h1>
+    <p class="page-size" data-words="1284">Слов: 1284</p>
+    <p class="lead">Конфигурация App Clients в Cognito: публичные и конфиденциальные клиенты, защита PKCE, потоки OAuth 2.0 и кастомные области видимости Resource Servers.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p><span class="term"><button type="button" class="term-btn" aria-expanded="false">Клиент приложения (App Client)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Клиент приложения (App Client)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Сущность конфигурации в User Pool, представляющая конкретное приложение (SPA, Mobile, Backend) с индивидуальными правами.</span><span class="term-links"><a href="glossary.html#app-client">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> представляет собой конфигурационную сущность внутри User Pool, регламентирующую правила взаимодействия конкретного потребителя с каталогом пользователей. App Client определяет допустимые протоколы аутентификации, генерацию <span class="term"><button type="button" class="term-btn" aria-expanded="false">секрета клиента (Client Secret)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Секрет клиента (Client Secret)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Криптографический секретный ключ конфиденциального клиента, используемый бэкендом для аутентификации перед сервером авторизации.</span><span class="term-links"><a href="glossary.html#client-secret">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, правила OAuth 2.0, гранулярные права на чтение и запись атрибутов профиля, а также интеграцию с серверами ресурсов. Главный архитектурный закон безопасности при проектировании клиентов состоит в строгом разделении публичных сред (Single Page Applications, мобильные клиенты), где наличие секрета клиента категорически запрещено и обязателен <span class="term"><button type="button" class="term-btn" aria-expanded="false">протокол PKCE</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Протокол PKCE (Proof Key for Code Exchange)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Криптографическое расширение OAuth 2.0 (RFC 7636), защищающее публичные клиенты от перехвата кода авторизации.</span><span class="term-links"><a href="glossary.html#pkce">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, и конфиденциальных сред (бэкенд-сервисы), где секрет хранится в защищенном контуре и используется для межсервисной авторизации M2M.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема протокола OAuth 2.0 PKCE в виде пошаговой диаграммы обмена">
+  <!-- Left Column: Public Client -->
+  <rect x="10" y="15" width="80" height="190" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="50" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Клиент</text>
+  <text x="50" y="48" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">SPA App</text>
+
+  <!-- Right Column: Cognito Server -->
+  <rect x="230" y="15" width="80" height="190" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="270" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Cognito</text>
+  <text x="270" y="48" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">IdP Core</text>
+
+  <!-- Step 1: Client -> Cognito -->
+  <line x1="90" y1="75" x2="222" y2="75" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="230,75 222,71 222,79" fill="currentColor"/>
+  <text x="160" y="68" text-anchor="middle" font-size="12" fill="currentColor">1. /authorize</text>
+
+  <!-- Step 2: Cognito -> Client -->
+  <line x1="230" y1="110" x2="98" y2="110" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="90,110 98,106 98,114" fill="currentColor"/>
+  <text x="160" y="103" text-anchor="middle" font-size="12" fill="currentColor">2. Редирект (Code)</text>
+
+  <!-- Step 3: Client -> Cognito -->
+  <line x1="90" y1="145" x2="222" y2="145" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="230,145 222,141 222,149" fill="currentColor"/>
+  <text x="160" y="138" text-anchor="middle" font-size="12" fill="currentColor">3. /token + Verifier</text>
+
+  <!-- Step 4: Cognito -> Client -->
+  <line x1="230" y1="180" x2="98" y2="180" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="90,180 98,176 98,184" fill="currentColor"/>
+  <text x="160" y="173" text-anchor="middle" font-size="12" fill="currentColor">4. Токены JWT</text>
+      </svg>
+      <p class="dim">Схема 4. Поток Authorization Code с криптографическим протоколом PKCE.</p>
+    </div>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="app-clients">1 · Публичные против конфиденциальных клиентов приложений <a class="anchor-link" href="#app-clients">#</a></h2>
+    <p>Конфигурация клиента приложения настраивает двадцать три параметра и начинается с выбора параметра генерации секрета: <code>GenerateSecret</code>.</p>
+    <ul>
+      <li><strong>Публичные клиенты (Public Clients):</strong> Одностраничные приложения в браузере (React, Vue, Angular), мобильные клиенты (iOS, Android) и десктопные программы. Поскольку исполняемый код и память приложения находятся под полным контролем пользователя, секрет клиента невозможно сохранить в тайне: любой секрет, зашитый в JavaScript-бандл или APK-файл, извлекается за секунды с помощью стандартных инструментов отладки или декомпиляции. Для публичных клиентов параметр <code>GenerateSecret</code> обязан быть установлен в значение <code>false</code>.</li>
+      <li><strong>Конфиденциальные клиенты (Confidential Clients):</strong> Серверные монолиты, защищенные микросервисы и фоновые демоны (Node.js, Go, Python, Java). Код исполняется в изолированной серверной среде, где секрет клиента хранится в переменных окружения или AWS Secrets Manager. Для таких клиентов настраивается <code>GenerateSecret=true</code>, и каждый запрос к Cognito эндпоинтам сопровождается передачей вычисленного значения <code>SECRET_HASH</code> (хэш HMAC-SHA256 от имени пользователя, Client ID и Client Secret).</li>
+    </ul>
+    <p>Параметр <code>ExplicitAuthFlows</code> настраивает разрешенные низкоуровневые потоки авторизации клиента из восьми поддерживаемых вариантов: <code>ALLOW_USER_SRP_AUTH</code> (протокол SRP для клиентов с вводом логина и пароля), <code>ALLOW_REFRESH_TOKEN_AUTH</code> (обмен Refresh токена), <code>ALLOW_CUSTOM_AUTH</code> (кастомные вызовы без пароля), <code>ALLOW_USER_PASSWORD_AUTH</code> (прямая передача пароля по HTTPS), <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code> (вызовы со стороны доверенного бэкенда), <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code> и устаревший <code>USER_PASSWORD_AUTH</code>.</p>
+
+    <h2 id="oauth-flows">2 · Потоки OAuth 2.0: Authorization Code против Client Credentials <a class="anchor-link" href="#oauth-flows">#</a></h2>
+    <p>Если для входа используется встроенный интерфейс Hosted UI или федерация с социальными/корпоративными IdP, взаимодействие строится поверх стандарта OAuth 2.0. Параметр <code>AllowedOAuthFlows</code> принимает три режима:</p>
+    <ul>
+      <li><code>code</code> (<span class="term"><button type="button" class="term-btn" aria-expanded="false">Authorization Code Grant</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Поток кода авторизации (Authorization Code Grant)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Стандартный поток протокола OAuth 2.0, при котором клиент получает временный одноразовый код авторизации и обменивает его на токены.</span><span class="term-links"><a href="glossary.html#auth-code-grant">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>): золотой архитектурный стандарт. Пользователь перенаправляется на форму входа, успешно проходит аутентификацию и возвращается на клиентский адрес перенаправления (Callback URL) с одноразовым кодом авторизации. Затем приложение обменивает этот код на эндпоинте <code>/oauth2/token</code> на комплект токенов. При использовании в публичных клиентах поток обязательно дополняется протоколом PKCE.</li>
+      <li><code>implicit</code> (Implicit Grant): устаревший поток, при котором токены возвращаются непосредственно во фрагменте URL редиректа браузера (<code>#access_token=...&amp;id_token=...</code>). Поток Implicit признан небезопасным рабочей группой OAuth и исключен из спецификации OAuth 2.1 из-за рисков утечки токенов через историю браузера, сетевые логи и заголовок Referer.</li>
+      <li><code>client_credentials</code> (<span class="term"><button type="button" class="term-btn" aria-expanded="false">Client Credentials Grant</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Поток учетных данных клиента (Client Credentials)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Поток OAuth 2.0 для межсервисной аутентификации (M2M) без участия конечного пользователя.</span><span class="term-links"><a href="glossary.html#client-credentials">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>): сценарий аутентификации Machine-to-Machine (M2M) между серверами без участия человека. Конфиденциальный клиент передает свой Client ID и Client Secret напрямую на эндпоинт токенов и получает Access Token, содержащий кастомные права доступа к API.</li>
+    </ul>
+
+    <h2 id="pkce">3 · Протокол PKCE: защита от перехвата кода авторизации <a class="anchor-link" href="#pkce">#</a></h2>
+    <p>Спецификация Proof Key for Code Exchange (PKCE, RFC 7636) была разработана для защиты публичных клиентов от перехвата одноразового кода авторизации. В мобильных операционных системах или одностраничных веб-приложениях злонамеренный процесс или скрипт может зарегистрировать аналогичный URI-обработчик и перехватить редирект с кодом авторизации.</p>
+    <p>Механизм PKCE полностью нивелирует эту угрозу за счет динамической криптографической связки запроса авторизации и запроса обмена кода:</p>
+    <ol>
+      <li><strong>Генерация verifier:</strong> Клиент генерирует криптографически стойкую случайную строку <code>code_verifier</code> длиной от 43 до 128 символов из разрешенного набора ASCII.</li>
+      <li><strong>Вычисление challenge:</strong> Клиент вычисляет хэш SHA-256 от верификатора и кодирует его в формат Base64URL: <code>code_challenge = base64Url(sha256(code_verifier))</code>.</li>
+      <li><strong>Запрос авторизации:</strong> При перенаправлении на <code>/oauth2/authorize</code> клиент передает параметры <code>code_challenge</code> и <code>code_challenge_method=S256</code>. Сервис Cognito сохраняет challenge вместе с выданным кодом авторизации.</li>
+      <li><strong>Обмен кода:</strong> Клиент отправляет POST-запрос на <code>/oauth2/token</code>, передавая полученный код авторизации и исходный незашифрованный <code>code_verifier</code>.</li>
+      <li><strong>Проверка сервером:</strong> Cognito вычисляет хэш от переданного <code>code_verifier</code> и сравнивает его с сохраненным <code>code_challenge</code>. Если значения совпадают, клиенту выдаются токены. Даже если злоумышленник перехватил код авторизации, он не сможет обменять его без знания исходного <code>code_verifier</code>.</li>
+    </ol>
+
+    <h2 id="scopes">4 · Стандартные области видимости и Resource Servers <a class="anchor-link" href="#scopes">#</a></h2>
+    <p>Параметр <code>AllowedOAuthScopes</code> определяет набор прав (scopes), которые клиент имеет право запросить при авторизации. Стандартные области видимости охватывают пять встроенных значений:</p>
+    <ul>
+      <li><code>openid</code>: обязательный базовый скоуп OIDC, дающий команду Cognito выпустить ID Token. Без этого скоупа выдается только Access Token.</li>
+      <li><code>email</code>: разрешает включение атрибутов <code>email</code> и <code>email_verified</code> в ID Token.</li>
+      <li><code>phone</code>: разрешает включение <code>phone_number</code> и <code>phone_number_verified</code> в ID Token.</li>
+      <li><code>profile</code>: предоставляет доступ к расширенным стандартным атрибутам пользователя (имя, фамилия, пол, дата рождения).</li>
+      <li><code>aws.cognito.signin.user.admin</code>: системный скоуп Cognito, наделяющий полученный Access Token правом вызывать методы User Pool API для самостоятельного управления профилем (изменение пароля, привязка TOTP MFA, удаление сессий).</li>
+    </ul>
+    <p>Для разграничения доступа к собственным микросервисам создаются <span class="term"><button type="button" class="term-btn" aria-expanded="false">серверы ресурсов (Resource Servers)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Сервер ресурсов (Resource Server)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Архитектурная сущность в User Pool, определяющая защищаемый API и перечень пользовательских областей видимости (custom scopes).</span><span class="term-links"><a href="glossary.html#resource-server">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. Конфигурация Resource Server задает уникальный идентификатор (например, <code>https://api.example.com/billing</code>) и массив <span class="term"><button type="button" class="term-btn" aria-expanded="false">кастомных областей видимости (Custom Scopes)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Пользовательские скоупы (Custom Scopes)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Гранулярные разрешения доступа, определенные на сервере ресурсов и включаемые в состав Access токена.</span><span class="term-links"><a href="glossary.html#custom-scopes">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, каждый из которых содержит два поля: имя <code>ScopeName</code> (например, <code>invoices.read</code>, <code>invoices.pay</code>) и понятное описание <code>ScopeDescription</code>. Полный идентификатор скоупа формируется как <code>Identifier/ScopeName</code> и проверяется кодом микросервиса при валидации Access токена.</p>
+
+    <h2 id="attribute-permissions">5 · Гранулярные права на чтение и запись атрибутов <a class="anchor-link" href="#attribute-permissions">#</a></h2>
+    <p>Безопасность профилей пользователей обеспечивается матрицей прав доступа к атрибутам, настраиваемой для каждого App Client индивидуально через списки <code>ReadAttributes</code> и <code>WriteAttributes</code>.</p>
+    <p>Если в вашем приложении используются кастомные атрибуты, управляющие логикой бизнес-прав (например, <code>custom:role</code>, <code>custom:is_admin</code>, <code>custom:subscription_tier</code>), их ни в коем случае нельзя включать в список <code>WriteAttributes</code> публичного клиентского приложения. Пользователь с минимальными техническими навыками может отправить прямой запрос к API Cognito и перезаписать собственный атрибут роли, повысив свои привилегии в системе. Такие чувствительные атрибуты должны быть доступны клиенту только для чтения (<code>ReadAttributes</code>), а их модификация должна осуществляться исключительно доверенными серверными микросервисами через административные методы <code>AdminUpdateUserAttributes</code>.</p>
+
+    <h2 id="user-enumeration">6 · Защита от перечисления пользователей PreventUserExistenceErrors <a class="anchor-link" href="#user-enumeration">#</a></h2>
+    <p>Атака перечисления пользователей (User Enumeration Attack) заключается в том, что злоумышленник автоматизированно подбирает логины или адреса электронной почты, анализируя разницу в ответах сервера аутентификации. Параметр <code>PreventUserExistenceErrors</code> в App Client принимает два значения: <code>LEGACY</code> и <code>ENABLED</code>.</p>
+    <p>В устаревшем режиме <code>LEGACY</code> при попытке входа с несуществующим логином сервис Cognito возвращает ошибку <code>UserNotFoundException</code>, а при вводе существующего логина с неверным паролем - <code>NotAuthorizedException</code>. Это позволяет злоумышленнику точно выяснить, зарегистрирован ли конкретный человек в системе, и использовать эти данные для целевого фишинга или атак по словарю.</p>
+    <p>Включение режима <code>PreventUserExistenceErrors=ENABLED</code> полностью устраняет этот вектор атаки. В обоих случаях сервис возвращает обобщенную ошибку <code>NotAuthorizedException</code> с унифицированным сообщением «Incorrect username or password». Аналогично, при вызове сброса пароля <code>ForgotPassword</code> для несуществующего пользователя сервис симулирует штатное поведение отправки кода, не раскрывая факт отсутствия записи в каталоге.</p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы освоили архитектуру клиентов приложений и стандарты авторизации:</p>
+      <ul>
+        <li>Четкое разграничение публичных клиентов (без секрета) и конфиденциальных клиентов бэкенда.</li>
+        <li>Понимание преимуществ потока Authorization Code и отказ от устаревшего потока Implicit.</li>
+        <li>Пошаговая механика криптографической защиты PKCE через параметры verifier и challenge.</li>
+        <li>Конфигурация стандартных скоупов OIDC и проектирование кастомных Resource Servers.</li>
+        <li>Защита профилей через матрицу прав на атрибуты и блокировка атак перечисления пользователей через <code>PreventUserExistenceErrors=ENABLED</code>.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="04.html">Раздел 4</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="02.html">Раздел 2</a></p>
+        <p class="pager-next">Следующая тема: <a href="04.html">Hosted UI и домены</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="02.html">Аутентификация и JWT</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

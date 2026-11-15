@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 11 · devops-aws-cognito · ai|</title>
+<title>Примеры · Pro · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Промышленные сценарии Cognito: интеграция с API Gateway и ALB, Pre Token Generation триггер, Google OIDC, гранулярный S3 и защита через AWS WAFv2.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/11.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/11.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/11.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 11">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Примеры · Pro">
+<meta property="og:description" content="Промышленные сценарии Cognito: интеграция с API Gateway и ALB, Pre Token Generation триггер, Google OIDC, гранулярный S3 и защита через AWS WAFv2.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/11.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 11","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Примеры · Pro","description":"Промышленные сценарии Cognito: интеграция с API Gateway и ALB, Pre Token Generation триггер, Google OIDC, гранулярный S3 и защита через AWS WAFv2.","url":"https://y-kolyada.github.io/aws-cognito/ru/11.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html" aria-current="page"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html" aria-current="page"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,279 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 11</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Примеры · Pro</h1>
+    <p class="page-size" data-words="1163">Слов: 1163</p>
+    <p class="lead">Промышленные сценарии Cognito: интеграция с API Gateway и ALB, Pre Token Generation триггер, Google OIDC, гранулярный S3 и защита через AWS WAFv2.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Профессиональный уровень Pro в Amazon Cognito характеризуется проектированием комплексных межсервисных интеграций и выносом логики авторизации на сетевые рубежи облачной инфраструктуры. Инженер уровня Pro освобождает прикладные микросервисы от рутинной валидации токенов, делегируя проверку подписей JWKS <span class="term"><button type="button" class="term-btn" aria-expanded="false">балансировщикам ALB</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Аутентификация на ALB (ALB Authenticate-Cognito)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Правило слушателя балансировщика Application Load Balancer, автоматически перенаправляющее пользователя на логин в Cognito.</span><span class="term-links"><a href="glossary.html#alb-auth">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> и шлюзам API Gateway и GraphQL в <span class="term"><button type="button" class="term-btn" aria-expanded="false">AWS AppSync</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Авторизация AppSync (AppSync Cognito Auth)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Нативная модель авторизации в сервисе AWS AppSync, валидирующая JWT токены пула пользователей Cognito.</span><span class="term-links"><a href="glossary.html#appsync-auth">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, обогащает токены динамическими правами через триггер Pre Token Generation v2 и исключает бэкенд из цепочки передачи файлов через гранулярные политики STS в S3.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема веерной маршрутизации сетевых авторизаторов к микросервисам">
+  <!-- Top: Ingress Request -->
+  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">HTTPS Запрос (Access Token)</text>
+
+  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,54 156,46 164,46" fill="currentColor"/>
+
+  <!-- Middle Authorizer Layer -->
+  <rect x="20" y="54" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="69" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Сетевой Authorizer (API GW / ALB)</text>
+  <text x="160" y="82" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Валидация подписи JWKS и скоупов</text>
+
+  <!-- Fan-Out to 3 Services -->
+  <line x1="59" y1="88" x2="59" y2="114" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="59,120 55,112 63,112" fill="currentColor"/>
+
+  <line x1="160" y1="88" x2="160" y2="114" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,120 156,112 164,112" fill="currentColor"/>
+
+  <line x1="261" y1="88" x2="261" y2="114" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="261,120 257,112 265,112" fill="currentColor"/>
+
+  <!-- 3 Microservices -->
+  <rect x="12" y="120" width="94" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="59" y="137" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Lambda</text>
+  <text x="59" y="151" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Хуки</text>
+
+  <rect x="113" y="120" width="94" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="137" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">ECS</text>
+  <text x="160" y="151" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Контейнеры</text>
+
+  <rect x="214" y="120" width="94" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="261" y="137" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">EKS</text>
+  <text x="261" y="151" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Pod Ingress</text>
+
+  <!-- Summary Banner -->
+  <line x1="160" y1="162" x2="160" y2="178" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,184 156,176 164,176" fill="currentColor"/>
+
+  <rect x="20" y="184" width="280" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="202" text-anchor="middle" font-size="12" fill="currentColor">Заголовок X-Amzn-Oidc-Data</text>
+      </svg>
+      <p class="dim">Схема 12. Сетевая интеграция: авторизаторы API Gateway, правила ALB и микросервисы.</p>
+    </div>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="scenario-apigw-rest-authorizer">1 · Защита REST API Gateway через Cognito User Pools Authorizer <a class="anchor-link" href="#scenario-apigw-rest-authorizer">#</a></h2>
+    <p><strong>Задача:</strong> Защитить методы REST API в Amazon API Gateway через <span class="term"><button type="button" class="term-btn" aria-expanded="false">Cognito User Pools Authorizer</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Авторизатор API Gateway (Cognito Authorizer)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Встроенный нативный авторизатор REST API Gateway, автоматически валидирующий токен Cognito на границе сети.</span><span class="term-links"><a href="glossary.html#apigw-authorizer">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> без развертывания кастомной Lambda-функции и пробросить идентификатор пользователя бэкенду.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_api_gateway_authorizer" "cognito" {
+  name          = "cognito-user-pool-authorizer"
+  rest_api_id   = aws_api_gateway_rest_api.api.id
+  type          = "COGNITO_USER_POOLS"
+  provider_arns = [aws_cognito_user_pool.primary.arn]
+}
+
+resource "aws_api_gateway_method" "secure_endpoint" {
+  rest_api_id   = aws_api_gateway_rest_api.api.id
+  resource_id   = aws_api_gateway_resource.orders.id
+  http_method   = "GET"
+  authorization = "COGNITO_USER_POOLS"
+  authorizer_id = aws_api_gateway_authorizer.cognito.id
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Нативный авторизатор <code>COGNITO_USER_POOLS</code> инспектирует входящий заголовок <code>Authorization</code>, проверяет математическую подпись RS256 через JWKS и время жизни токена. Встроенный механизм кэширования авторизатора (параметр <code>authorizer_result_ttl_in_seconds</code>, по умолчанию 300 секунд) кэширует результат проверки в памяти API Gateway, снижая задержку последующих запросов до долей миллисекунды. Вся информация из клеймов токена автоматически передается бэкенд-интеграции в объекте контекста <code>$context.authorizer.claims.sub</code> и <code>$context.authorizer.claims.email</code>, исключая необходимость повторной валидации в коде микросервиса.
+    </div>
+
+    <h2 id="scenario-apigw-http-authorizer">2 · Развертывание JWT Authorizer на HTTP API Gateway v2 <a class="anchor-link" href="#scenario-apigw-http-authorizer">#</a></h2>
+    <p><strong>Задача:</strong> Развернуть ультралегкий и экономичный <span class="term"><button type="button" class="term-btn" aria-expanded="false">JWT Authorizer</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Авторизатор JWT (HTTP API JWT Authorizer)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Легковесный и экономичный авторизатор HTTP API v2, проверяющий issuer и audience токена по открытому JWKS.</span><span class="term-links"><a href="glossary.html#jwt-authorizer">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> для HTTP API Gateway v2 с жесткой проверкой издателя токена (Issuer) и идентификатора клиента (Audience).</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_apigatewayv2_authorizer" "jwt" {
+  api_id           = aws_apigatewayv2_api.http_api.id
+  authorizer_type  = "JWT"
+  name             = "cognito-jwt-authorizer"
+  identity_sources = ["$request.header.Authorization"]
+
+  jwt_configuration {
+    audience = [aws_cognito_user_pool_client.spa.id]
+    issuer   = "https://cognito-idp.eu-central-1.amazonaws.com/${aws_cognito_user_pool.primary.id}"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> HTTP API Gateway v2 в три раза дешевле классического REST API и обеспечивает задержку менее 10 мс. Проверка <code>audience</code> гарантирует, что к API не подойдут токены, выпущенные для других клиентов того же пула пользователей, а проверка <code>issuer</code> исключает токены сторонних эмитентов.
+    </div>
+
+    <h2 id="scenario-alb-authentication">3 · Аутентификация на слушателе балансировщика ALB через Hosted UI <a class="anchor-link" href="#scenario-alb-authentication">#</a></h2>
+    <p><strong>Задача:</strong> Настроить Application Load Balancer (ALB) для перехвата неавторизованного HTTP-трафика к веб-панели управления и прозрачного перенаправления на Cognito Hosted UI до того, как запрос достигнет контейнеров в ECS.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_lb_listener_rule" "admin_auth" {
+  listener_arn = aws_lb_listener.https.arn
+  priority     = 10
+
+  action {
+    type = "authenticate-cognito"
+
+    authenticate_cognito {
+      user_pool_arn       = aws_cognito_user_pool.primary.arn
+      user_pool_client_id = aws_cognito_user_pool_client.web.id
+      user_pool_domain    = aws_cognito_user_pool_domain.hosted_ui.domain
+      scope               = "openid email profile"
+      session_cookie_name = "AWSELBAuthSessionCookie"
+      session_timeout     = 3600
+    }
+  }
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.ecs_admin.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/admin/*"]
+    }
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Балансировщик ALB самостоятельно выполняет обмен OAuth 2.0 authorization code на токены, шифрует их в cookie и передает проверенные клеймы пользователя бэкенду в HTTP-заголовке <code>x-amzn-oidc-data</code>. Заголовок подписывается закрытым ключом балансировщика, а микросервисы валидируют цифровую подпись по публичному ключу регионального хранилища AWS ALB (<code>https://public-keys.auth.elb.{region}.amazonaws.com/{key-id}</code>), защищая архитектуру от подделки идентификатора пользователя внутренними сервисами.
+    </div>
+
+    <h2 id="scenario-pre-token-generation">4 · Динамическое обогащение клеймов токена через Pre Token Generation v2 <a class="anchor-link" href="#scenario-pre-token-generation">#</a></h2>
+    <p><strong>Задача:</strong> Реализовать <span class="term"><button type="button" class="term-btn" aria-expanded="false">динамическое обогащение клеймов</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Обогащение клеймов (Claims Enrichment)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Архитектурный паттерн динамической подгрузки ролей и прав из базы данных при генерации токена через триггер Lambda.</span><span class="term-links"><a href="glossary.html#claims-enrichment">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> (RBAC/ABAC) из базы данных в Access Token и ID Token в момент аутентификации с помощью триггера Pre Token Generation версии 2.0.</p>
+    <p><strong>Код триггера (Node.js Lambda):</strong></p>
+    <pre><code>exports.handler = async (event) => {
+  // Запрос прав и ролей пользователя из внешнего хранилища
+  const userRoles = ['Editor', 'BillingAdmin'];
+  const organizationId = 'org-48210';
+
+  event.response = {
+    claimsAndScopeOverrideDetails: {
+      idTokenGeneration: {
+        claimsToAddOrOverride: {
+          organization_id: organizationId
+        }
+      },
+      accessTokenGeneration: {
+        claimsToAddOrOverride: {
+          roles: userRoles.join(','),
+          tenant_tier: 'enterprise'
+        },
+        scopesToAdd: ['workspace:read', 'workspace:write']
+      }
+    }
+  };
+
+  return event;
+};</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Версия триггера <code>V2_0</code> позволяет модифицировать не только ID Token, но и Access Token (блок <code>accessTokenGeneration</code>). Это фундаментальный шаг: все микросервисы архитектуры получают готовый набор ролей прямо из криптографически подписанного токена доступа, устраняя каскадные запросы к базам данных и Cognito API на каждом запросе.
+    </div>
+
+    <h2 id="scenario-google-oidc-federation">5 · Федеративный вход через Google Workspace / OIDC с сопоставлением атрибутов <a class="anchor-link" href="#scenario-google-oidc-federation">#</a></h2>
+    <p><strong>Задача:</strong> Подключить корпоративный домен Google Workspace в качестве федеративного OIDC-провайдера для реализации Single Sign-On сотрудников с автоматическим маппингом профиля.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_cognito_identity_provider" "google" {
+  user_pool_id  = aws_cognito_user_pool.primary.id
+  provider_name = "Google"
+  provider_type = "Google"
+
+  provider_details = {
+    authorize_scopes = "email openid profile"
+    client_id        = "google-client-id.apps.googleusercontent.com"
+    client_secret    = "GOCSPX-secret123456789"
+  }
+
+  attribute_mapping = {
+    email    = "email"
+    username = "sub"
+    name     = "name"
+  }
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> При первой успешной авторизации через Google сервис Cognito автоматически создает профиль пользователя по механизму Just-In-Time (JIT) провижининга. Сервис самостоятельно валидирует подпись Google ID токена по метаданным OIDC Discovery эндпоинта (<code>https://accounts.google.com/.well-known/openid-configuration</code>). Сопоставление атрибутов гарантирует, что корпоративный email и имя попадают в стандартные поля пула, а пароли сотрудников никогда не покидают защищенную инфраструктуру Google.
+    </div>
+
+    <h2 id="scenario-s3-granularity-sigv4">6 · Гранулярный доступ к персональным файлам в S3 через Identity Pool и SigV4 <a class="anchor-link" href="#scenario-s3-granularity-sigv4">#</a></h2>
+    <p><strong>Задача:</strong> Реализовать прямое безопасное скачивание и загрузку пользовательских файлов в бакет S3 через AWS SDK браузера или мобильного приложения без участия промежуточных бэкенд-серверов.</p>
+    <p><strong>Конфигурация (Terraform IAM Policy):</strong></p>
+    <pre><code>resource "aws_iam_role_policy" "s3_user_isolation" {
+  name = "cognito-s3-granularity"
+  role = aws_iam_role.authenticated.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = ["s3:GetObject", "s3:PutObject"]
+        Resource = "arn:aws:s3:::app-user-vault/users/$${cognito-identity.amazonaws.com:sub}/*"
+      }
+    ]
+  })
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Переменная контекста <code>$${cognito-identity.amazonaws.com:sub}</code> динамически заменяется ядром AWS STS на уникальный <code>IdentityId</code> вызывающего пользователя. Попытка запросить или записать файл в чужой префикс пресекается ядром IAM на уровне облака со статусом 403 Forbidden. Бэкенд компании полностью освобождается от передачи терабайтов пользовательского медиа-трафика, а задержка сводится к прямому высокоскоростному каналу между клиентским приложением и бакетом S3.
+    </div>
+
+    <h2 id="scenario-waf-protection">7 · Эшелонированная защита User Pool от атак через AWS WAFv2 WebACL <a class="anchor-link" href="#scenario-waf-protection">#</a></h2>
+    <p><strong>Задача:</strong> Защитить форму Hosted UI и методы аутентификации User Pool от атак распределенного подбора паролей (Brute Force) и атак ботнетов через подключение WebACL службы AWS WAFv2.</p>
+    <p><strong>Конфигурация (Terraform):</strong></p>
+    <pre><code>resource "aws_wafv2_web_acl" "cognito_waf" {
+  name  = "cognito-security-shield"
+  scope = "REGIONAL"
+
+  default_action {
+    allow {}
+  }
+
+  visibility_config {
+    cloudwatch_metrics_enabled = true
+    metric_name                = "CognitoSecurityShield"
+    sampled_requests_enabled   = true
+  }
+
+  rule {
+    name     = "RateLimitAuthEndpoints"
+    priority = 1
+
+    action {
+      block {}
+    }
+
+    statement {
+      rate_based_statement {
+        limit              = 100
+        aggregate_key_type = "IP"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "RateLimitAuthRule"
+      sampled_requests_enabled   = true
+    }
+  }
+}
+
+resource "aws_wafv2_web_acl_association" "cognito" {
+  resource_arn = aws_cognito_user_pool.primary.arn
+  web_acl_arn  = aws_wafv2_web_acl.cognito_waf.arn
+}</code></pre>
+    <div class="prints">
+      <strong>Почему так:</strong> Нативная привязка WebACL инспектирует входящий трафик на границе входа в сервис. Правило ограничения скорости <code>rate_based_statement</code> отсекает IP-адреса, генерирующие более 100 запросов за 5 минут, блокируя атаку до того, как она затронет вычислительные мощности User Pool или вызовет блокировку легитимных учетных записей. В дополнение к лимитам частоты рекомендуется подключение набора <code>AWSManagedRulesCommonRuleSet</code> для пресечения попыток внедрения SQL-инъекций и вредоносных скриптов в поля ввода форм авторизации.
+    </div>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения промышленных сценариев уровня Pro вы владеете технологиями интеграции Cognito с ключевыми сетевыми и вычислительными компонентами AWS:</p>
+      <ul>
+        <li>Шаблоны декларативной настройки нативных авторизаторов API Gateway (REST и HTTP API).</li>
+        <li>Архитектура терминации аутентификации на слушателях Application Load Balancer (ALB).</li>
+        <li>Код триггера Pre Token Generation v2 для динамического обогащения токенов ролями и скоупами.</li>
+        <li>Интеграция корпоративного SSO через Google Workspace с автоматическим маппингом профилей.</li>
+        <li>Бессерверный паттерн прямой загрузки файлов в Amazon S3 с изоляцией по <code>IdentityId</code>.</li>
+        <li>Конфигурация превентивной фильтрации атак через привязку AWS WAFv2 WebACL к User Pool.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="12.html">Раздел 12</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="10.html">Раздел 10</a></p>
+        <p class="pager-next">Следующая тема: <a href="12.html">Примеры · IGL</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="10.html">Примеры · Noob</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

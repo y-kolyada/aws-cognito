@@ -1,0 +1,8 @@
+sequenceDiagram
+    autonumber
+    Client->>Browser: 1. Генерация code_verifier & code_challenge
+    Browser->>Cognito: 2. GET /oauth2/authorize (PKCE challenge)
+    Cognito-->>Browser: 3. Редирект с auth code
+    Browser->>Cognito: 4. POST /oauth2/token (code + code_verifier)
+    Note over Cognito: Верификация SHA256(verifier) == challenge
+    Cognito-->>Browser: 5. Выдача ID, Access, Refresh токенов

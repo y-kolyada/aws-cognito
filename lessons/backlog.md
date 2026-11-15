@@ -12,5 +12,4 @@ Three fields and not one more. **"Why not now" matters most of the two others:**
 
 ## Lines
 
-- **Nothing yet.** This file fills up as the site grows. The first line usually appears while the first step document is being written, because the boundaries of a step are exactly what lands here.
-
+- **Full localization into English, Ukrainian, and German.** Content translation across all 15 chapters and tools. Deferred until the Russian canonical source is fully accepted and frozen.

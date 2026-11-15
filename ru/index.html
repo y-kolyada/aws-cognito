@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AWS Cognito: Посадочная страница · devops-aws-cognito · ai|</title>
+<title>Практический справочник-ассессмент по AWS Cognito для инженера · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Облачный сервис идентификации AWS: User Pools, аутентификация JWT/OIDC, федерация IdP, Identity Pools со временными ролями STS и защита периметра.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/index.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/index.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/index.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="AWS Cognito: Посадочная страница">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Практический справочник-ассессмент по AWS Cognito для инженера">
+<meta property="og:description" content="Облачный сервис идентификации AWS: User Pools, аутентификация JWT/OIDC, федерация IdP, Identity Pools со временными ролями STS и защита периметра.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/index.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/","inLanguage":"ru","description":"Лид страницы: о чём она и кому нужна."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/","inLanguage":"ru","description":"Облачный сервис идентификации AWS: User Pools, аутентификация JWT/OIDC, федерация IdP, Identity Pools со временными ролями STS и защита периметра."}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,24 +93,132 @@
   </nav>
 
   <main id="main">
-    <h1>AWS Cognito: Посадочная страница</h1>
-    <p class="page-size" data-words="41">Слов: 41</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Практический справочник-ассессмент по AWS Cognito для инженера</h1>
+    <p class="page-size" data-words="2158">Слов: 2158</p>
+    <p class="lead">Облачный сервис идентификации AWS: User Pools, аутентификация JWT/OIDC, федерация IdP, Identity Pools со временными ролями STS и защита периметра.</p>
 
     <div class="box key" id="key-idea">
-      <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <h2>Зачем этот сайт <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
+      <p>Этот справочник отвечает на главный практический вопрос облачной разработки: как спроектировать надежную, безопасную и масштабируемую систему аутентификации и авторизации пользователей в экосистеме Amazon Web Services, не создавая уязвимостей в периметре безопасности и не переплачивая за неоптимальную архитектуру. Amazon Cognito - это ключевой сервис управления идентификацией клиентов (Customer Identity and Access Management, CIAM), обеспечивающий регистрацию, вход, федерацию с внешними провайдерами и выдачу токенов для миллионов пользователей веб- и мобильных приложений.</p>
+      <p>В серии курсов AI Factory настоящий справочник замыкает и дополняет инженерную цепочку инфраструктурных сервисов (IAM -&gt; VPC -&gt; S3 -&gt; EC2 -&gt; ALB -&gt; EKS -&gt; CloudFront -&gt; WAF -&gt; Cognito). Если AWS IAM управляет идентификацией внутренних участников системы - разработчиков, администраторов, пайплайнов CI/CD и сервисных ролей для доступа к Control Plane облака, то Amazon Cognito выносит управление внешними пользователями приложений в изолированную плоскость данных (Application Plane). Попытка регистрировать конечных клиентов в IAM является грубейшей архитектурной ошибкой: лимит IAM составляет всего 5000 пользователей на аккаунт AWS, а права доступа в IAM не предназначены для гранулярной логики пользовательских приложений.</p>
+      <p>Сервис Cognito решает эту задачу через две фундаментальные подсистемы: <strong>User Pools</strong> (каталоги пользователей, отвечающие за проверку подлинности, хранение профилей, многофакторную аутентификацию MFA и выдачу стандартизированных токенов JWT) и <strong>Identity Pools</strong> (федеративные пулы идентичностей, обменивающие токены User Pools или внешних провайдеров OIDC/SAML на временные криптографические ключи AWS STS для прямого безопасного вызова облачных сервисов S3, DynamoDB или SQS).</p>
+      <p>Каждое утверждение об инструменте в этом курсе подтверждено воспроизводимым выполнением на локальном хосте: схемы параметров, форматы JSON, структуры JWT и допустимые перечисления получены через генерацию интерфейсов AWS CLI, разбор jq и строгие проверки без обращения к живому облаку.</p>
+
+    <div class="box figure">
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема двух плоскостей архитектуры Cognito: User Pools и Identity Pools">
+  <!-- Top Client Banner -->
+  <rect x="30" y="8" width="260" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Клиент (Web / Mobile App)</text>
+
+  <!-- Down to User Pool -->
+  <line x1="80" y1="34" x2="80" y2="46" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="80,52 76,44 84,44" fill="currentColor"/>
+
+  <!-- Left Plane: User Pools CIAM -->
+  <rect x="15" y="52" width="130" height="110" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="80" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">User Pool (CIAM)</text>
+  <text x="80" y="90" text-anchor="middle" font-size="12" fill="currentColor">Аутентификация</text>
+  <text x="80" y="106" text-anchor="middle" font-size="12" fill="currentColor">База профилей</text>
+  <text x="80" y="124" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Выпуск токенов</text>
+  <text x="80" y="146" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">ID • Access</text>
+
+  <!-- Cross-Plane Exchange: User Pool to Identity Pool -->
+  <line x1="145" y1="107" x2="167" y2="107" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="175,107 167,103 167,111" fill="currentColor"/>
+
+  <!-- Right Plane: Identity Pools & STS -->
+  <rect x="175" y="52" width="130" height="110" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="240" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Identity Pool</text>
+  <text x="240" y="90" text-anchor="middle" font-size="12" fill="currentColor">Федерация с IdP</text>
+  <text x="240" y="106" text-anchor="middle" font-size="12" fill="currentColor">STS ключи</text>
+  <text x="240" y="124" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">IAM роли</text>
+  <text x="240" y="146" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">SigV4 сессии</text>
+
+  <!-- Down to AWS Cloud Services -->
+  <line x1="240" y1="162" x2="240" y2="178" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="240,184 236,176 244,176" fill="currentColor"/>
+
+  <!-- Bottom Banner: AWS Services -->
+  <rect x="175" y="184" width="130" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="240" y="199" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Ресурсы AWS</text>
+  <text x="240" y="211" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">S3 • DynamoDB</text>
+      </svg>
+      <p class="dim">Схема 1. Архитектурная модель сервиса: User Pools (каталог и токены) против Identity Pools (роли STS).</p>
+    </div>
     </div>
 
+    <h2 id="structure">1 · Что на этом сайте <a class="anchor-link" href="#structure">#</a></h2>
+    <p>Материал курса выстроен по канонической структуре из пятнадцати глав, разбитых на три ключевых блока, и дополнен сквозными инструментами синтеза - словарем понятий и инженерным навигатором:</p>
+    <ul>
+      <li><a href="01.html"><strong>01 · Архитектура и User Pools</strong></a> - анатомия каталога пользователей: уникальный идентификатор UserPoolId, схема стандартных и кастомных атрибутов, политики надежности паролей, автоматическое подтверждение email и номера телефона по SMS, механизмы восстановления доступа.</li>
+      <li><a href="02.html"><strong>02 · Аутентификация и токены</strong></a> - криптографическая триада токенов: ID Token (идентичность OpenID Connect), Access Token (авторизационные скоупы и вызовы API), Refresh Token (долгоживущая сессия); внутренняя структура JWT и алгоритм валидации подписи через открытый эндпоинт JWKS.</li>
+      <li><a href="03.html"><strong>03 · Клиенты приложений и OAuth 2.0</strong></a> - конфигурация App Clients: разделение публичных клиентов (SPA, Mobile) без Client Secret с поддержкой протокола PKCE и конфиденциальных клиентов бэкенда; потоки Authorization Code Grant, Client Credentials и кастомные области видимости Resource Servers.</li>
+      <li><a href="04.html"><strong>04 · Hosted UI и кастомные домены</strong></a> - встроенный управляемый интерфейс входа и регистрации: кастомизация CSS-стилей и логотипов, привязка кастомного доменного имени через префикс или собственный домен с публичным SSL-сертификатом AWS Certificate Manager в регионе us-east-1, правила редиректов.</li>
+      <li><a href="05.html"><strong>05 · Федерация и внешние IdP</strong></a> - объединение внешних удостоверений: корпоративная федерация SAML 2.0 для Okta, Microsoft Entra ID и Ping Identity; социальный вход OIDC для Google, Apple и Facebook; сопоставление атрибутов и автоматический Just-In-Time провижининг пользователей.</li>
+      <li><a href="06.html"><strong>06 · События и триггеры</strong></a> - расширение жизненного цикла через бессерверные триггеры AWS Lambda: синхронная валидация регистрации Pre Sign-up, динамическое обогащение клеймов токена Pre Token Generation, отправка уведомлений Custom Message и логика пост-подтверждения Post Confirmation.</li>
+      <li><a href="07.html"><strong>07 · Identity Pools и STS</strong></a> - федеративные пулы идентичностей: архитектура обмена JWT-токенов на временные учетные данные AWS Security Token Service (STS); разграничение политик IAM для авторизованных и гостевых (Unauthenticated) сессий; ролевое сопоставление на основе клеймов токена.</li>
+      <li><a href="08.html"><strong>08 · Безопасность и WAF</strong></a> - эшелонированная защита каталога: функции Advanced Security Features (ASF), адаптивная оценка рисков входа, выявление скомпрометированных паролей в утечках данных, интеграция User Pools с сетевым экраном AWS WAFv2 для блокировки ботнетов и атак перебора.</li>
+      <li><a href="09.html"><strong>09 · Лимиты и экономика</strong></a> - финансовая модель и физические границы: расчет стоимости по ежемесячно активным пользователям (MAU), тарифные планы Essentials и Plus, оптимизация расходов на отправку SMS через AWS SNS, региональные квоты вызовов API Identity Provider и стратегии кэширования.</li>
+      <li><a href="10.html"><strong>10 · Примеры · Noob</strong></a> - семь базовых производственных сценариев в триаде «Задача - Конфигурация - Почему так»: декларативное создание User Pool в Terraform с защитой от удаления, настройка App Client для SPA с PKCE без секрета, привязка домена Hosted UI, регистрация и подтверждение через AWS CLI, вход по протоколу Secure Remote Password (USER_SRP_AUTH), активация программного токена TOTP MFA и защита от сканирования пользователей флагом PreventUserExistenceErrors.</li>
+      <li><a href="11.html"><strong>11 · Примеры · Pro</strong></a> - семь промышленных сценариев эксплуатации: интеграция нативного Cognito User Pools Authorizer с REST API Gateway, развертывание легковесного JWT Authorizer на HTTP API v2, перехват и аутентификация веб-трафика на слушателе ALB с передачей клеймов бэкенду, динамическое обогащение токенов ролями через триггер Pre Token Generation v2, корпоративный SSO через Google Workspace / OIDC, гранулярный доступ к S3 через Identity Pool и SigV4, и эшелонированная защита пула от перебора через привязку AWS WAFv2 WebACL.</li>
+      <li><a href="12.html"><strong>12 · Примеры · IGL</strong></a> - семь архитектурных сценариев системного уровня: бессерверная триада Lambda для беспарольного входа по Email OTP через Custom Authentication Flow, бесшовная миграция пользователей «на лету» из legacy-базы через триггер User Migration без сброса паролей, мультиарендная B2B-федерация с динамической маршрутизацией по корпоративным доменам, внедрение фишинг-устойчивых Passkeys FIDO2 / WebAuthn в Managed Login v2, пресечение атак международного телефонного мошенничества SMS Toll Fraud в Pre Sign-up, ротация Refresh-токенов с отзывом скомпрометированных сессий, и аудит атак Credential Stuffing в CloudWatch и Athena.</li>
+      <li><strong>13-15 · Вопросы <a href="13.html">Noob</a>, <a href="14.html">Pro</a>, <a href="15.html">IGL</a></strong> - квалификационный банк из 150 экзаменационных вопросов с исчерпывающим обоснованием правильных решений и детальным разбором дистракторов: 50 вопросов Noob по основам User Pools, атрибутам, типам токенов и App Clients; 50 вопросов Pro по интеграциям с API Gateway/ALB, триггерам Lambda, STS и защите от атак; 50 архитектурных кейсов IGL по мультиарендности, TCO, FIDO2/Passkeys, миграции пользователей и катастрофоустойчивости.</li>
+      <li><a href="navigator.html"><strong>Навигатор</strong></a> - сквозная аналитическая матрица по девяти инженерным линзам вокруг Amazon Cognito.</li>
+      <li><a href="glossary.html"><strong>Словарь понятий</strong></a> - реестр ключевых терминов, аббревиатур и стандартов протоколов идентификации.</li>
+    </ul>
+
+    <h2 id="levels">2 · Три ступени зрелости <a class="anchor-link" href="#levels">#</a></h2>
+    <p>В серии курсов AI Factory принята трехступенчатая шкала инженерного мастерства, отражающая переход от базового понимания к системному проектированию:</p>
+    <ul>
+      <li><strong>Noob (начинающий специалист)</strong> - осваивает базовый синтаксис CLI и консоли, снимает страх перед сервисом и прекращает воспринимать аутентификацию как магию. Инженер уровня Noob понимает разницу между User Pool и Identity Pool, умеет создать пул через Terraform или консоль, настроить обязательные атрибуты (email) и получить валидный ID токен для передачи на фронтенд.</li>
+      <li><strong>Pro (профессиональный инженер)</strong> - проектирует решения для распределенной команды, гарантируя нулевое время простоя и строгую изоляцию сред. Специалист уровня Pro не использует Client Secret в мобильных и SPA приложениях, принудительно внедряет PKCE, настраивает валидацию JWT на уровне сетевых шлюзов API Gateway и ALB без постоянных сетевых запросов к Cognito, защищает эндпоинты через WAF и настраивает автоматические триггеры Lambda.</li>
+      <li><strong>IGL (In-Game Leader / Главный архитектор)</strong> - видит систему целиком как экономический и технологический механизм. Архитектор уровня IGL рассчитывает TCO системы идентификации с учетом стоимости MAU и SMS, проектирует федерацию с корпоративными каталогами тысяч B2B-клиентов через SAML и мультиарендность (multi-tenancy), выстраивает стратегию плавной миграции миллионов пользователей без сброса паролей и гарантирует соблюдение стандартов PCI DSS, SOC 2 и GDPR.</li>
+    </ul>
+
+    <div class="box">
+      <h3>Практический пример: эволюция ответа на техническом ассессменте</h3>
+      <p>Архитектурный вопрос собеседования: <em>«Вы проектируете систему авторизации для enterprise-платформы: одностраничное приложение React в браузере, микросервисы в AWS EKS за шлюзом API Gateway, необходимость корпоративного входа сотрудников клиентов через SAML (Okta) и мобильных пользователей через логин-пароль. Как вы построите систему идентификации и разграничения доступа?»</em></p>
+      <p><strong>Ответ уровня Noob:</strong> «Создам Cognito User Pool в веб-консоли. Настрою App Client со сгенерированным секретом и передам Client Secret в код React приложения. При логине буду отправлять логин и пароль напрямую через API метод AdminInitiateAuth с бэкенда, сохранять Access Token в localStorage браузера и при каждом запросе к микросервисам отправлять запрос в Cognito для проверки валидности токена».</p>
+      <p><strong>Ответ уровня Pro:</strong> «Вся инфраструктура описывается кодом в Terraform. В User Pool создается публичный App Client без секрета с включенным потоком Authorization Code Grant и защитой PKCE (Proof Key for Code Exchange). Для enterprise-клиентов подключается SAML IdP с сопоставлением групп в кастомные клеймы. В браузере токены сохраняются в безопасных куках с флагами HttpOnly и SameSite=Strict для защиты от XSS. На входе в API Gateway настраивается встроенный Cognito User Pools Authorizer или HTTP API JWT Authorizer, который валидирует сигнатуру токена локально по публичным ключам JWKS (кэшируя набор ключей), проверяет аудиторию (aud), издателя (iss) и срок жизни (exp). В микросервисы EKS пробрасываются уже проверенные клеймы пользователя через заголовок X-User-Identity, исключая нагрузку на Cognito API».</p>
+      <p><strong>Ответ уровня IGL:</strong> «Архитектура строится с учетом строгой изоляции периметров, безопасности и минимизации стоимости MAU. Для корпоративных B2B-заказчиков настраивается динамическое разрешение IdP по домену email, чтобы перенаправлять пользователей напрямую в их корпоративную Okta или Entra ID без лишних экранов Hosted UI. В User Pool включается Advanced Security в режиме аудит/адаптивная защита для противодействия credential stuffing и атакам перебора по словарям, а домен Hosted UI закрывается правилами AWS WAFv2 с Rate Limiting и AWS Managed Rules. Для предотвращения перечисления пользователей активируется флаг <code>PreventUserExistenceErrors=ENABLED</code>. Валидация токенов децентрализована: пограничный шлюз валидирует подпись по JWKS с автоматической ротацией kid без перезагрузки подов. Для кастомных прав в микросервисах используется триггер Pre Token Generation v2, обогащающий Access Token ролями RBAC из базы метаданных на лету. Для мобильных клиентов внедряется refresh token rotation, а для миграции существующих клиентов настраивается триггер User Migration, проверяющий хэш старой базы и прозрачно создающий профиль в Cognito при первом успешном вводе пароля».</p>
+    </div>
+
+    <h2 id="frontiers">3 · Инженерный ландшафт и ключевые компромиссы <a class="anchor-link" href="#frontiers">#</a></h2>
+    <p>Проектирование систем аутентификации в AWS требует постоянного поиска баланса между безопасностью, пользовательским опытом и стоимостью владения:</p>
+    <ul>
+      <li><strong>User Pools против Identity Pools:</strong> Аутентификация (Identity) против авторизации в облаке (Cloud Permissions). User Pool удостоверяет личность пользователя в рамках прикладной логики и выдает JWT-токены. Identity Pool транслирует эти токены во временные учетные данные AWS STS, позволяя фронтенду обращаться напрямую к сервисам AWS (например, загружать аватар напрямую в защищенный префикс S3 без проксирования через бэкенд). Смешение этих понятий приводит либо к раздуванию лишних IAM-ролей, либо к созданию тяжелых бэкенд-прокси для тривиальных операций.</li>
+      <li><strong>Hosted UI против кастомного интерфейса:</strong> Hosted UI предоставляет полностью готовый OAuth 2.0 / OIDC сервер авторизации, управляемый AWS, с готовыми формами входа, регистрации, восстановления пароля и экранами согласия внешних IdP. Это гарантирует соответствие стандарту и избавляет от необходимости писать логику авторизации. Однако кастомизация Hosted UI ограничена базовыми CSS и логотипом. Разработка полностью кастомного UI через AWS SDK или Amplify дает полный контроль над дизайном, но требует самостоятельной реализации всех веток ошибок, обработки MFA, валидации сессий и протокола SRP.</li>
+      <li><strong>Безопасность передачи паролей (SRP против Plaintext):</strong> По умолчанию клиенты AWS SDK используют протокол Secure Remote Password (SRP), при котором пароль пользователя никогда не передается по сети даже в зашифрованном виде внутри TLS-туннеля. Клиент и сервер доказывают знание пароля через математический обмен хэшами. Использование потоков <code>USER_PASSWORD_AUTH</code> или <code>ADMIN_NO_SRP_AUTH</code> передает пароль открытым текстом в теле HTTPS-запроса, что упрощает отладку, но создает риски перехвата на промежуточных корпоративных прокси.</li>
+      <li><strong>Экономика и скрытые расходы:</strong> Базовый уровень Cognito бесплатен для первых 50 000 MAU. Однако подключение Advanced Security Features (ASF) переводит User Pool на тарификацию каждого активного пользователя, увеличивая счет в разы. Еще более опасной статьей расходов является SMS-аутентификация: отправка одного SMS в зависимости от страны может стоить до $0.05-0.10, что при атаке типа SMS Toll Fraud способно сгенерировать внезапный счет на десятки тысяч долларов за несколько часов.</li>
+    </ul>
+
+    <h2 id="tools">4 · Навигатор и словарь понятий <a class="anchor-link" href="#tools">#</a></h2>
+    <p>Глава курса - это вертикаль: глубокий инженерный разбор одной темы от архитектуры User Pools и криптографии JWT до триггеров Lambda, внешней федерации SAML 2.0 / OIDC, защиты WAFv2 и протокола SRP. <a href="navigator.html">Инженерный навигатор</a> - горизонталь: девять аналитических призм, через которые оценивается любая промышленная система идентификации CIAM (компоненты, инфраструктурный код, сильные стороны, ограничения и квоты, связи в экосистеме, искусственный интеллект, мультирегиональное облако, практики DevOps и протоколы SRE). <a href="glossary.html">Словарь понятий</a> формирует терминологический фундамент из 81 статьи с рубрикацией по главам (#ch-01..#ch-15) и строгой квантификацией понятий; интерактивная карточка при нажатии на термин на любой странице открывает компактное определение и прямую ссылку в словарь.</p>
+
+    <h2 id="paths">5 · Маршруты изучения <a class="anchor-link" href="#paths">#</a></h2>
+    <p>В зависимости от вашей текущей инженерной роли и практических задач рекомендуются три специализированных маршрута прохождения материалов:</p>
+    <ul>
+      <li><strong>Экспресс-погружение (Quickstart):</strong> Главы 01, 02, 03 и 10. Позволяет за несколько часов разобраться в базовой архитектуре User Pools, структуре токенов JWT, настройке App Clients и развернуть работающий прототип авторизации для веб-приложения.</li>
+      <li><strong>DevOps и облачная интеграция:</strong> Главы 03, 04, 06, 07, 10 и 11. Фокусируется на автоматизации инфраструктуры через Terraform, связке User Pools с внешними доменами и сертификатами ACM, реализации триггеров Lambda для кастомизации бизнес-логики и настройке проверки токенов на шлюзах API Gateway и балансировщиках ALB.</li>
+      <li><strong>Архитектура безопасности и Enterprise:</strong> Главы 05, 08, 09, 12, 13-15, Навигатор и Словарь. Глубокий разбор корпоративной федерации SAML 2.0, эшелонированной защиты через AWS WAFv2, тонкостей беспарольной аутентификации, финансовой оптимизации MAU и подготовка к сертификационным интервью Lead / Principal Architect.</li>
+    </ul>
+
     <div class="box key" id="artifacts">
-      <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <h2>Артефакты: что у вас есть после этого сайта <a class="anchor-link" href="#artifacts">#</a></h2>
+      <p>После освоения материалов этого руководства в вашем инженерном арсенале появятся:</p>
+      <ul>
+        <li>Исчерпывающее понимание архитектуры сервиса Amazon Cognito и стандартов идентификации OAuth 2.0, OpenID Connect, SAML 2.0 и RFC 7519 (JWT).</li>
+        <li>Готовые шаблоны инфраструктурного кода (Terraform) для безопасного развертывания User Pools, App Clients, Resource Servers и Identity Pools.</li>
+        <li>Проверенные паттерны интеграции аутентификации с пограничными сервисами AWS: API Gateway Authorizers, ALB Listener Rules и CloudFront Functions.</li>
+        <li>Знание механизмов эшелонированной защиты от ботов, атак подбора паролей и фрода через интеграцию с AWS WAFv2 и Advanced Security.</li>
+        <li>150 проработанных квалификационных вопросов с детальным анализом дистракторов для успешного прохождения технических ассессментов любого уровня сложности.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="01.html">Раздел 1</a></p>
+        <p class="pager-next">Следующая тема: <a href="01.html">Архитектура User Pools</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>
