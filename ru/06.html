@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>События и триггеры · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Жизненный цикл событий в Cognito: 15 триггеров LambdaConfig, валидация Pre Sign-up, динамическое обогащение токенов Pre Token Generation и бесшовная миграция.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/06.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/06.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/06.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
 <meta property="og:title" content="События и триггеры">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Жизненный цикл событий в Cognito: 15 триггеров LambdaConfig, валидация Pre Sign-up, динамическое обогащение токенов Pre Token Generation и бесшовная миграция.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/06.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"События и триггеры","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/06.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"События и триггеры","description":"Жизненный цикл событий в Cognito: 15 триггеров LambdaConfig, валидация Pre Sign-up, динамическое обогащение токенов Pre Token Generation и бесшовная миграция.","url":"https://y-kolyada.github.io/aws-cognito/ru/06.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,20 +94,76 @@
 
   <main id="main">
     <h1>События и триггеры</h1>
-    <p class="page-size" data-words="49">Слов: 49</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="1090">Слов: 1090</p>
+    <p class="lead">Жизненный цикл событий в Cognito: 15 триггеров LambdaConfig, валидация Pre Sign-up, динамическое обогащение токенов Pre Token Generation и бесшовная миграция.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Механизм триггеров AWS Lambda в Amazon Cognito User Pool представляет собой событийно-ориентированный интерфейс расширения стандартного жизненного цикла идентификации. Триггеры позволяют разработчикам внедрять произвольную бизнес-логику на всех критических этапах: валидация и фильтрация регистраций, динамическая мутация клеймов JWT-токенов перед подписанием, персонализация каналов доставки сообщений и прозрачная фоновая миграция миллионов учетных записей из унаследованных реляционных баз данных. Архитектурная надежность этой связки базируется на четком разграничении синхронных блокирующих триггеров, требующих жесткого контроля таймаутов, и асинхронных событий аудита и онбординга.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="lifecycle-triggers">1 · Архитектура LambdaConfig: 15 триггеров жизненного цикла <a class="anchor-link" href="#lifecycle-triggers">#</a></h2>
+    <p>Конфигурационный блок <code>LambdaConfig</code> в схеме User Pool поддерживает пятнадцать событий жизненного цикла, связывая определенные фазы обработки запроса с бессерверными функциями AWS Lambda:</p>
+    <ul>
+      <li><strong>Регистрация и подтверждение:</strong> <code>PreSignUp</code> (предварительная валидация до создания записи), <code>PostConfirmation</code> (пост-обработка после подтверждения email/SMS), <code>UserMigration</code> (импорт пользователя на лету).</li>
+      <li><strong>Аутентификация и токены:</strong> <code>PreAuthentication</code> (проверка контекста до ввода пароля), <code>PostAuthentication</code> (аудит успешного входа), <code>PreTokenGeneration</code> и блок версии <code>PreTokenGenerationConfig</code> (модификация клеймов JWT перед криптографической подписью).</li>
+      <li><strong>Кастомная беспарольная аутентификация:</strong> <code>DefineAuthChallenge</code> (конечный автомат сценария), <code>CreateAuthChallenge</code> (генерация испытания), <code>VerifyAuthChallengeResponse</code> (проверка ответа пользователя).</li>
+      <li><strong>Сообщения и доставка:</strong> <code>CustomMessage</code> (кастомизация текстов и ссылок), <code>CustomEmailSender</code> и <code>CustomSMSSender</code> (полное делегирование отправки через внешние шлюзы с использованием ключа шифрования <code>KMSKeyID</code>).</li>
+      <li><strong>Федерация:</strong> <code>InboundFederation</code> (обработка входящих токенов внешних провайдеров).</li>
+    </ul>
+    <p>Критическим инженерным ограничением синхронных триггеров является жесткий лимит времени выполнения: сервис Cognito ожидает ответа функции Lambda ровно 5 секунд. Если функция не завершила работу или завершилась с необработанным исключением, Cognito выполняет до 3 повторных попыток с экспоненциальной задержкой, после чего возвращает клиенту фатальную ошибку <code>UnexpectedLambdaException</code>. Поэтому синхронные триггеры не должны выполнять тяжелые аналитические запросы или долгие сетевые обращения.</p>
+
+    <h2 id="pre-signup">2 · Синхронная валидация и авто-подтверждение в Pre Sign-up <a class="anchor-link" href="#pre-signup">#</a></h2>
+    <p>Триггер <code>PreSignUp</code> вызывается синхронно перед тем, как сервис Cognito создаст учетную запись в базе данных каталога. Функция получает объект события, содержащий переданные пользователем атрибуты <code>event.request.userAttributes</code> и метаданные валидации <code>event.request.validationData</code>.</p>
+    <p>Основные сценарии использования <code>PreSignUp</code>:</p>
+    <ul>
+      <li><strong>Ограничение доменов регистрации:</strong> В закрытых B2B или корпоративных порталах регистрация разрешена только сотрудникам с корпоративной почтой. Триггер проверяет домен адреса (например, <code>@corp.example.com</code>). Если домен не входит в белый список, функция выбрасывает программное исключение <code>throw new Error('Registration allowed only for corporate emails')</code>, предотвращая создание нежелательных записей.</li>
+      <li><strong>Автоматическое подтверждение (Auto-confirm):</strong> Для доверенных сценариев функция может выставить флаги <code>event.response.autoConfirmUser = true</code> и <code>event.response.autoVerifyEmail = true</code>. В этом случае пользователь сразу переходит в статус <code>CONFIRMED</code>, минуя фазу ручного ввода одноразового кода подтверждения из письма.</li>
+      <li><strong>Автоматическое связывание аккаунтов (Account Linking):</strong> При регистрации через внешнего провайдера триггер может проверить существование локального пользователя с тем же email и вызвать метод <code>AdminLinkProviderForUser</code>, исключая появление изолированных дубликатов учетных записей.</li>
+    </ul>
+
+    <h2 id="pre-token-generation">3 · Динамическое обогащение клеймов в Pre Token Generation <a class="anchor-link" href="#pre-token-generation">#</a></h2>
+    <p>Триггер <code>PreTokenGeneration</code> вызывается непосредственно перед криптографической генерацией цифровой подписи токенов. Конфигурация <code>PreTokenGenerationConfig</code> настраивает два ключевых параметра: ARN вызываемой функции <code>LambdaArn</code> и поддерживаемую версию протокола <code>LambdaVersion</code>.</p>
+    <p>Разработчикам доступны две версии интерфейса события:</p>
+    <ul>
+      <li><strong>Версия v1 (Basic):</strong> Позволяет модифицировать только утверждения ID токена через структуру <code>event.response.claimsOverrideDetails.claimsToAddOrOverride</code>. Access Token оставался неизменным, что делало невозможным динамическое управление правами микросервисов.</li>
+      <li><strong>Версия v2 (Advanced, <code>LambdaVersion = "V2_0"</code>):</strong> Полнофункциональный стандарт обогащения токенов. Позволяет модифицировать как ID Token, так и Access Token.</li>
+    </ul>
+    <p>В версии v2 блок <code>event.response.claimsAndScopeOverrideDetails</code> позволяет динамически добавлять или отзывать права доступа: добавлять новые области видимости <code>scopesToAdd</code> в Access Token, подавлять нежелательные скоупы <code>scopesToSuppress</code>, внедрять кастомные клеймы (например, массив прав <code>permissions: ["billing:read", "reports:export"]</code> или идентификатор тенанта <code>tenant_id</code>), а также переопределять список групп пользователя <code>groupOverrideDetails</code>. Это исключает необходимость хранить громоздкие матрицы прав в статических атрибутах User Pool: роли извлекаются на лету из прикладной базы данных или кэша Redis в момент выпуска токена.</p>
+
+    <h2 id="custom-messages">4 · Брендинг коммуникаций и шифрование сообщений <a class="anchor-link" href="#custom-messages">#</a></h2>
+    <p>Стандартные шаблоны сообщений Cognito имеют ограниченные возможности форматирования. Для создания брендированных писем используется триггер <code>CustomMessage</code>. Он перехватывает событие отправки и позволяет программно сформировать HTML-тело письма и тему в зависимости от триггерного контекста (<code>CustomMessage_SignUp</code>, <code>CustomMessage_ForgotPassword</code>, <code>CustomMessage_ResendCode</code>). В тело сообщения функция внедряет динамические ссылки с кодом подтверждения, адаптируя верстку под корпоративный брендбук.</p>
+    <p>Для компаний с жесткими требованиями комплаенса, запрещающими передачу трафика через стандартные шлюзы AWS, предусмотрены триггеры <code>CustomEmailSender</code> и <code>CustomSMSSender</code>. В этом режиме Cognito не отправляет сообщения самостоятельно, а передает сгенерированный код подтверждения в функцию Lambda. Для защиты от перехвата в конфигурации объявляется ключ шифрования <code>KMSKeyID</code>: Cognito шифрует одноразовый OTP-код асимметричным ключом AWS KMS, функция Lambda расшифровывает его в изолированной среде исполнения и отправляет через собственный защищенный почтовый шлюз (SendGrid, Mailgun) или корпоративный SMS-провайдер (Twilio).</p>
+
+    <h2 id="user-migration">5 · Бесшовная миграция пользователей через User Migration <a class="anchor-link" href="#user-migration">#</a></h2>
+    <p>При переводе действующего высоконагруженного сервиса с собственной базы данных пользователей (PostgreSQL, MySQL, MongoDB) на AWS Cognito возникает непреодолимое препятствие: пароли пользователей защищены необратимыми хэш-функциями (bcrypt, PBKDF2, argon2, scrypt). Экспортировать хэши и загрузить их в Cognito напрямую невозможно, так как User Pool использует собственную криптографическую схему хэширования SRP.</p>
+    <p>Требование принудительного массового сброса паролей разрушает пользовательский опыт и приводит к потере клиентов. Эту задачу решает триггер <code>UserMigration</code>, реализующий прозрачную миграцию Just-In-Time:</p>
+    <ol>
+      <li>Пользователь вводит свой существующий логин и пароль в приложении или на Hosted UI.</li>
+      <li>Сервис Cognito проверяет локальный каталог User Pool. Не найдя учетной записи, Cognito не возвращает ошибку, а инициирует событие <code>UserMigration_Authentication</code>.</li>
+      <li>Функция Lambda обращается к legacy-базе данных, находит запись пользователя и сверяет введенный пароль с сохраненным хэшем по алгоритму bcrypt/argon2.</li>
+      <li>Если пароль верен, функция возвращает профиль пользователя, флаги верификации (<code>email_verified=true</code>) и директиву <code>event.response.forceAliasCreation = true</code>.</li>
+      <li>Cognito немедленно создает полноценный профиль в User Pool, хэширует введенный пароль по собственному алгоритму, помечает пользователя подтвержденным и выдает стандартный комплект JWT-токенов.</li>
+    </ol>
+    <p>При последующих входах пользователь аутентифицируется уже напрямую в Cognito без вызова миграционного триггера. По истечении переходного периода (например, 6-12 месяцев) оставшаяся неактивная часть базы мигрируется административным созданием с временными паролями.</p>
+
+    <h2 id="post-events">6 · Пост-события: аудит и аналитика в Post Confirmation и Post Authentication <a class="anchor-link" href="#post-events">#</a></h2>
+    <p>Асинхронные события жизненного цикла используются для выполнения прикладных побочных эффектов, не влияющих на скорость выдачи токенов клиенту:</p>
+    <ul>
+      <li><code>PostConfirmation</code>: вызывается после успешного подтверждения учетной записи (ввода SMS/email кода подтверждения или подтверждения администратором). В этой функции создается пользовательский профиль в прикладной базе данных Amazon DynamoDB или Aurora, инициализируются персональные директории в хранилище Amazon S3, отправляется приветственная цепочка писем и публикуется событие регистрации в шину Amazon EventBridge для запуска внешних микросервисов.</li>
+      <li><code>PostAuthentication</code>: вызывается после каждого успешного входа пользователя в систему. Используется службами информационной безопасности для ведения журнала сессий, обновления временной метки последнего входа, фиксации геолокации и отправки телеметрии в системы SIEM (Security Information and Event Management) для выявления аномальной пользовательской активности.</li>
+    </ul>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы освоили бессерверную архитектуру событий и триггеров Cognito:</p>
+      <ul>
+        <li>Полная карта 15 триггеров жизненного цикла <code>LambdaConfig</code> и понимание жесткого таймаута в 5 секунд.</li>
+        <li>Реализация строгой валидации корпоративных доменов и авто-подтверждения в <code>PreSignUp</code>.</li>
+        <li>Динамическое обогащение ID и Access токенов ролями и скоупами через <code>PreTokenGenerationConfig</code> v2.</li>
+        <li>Индивидуальный брендинг коммуникаций и сквозное шифрование одноразовых кодов через AWS KMS.</li>
+        <li>Паттерн бесшовной Just-In-Time миграции пользователей без принудительного сброса паролей.</li>
+      </ul>
     </div>
   
 
