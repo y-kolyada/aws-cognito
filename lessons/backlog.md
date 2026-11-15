@@ -12,7 +12,6 @@ Three fields and not one more. **"Why not now" matters most of the two others:**
 
 ## Lines
 
-- **Topics 06-09 (Events, Triggers, Identity Pools, Advanced Security, Limits).** Core operational mechanisms of AWS Cognito for backend integration and scaling. Deferred to Step 2 (Batch 2) under the batch delivery model of AGENTS.md §5.15.
 - **Practical examples 10-12 (Noob / Pro / IGL).** Battle-tested configuration scenarios and IaC code blocks. Deferred to Step 3 (Batch 3) after all foundational topics are written and verified.
 - **Question banks 13-15 (Noob / Pro / IGL).** 150 qualification assessment questions with rationales. Deferred to Step 4 (Batch 4) according to the canonical synthesis sequence of AGENTS.md §5.17.
 - **Engineering navigator (navigator.html).** Transversal 9-lens matrix cutting across all topics. Deferred to Step 4 (Batch 4) because synthesis requires the complete question banks to be drafted first.
