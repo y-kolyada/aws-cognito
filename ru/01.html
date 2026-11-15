@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 1 · devops-aws-cognito · ai|</title>
+<title>Архитектура User Pools · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Анатомия каталога пользователей Cognito: идентификатор UserPoolId, схема стандартных и кастомных атрибутов, политики паролей и верификация каналов связи.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/01.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/01.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/01.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 1">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Архитектура User Pools">
+<meta property="og:description" content="Анатомия каталога пользователей Cognito: идентификатор UserPoolId, схема стандартных и кастомных атрибутов, политики паролей и верификация каналов связи.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/01.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 1","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/01.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Архитектура User Pools","description":"Анатомия каталога пользователей Cognito: идентификатор UserPoolId, схема стандартных и кастомных атрибутов, политики паролей и верификация каналов связи.","url":"https://y-kolyada.github.io/aws-cognito/ru/01.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html" aria-current="page"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html" aria-current="page"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,27 +93,81 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 1</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Архитектура User Pools</h1>
+    <p class="page-size" data-words="1150">Слов: 1150</p>
+    <p class="lead">Анатомия каталога пользователей Cognito: идентификатор UserPoolId, схема стандартных и кастомных атрибутов, политики паролей и верификация каналов связи.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Amazon Cognito User Pool представляет собой полностью управляемый, высокодоступный каталог учетных записей пользователей, функционирующий как стандартизированный провайдер идентичности OpenID Connect (OIDC IdP). Главная архитектурная ценность User Pool состоит в полной изоляции конфиденциальных пользовательских данных от кода приложения: сервис берет на себя криптографическое хранение хэшей паролей с солью, реализацию протокола Secure Remote Password (SRP), соблюдение политик сложности, автоматическую отправку верификационных кодов по email и SMS, управление сессиями и выдачу подписанных токенов JSON Web Token (JWT). Понимание структуры User Pool, ограничений неизменяемости его схемы и правил валидации является фундаментом для построения безопасной архитектуры любого облачного приложения.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="pool-id">1 · Идентификатор UserPoolId и региональная привязка <a class="anchor-link" href="#pool-id">#</a></h2>
+    <p>Каждый пул пользователей создается внутри строго определенного региона AWS и получает неизменяемый глобальный идентификатор <code>UserPoolId</code>. Формат идентификатора строго регламентирован и состоит из двух частей, разделенных символом подчеркивания: регионального кода и уникального буквенно-цифрового идентификатора, например <code>eu-central-1_a1B2c3D4e</code> или <code>us-east-1_9XyZ12345</code>.</p>
+    <p>User Pool не является глобальным сервисом. База пользователей физически реплицируется между несколькими зонами доступности (Availability Zones) внутри одного региона AWS, но не синхронизируется между регионами автоматически. Если ваше приложение требует многорегиональной отказоустойчивости, синхронизацию каталогов необходимо проектировать самостоятельно на уровне событий или через внешние сервисы управления идентичностью.</p>
+    <p>На базе идентификатора UserPoolId сервис Cognito формирует два фундаментальных адреса, используемых клиентами и сервисами авторизации:</p>
+    <ul>
+      <li><strong>Эндпоинт эмитента (Issuer URL):</strong> <code>https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;userPoolId&gt;</code>. Это значение указывается в качестве клейма <code>iss</code> во всех токенах, выпущенных данным пулом, и служит доверенным адресом при валидации OIDC.</li>
+      <li><strong>Эндпоинт открытых ключей (JWKS URL):</strong> <code>https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;userPoolId&gt;/.well-known/jwks.json</code>. Набор открытых криптографических ключей (JSON Web Key Set), используемый микросервисами, шлюзами API Gateway и балансировщиками ALB для математической проверки цифровой подписи токенов без единого сетевого вызова к Cognito API.</li>
+    </ul>
+
+    <h2 id="attributes">2 · Схема стандартных и кастомных атрибутов <a class="anchor-link" href="#attributes">#</a></h2>
+    <p>Профиль пользователя в Cognito состоит из набора атрибутов, описываемых схемой <code>Schema</code> при создании пула. Атрибуты делятся на две категории: стандартные спецификации OpenID Connect и кастомные пользовательские атрибуты.</p>
+    <p>Стандартные атрибуты включают в себя спецификацию OIDC: <code>sub</code> (уникальный неизменяемый UUID пользователя, первичный ключ в системе), <code>email</code>, <code>phone_number</code>, <code>given_name</code>, <code>family_name</code>, <code>preferred_username</code>, <code>birthdate</code>, <code>address</code>, <code>profile</code>, <code>gender</code>, <code>zoneinfo</code>, <code>locale</code> и <code>updated_at</code>. Для атрибутов <code>email</code> и <code>phone_number</code> сервис предоставляет специализированные логические флаги <code>email_verified</code> и <code>phone_number_verified</code>, управляемые автоматическими процедурами проверки.</p>
+    <p>Кастомные атрибуты создаются разработчиком для хранения специфических данных предметной области (например, идентификатора арендатора компании или тарифного плана). Все кастомные атрибуты обязаны иметь префикс <code>custom:</code>, например <code>custom:tenant_id</code> или <code>custom:department_code</code>.</p>
+    <p>Каждый элемент схемы атрибутов определяет семь ключевых характеристик поля: <code>AttributeDataType</code> (тип данных: String, Number, DateTime или Boolean), <code>DeveloperOnlyAttribute</code>, <code>Mutable</code> (флаг изменяемости), <code>Name</code> (имя атрибута), <code>NumberAttributeConstraints</code> (минимальные и максимальные числовые границы), <code>Required</code> (обязательность заполнения при регистрации) и <code>StringAttributeConstraints</code> (минимальная и максимальная длина строки от 0 до 2048 символов).</p>
+    <div class="box">
+      <p><strong>Критическая архитектурная ловушка: неизменяемость схемы.</strong> Схема атрибутов User Pool жестко фиксируется в момент создания пула. Невозможно сделать атрибут <code>Required</code> после того, как пул был создан, невозможно изменить тип данных атрибута и невозможно удалить кастомный атрибут из схемы. Добавление нового кастомного атрибута допускается, но он может быть только опциональным (<code>Required=false</code>). Ошибки в проектировании схемы атрибутов на ранних этапах проекта часто приводят к необходимости создания нового пула пользователей и проведения сложной миграции всей клиентской базы.</p>
+    </div>
+
+    <h2 id="password-policy">3 · Политики надежности паролей и ротация <a class="anchor-link" href="#password-policy">#</a></h2>
+    <p>Политика безопасности паролей объявляется в блоке <code>Policies.PasswordPolicy</code> и контролирует семь ключевых параметров сложности и жизненного цикла секретов:</p>
+    <ul>
+      <li><code>MinimumLength</code>: минимальная длина пароля. Допустимый диапазон составляет от 6 до 99 символов. В соответствии с актуальными рекомендациями NIST SP 800-63B рекомендуется устанавливать значение не менее 12-14 символов.</li>
+      <li><code>RequireLowercase</code>, <code>RequireUppercase</code>, <code>RequireNumbers</code>, <code>RequireSymbols</code>: логические флаги, требующие обязательного наличия хотя бы одного строчного символа, заглавной буквы, цифры и специального знака из разрешенного набора ASCII.</li>
+      <li><code>PasswordHistorySize</code>: размер истории ранее использованных паролей. Принимает значение от 1 до 24. Предотвращает немедленный возврат к старым скомпрометированным паролям при обязательной смене.</li>
+      <li><code>TemporaryPasswordValidityDays</code>: срок действия временного пароля, сгенерированного администратором при создании учетной записи через метод <code>AdminCreateUser</code>. Принимает значение от 1 до 365 дней (по умолчанию 7 дней). По истечении этого срока временный пароль аннулируется, и вход становится невозможен без повторного сброса.</li>
+    </ul>
+
+    <h2 id="verification">4 · Подтверждение каналов связи email и SMS <a class="anchor-link" href="#verification">#</a></h2>
+    <p>Для предотвращения регистрации фиктивных учетных записей и защиты от автоматических ботов User Pool предоставляет процедуру автоматической верификации контактных данных. Параметр <code>AutoVerifiedAttributes</code> принимает список проверяемых каналов: <code>email</code>, <code>phone_number</code> или оба одновременно.</p>
+    <p>При регистрации пользователя со статусом <code>UNCONFIRMED</code> сервис генерирует криптографический одноразовый пароль (OTP) или защищенную ссылку и отправляет их по указанному каналу. Структура сообщений настраивается в блоке <code>VerificationMessageTemplate</code>, содержащем шесть конфигурационных параметров: <code>DefaultEmailOption</code> (выбор между <code>CONFIRM_WITH_CODE</code> и <code>CONFIRM_WITH_LINK</code>), <code>EmailMessage</code>, <code>EmailMessageByLink</code>, <code>EmailSubject</code>, <code>EmailSubjectByLink</code> и <code>SmsMessage</code>.</p>
+    <p>Транспорт доставки настраивается отдельно для каждого типа связи:</p>
+    <ul>
+      <li><strong>Email:</strong> В блоке <code>EmailConfiguration</code> можно выбрать отправку через встроенный шлюз Cognito (Cognito Default) или через сервис Amazon Simple Email Service (SES). Встроенный шлюз имеет жесткий лимит в 50 писем в календарные сутки на весь аккаунт и предназначен исключительно для базового локального тестирования. Для промышленной эксплуатации обязательно подключение проверенной идентичности Amazon SES (домена или верифицированного адреса) в соответствующем регионе.</li>
+      <li><strong>SMS:</strong> В блоке <code>SmsConfiguration</code> указывается ARN роли IAM, обладающей разрешением <code>sns:Publish</code> для вызова сервиса Amazon SNS, а также идентификатор отправителя (Sender ID) и внешний идентификатор безопасности <code>ExternalId</code> для предотвращения проблемы confused deputy.</li>
+    </ul>
+
+    <h2 id="recovery">5 · Восстановление доступа и административное управление <a class="anchor-link" href="#recovery">#</a></h2>
+    <p>Сценарий самостоятельного восстановления забытого пароля настраивается через блок <code>AccountRecoverySetting</code>. Он содержит массив механизмов восстановления <code>RecoveryMechanisms</code>, каждый из которых определяет два обязательных параметра: имя механизма <code>Name</code> (допустимы <code>verified_email</code> и <code>verified_phone_number</code>) и приоритет <code>Priority</code> (целое число от 1 до 2). При вызове API-метода <code>ForgotPassword</code> сервис Cognito проверяет доступные подтвержденные каналы в порядке их приоритета и отправляет проверочный код. Пользователь завершает смену пароля вызовом <code>ConfirmForgotPassword</code>, передавая полученный код и новый пароль.</p>
+    <p>Для корпоративных закрытых систем, где регистрация открыта только администраторам, конфигурируется блок <code>AdminCreateUserConfig</code>, содержащий три параметра:</p>
+    <ul>
+      <li><code>AllowAdminCreateUserOnly</code>: флаг, отключающий публичную самостоятельную регистрацию пользователей через форму SignUp или Hosted UI.</li>
+      <li><code>InviteMessageTemplate</code>: персональный шаблон пригласительного сообщения (email и SMS), содержащий временный пароль и ссылку для первого входа.</li>
+      <li><code>UnusedAccountValidityDays</code>: количество дней, в течение которых приглашенный пользователь обязан активировать учетную запись, прежде чем она перейдет в недействительное состояние.</li>
+    </ul>
+
+    <h2 id="devices">6 · Запоминание устройств и контекст сессий <a class="anchor-link" href="#devices">#</a></h2>
+    <p>User Pool включает встроенный механизм профилирования устройств клиентов, настраиваемый через блок <code>DeviceConfiguration</code>, который управляет двумя параметрами: <code>ChallengeRequiredOnNewDevice</code> и <code>DeviceOnlyRememberedOnUserPrompt</code>.</p>
+    <p>Когда клиентское приложение (например, с использованием AWS Amplify или специализированного SDK) выполняет вход, оно генерирует криптографический отпечаток устройства и пару ключей SRP. При успешной аутентификации сервис Cognito регистрирует устройство и возвращает клиенту уникальный <code>DeviceKey</code> и <code>DeviceGroupKey</code>. При последующих сессиях клиент передает этот ключ в заголовках SRP-аутентификации.</p>
+    <p>Если включен параметр <code>ChallengeRequiredOnNewDevice=true</code>, при попытке входа с неизвестного устройства (например, нового браузера или другого смартфона) сервис автоматически потребует прохождения дополнительного фактора аутентификации (MFA), даже если для доверенных запомненных устройств многофакторная проверка не запрашивается. Это снижает трение для постоянных пользователей, сохраняя непреодолимый барьер для злоумышленников, перехвативших пароль.</p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы владеете фундаментальными принципами устройства каталога пользователей Cognito:</p>
+      <ul>
+        <li>Понимание формата <code>UserPoolId</code>, структуры эмитента <code>iss</code> и адресации публичного набора ключей JWKS.</li>
+        <li>Знание семи параметров схемы атрибутов и архитектурных последствий их неизменяемости.</li>
+        <li>Конфигурация политик надежности паролей, размера истории и сроков действия временных секретов.</li>
+        <li>Архитектура подтверждения email/SMS и разграничение лимитов встроенного шлюза против Amazon SES.</li>
+        <li>Настройка безопасных механизмов восстановления аккаунта и профилирования доверенных устройств клиентов.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="02.html">Раздел 2</a></p>
+        <p class="pager-next">Следующая тема: <a href="02.html">Аутентификация и JWT</a></p>
         <p class="pager-prev">Предыдущая тема: <a href="index.html">Посадочная страница</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>

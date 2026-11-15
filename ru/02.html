@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 2 · devops-aws-cognito · ai|</title>
+<title>Аутентификация и JWT · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Криптографическая триада токенов Cognito: ID, Access и Refresh токены, формат JWT, локальная валидация сигнатуры по JWKS и отзыв токенов.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/02.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/02.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/02.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 2">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Аутентификация и JWT">
+<meta property="og:description" content="Криптографическая триада токенов Cognito: ID, Access и Refresh токены, формат JWT, локальная валидация сигнатуры по JWKS и отзыв токенов.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/02.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 2","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/02.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Аутентификация и JWT","description":"Криптографическая триада токенов Cognito: ID, Access и Refresh токены, формат JWT, локальная валидация сигнатуры по JWKS и отзыв токенов.","url":"https://y-kolyada.github.io/aws-cognito/ru/02.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html" aria-current="page"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html" aria-current="page"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,100 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 2</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Аутентификация и JWT</h1>
+    <p class="page-size" data-words="1295">Слов: 1295</p>
+    <p class="lead">Криптографическая триада токенов Cognito: ID, Access и Refresh токены, формат JWT, локальная валидация сигнатуры по JWKS и отзыв токенов.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Процесс аутентификации в Amazon Cognito User Pool завершается выпуском криптографической триады токенов, каждый из которых выполняет строго определенную архитектурную роль в соответствии со стандартами OAuth 2.0 и OpenID Connect (OIDC). ID Token подтверждает идентичность пользователя перед фронтенд-приложением; Access Token авторизует вызовы прикладных API и микросервисов; Refresh Token обеспечивает обновление короткоживущих сессий. Валидация подлинности токенов должна происходить децентрализованно на пограничных шлюзах API Gateway и балансировщиках ALB путем локальной математической проверки подписи открытыми ключами JWKS, полностью исключая сетевые вызовы к сервису Cognito в критическом пути клиентских запросов.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="token-triad">1 · Триада токенов: ID Token, Access Token и Refresh Token <a class="anchor-link" href="#token-triad">#</a></h2>
+    <p>Каждый успешный сценарий аутентификации пользователя в User Pool генерирует комплект из трех токенов:</p>
+    <ul>
+      <li><strong>ID Token (Токен идентификации):</strong> Соответствует спецификации OpenID Connect Core 1.0. Предназначен исключительно для клиентского приложения (SPA, веб-сайта, мобильного клиента). Содержит утверждения (claims) о профиле пользователя: имя, email, статус подтверждения, принадлежность к группам <code>cognito:groups</code> и кастомные атрибуты. Целевой аудиторией (клейм <code>aud</code>) в ID Token выступает идентификатор клиента приложения (App Client ID). Передача ID Token на бэкенд в качестве Bearer-токена авторизации является грубой архитектурной ошибкой: это приводит к избыточной передаче персональных данных (PII) и нарушает модель авторизации OAuth 2.0.</li>
+      <li><strong>Access Token (Токен доступа):</strong> Соответствует спецификации OAuth 2.0 (RFC 6749). Предназначен для авторизации вызовов прикладных программных интерфейсов (API). Access Token не содержит персональных данных профиля: его задача - подтвердить, что вызывающий субъект <code>sub</code> обладает правами на выполнение операций. В Access Token включен клейм <code>scope</code> с перечнем разрешенных областей видимости (например, системный скоуп <code>aws.cognito.signin.user.admin</code> или кастомные скоупы Resource Server), а также клеймы <code>client_id</code>, <code>username</code> и <code>cognito:groups</code>. Именно Access Token передается в заголовке <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+      <li><strong>Refresh Token (Токен обновления):</strong> В отличие от первых двух токенов, Refresh Token является непрозрачной криптографической строкой (opaque string), а не JWT. Он хранится в безопасном клиентском хранилище и используется только для обращения к Cognito API с потоком <code>REFRESH_TOKEN_AUTH</code> для получения новой пары ID и Access токенов без повторного ввода логина и пароля.</li>
+    </ul>
+
+    <h2 id="jwt-structure">2 · Формат JWT: заголовок, тело и цифровая подпись <a class="anchor-link" href="#jwt-structure">#</a></h2>
+    <p>ID Token и Access Token формируются в соответствии со спецификацией RFC 7519 JSON Web Token (JWT) и состоят из трех компонентов в кодировке Base64URL, разделенных точками: <code>Header.Payload.Signature</code>.</p>
+    <p><strong>Заголовок (Header):</strong> Содержит метаданные цифровой подписи:</p>
+    <ul>
+      <li><code>alg</code>: криптографический алгоритм подписи. В Amazon Cognito используется строго <code>RS256</code> (асимметричный алгоритм RSA с длиной ключа 2048 бит и функцией хэширования SHA-256).</li>
+      <li><code>kid</code> (Key ID): уникальный строковый идентификатор открытого ключа, с помощью которого была сформирована подпись. По этому идентификатору валидатор находит нужный публичный ключ в наборе JWKS.</li>
+      <li><code>typ</code>: тип токена, всегда имеет значение <code>JWT</code>.</li>
+    </ul>
+    <p><strong>Тело (Payload):</strong> Содержит набор зарегистрированных и приватных утверждений (claims):</p>
+    <ul>
+      <li><code>iss</code>: адрес эмитента токена, строго равный <code>https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;userPoolId&gt;</code>.</li>
+      <li><code>sub</code>: уникальный идентификатор пользователя (UUIDv4) в каталоге, сохраняющийся на протяжении всего жизненного цикла учетной записи.</li>
+      <li><code>aud</code>: в ID токенах содержит App Client ID, для которого выпущен токен.</li>
+      <li><code>client_id</code>: в Access токенах указывает на App Client ID вызывающего клиента.</li>
+      <li><code>exp</code>: Unix-время истечения срока действия токена в секундах.</li>
+      <li><code>iat</code>: Unix-время выпуска токена.</li>
+      <li><code>token_use</code>: назначение токена, принимает строго значение <code>id</code> для ID токена и <code>access</code> для Access токена.</li>
+      <li><code>jti</code>: уникальный UUID самого токена (JWT ID) для предотвращения повторного использования.</li>
+    </ul>
+    <p><strong>Подпись (Signature):</strong> Криптографическая контрольная сумма, вычисляемая приватным ключом Cognito по формуле <code>RSASHA256(base64Url(Header) + "." + base64Url(Payload), privateKey)</code>. Любая попытка изменить хотя бы один байт в заголовке или теле приводит к математической невалидности подписи.</p>
+
+    <h2 id="jwks-validation">3 · Децентрализованная валидация сигнатуры через JWKS <a class="anchor-link" href="#jwks-validation">#</a></h2>
+    <p>Сервисы бэкенда, API Gateway Authorizers и микросервисы Kubernetes обязаны проверять токены локально без отправки сетевых запросов в сервис Cognito. Для этого реализуется строгий 8-шаговый алгоритм валидации:</p>
+    <ol>
+      <li><strong>Декодирование заголовка:</strong> Парсинг первой части JWT без проверки подписи для извлечения полей <code>kid</code> и <code>alg</code>. Проверка, что алгоритм <code>alg</code> строго равен <code>RS256</code> (защита от атаки Algorithm Confusion).</li>
+      <li><strong>Получение JWKS:</strong> Загрузка набора публичных ключей по адресу <code>https://cognito-idp.&lt;region&gt;.amazonaws.com/&lt;userPoolId&gt;/.well-known/jwks.json</code>. Набор JWKS кэшируется в оперативной памяти сервиса на срок от нескольких часов до суток.</li>
+      <li><strong>Сопоставление ключа:</strong> Поиск объекта ключа в массиве <code>keys</code>, у которого поле <code>kid</code> совпадает с <code>kid</code> из заголовка токена. Если ключ не найден, кэш JWKS инвалидируется и выполняется повторный запрос к эндпоинту (на случай плановой ротации ключей AWS).</li>
+      <li><strong>Криптографическая проверка подписи:</strong> Проверка подписи с использованием публичного ключа RSA (сконструированного из параметров модуля <code>n</code> и экспоненты <code>e</code>).</li>
+      <li><strong>Проверка срока жизни:</strong> Текущее время должно быть меньше значения <code>exp</code> (допускается смещение часов clock skew не более 2-3 минут).</li>
+      <li><strong>Проверка эмитента:</strong> Значение <code>iss</code> обязано строго совпадать с ожидаемым региональным адресом User Pool.</li>
+      <li><strong>Проверка типа токена:</strong> При авторизации вызовов API клейм <code>token_use</code> обязан иметь значение <code>access</code>. Прием ID токенов на защищенных эндпоинтах данных должен отклоняться.</li>
+      <li><strong>Проверка клиента:</strong> Значение <code>client_id</code> обязано входить в список разрешенных App Client ID вашего приложения.</li>
+    </ol>
+
+    <h2 id="token-validity">4 · Управление временем жизни и единицы валидности <a class="anchor-link" href="#token-validity">#</a></h2>
+    <p>Конфигурация времени жизни токенов задается на уровне App Client. Блок <code>TokenValidityUnits</code> определяет единицы измерения срока действия отдельно для трех типов токенов: <code>AccessToken</code>, <code>IdToken</code> и <code>RefreshToken</code>.</p>
+    <p>Каждая единица измерения времени жизни выбирается из четырех допустимых значений: <code>seconds</code>, <code>minutes</code>, <code>hours</code> или <code>days</code>.</p>
+    <p>В зависимости от требований архитектуры устанавливаются допустимые диапазоны:</p>
+    <ul>
+      <li><strong>Access Token и ID Token:</strong> Минимальный срок составляет 5 минут, максимальный - 24 часа (1 день). В современных архитектурах нулевого доверия (Zero Trust) рекомендуется выставлять время жизни Access Token в пределах 15-60 минут, минимизируя окно компрометации при перехвате токена.</li>
+      <li><strong>Refresh Token:</strong> Минимальный срок составляет 60 минут, максимальный - 3650 дней (10 лет). Для типичных веб- и мобильных систем срок жизни выставляется на уровне 30-90 дней.</li>
+    </ul>
+
+    <h2 id="revocation">5 · Отзыв токенов и ротация Refresh Token <a class="anchor-link" href="#revocation">#</a></h2>
+    <p>Поскольку JWT-токены не имеют централизованного состояния (stateless), скомпрометированный Access Token остается криптографически валидным до истечения времени <code>exp</code>. Для решения этой проблемы Cognito предоставляет два механизма:</p>
+    <p><strong>Отзыв токенов (Token Revocation):</strong> Активируется параметром <code>EnableTokenRevocation=true</code> в настройках App Client. Позволяет клиенту или бэкенду вызвать эндпоинт <code>/oauth2/revoke</code> или API-метод <code>RevokeToken</code>, передав Refresh Token. Сервис Cognito немедленно аннулирует переданный Refresh Token и прекращает выпуск новых токенов по этой сессии.</p>
+    <p><strong>Ротация Refresh Token (RefreshTokenRotation):</strong> Механизм, при котором каждый успешный вызов обновления сессии возвращает клиенту не только новые ID и Access токены, но и совершенно новый Refresh Token. Предыдущий Refresh Token однократно инвалидируется. Если злоумышленник попытается воспользоваться перехваченным ранее Refresh Token, сервис зафиксирует попытку повторного использования (Replay Attack) и немедленно аннулирует всю цепочку выданных токенов данного пользователя, защищая учетную запись от скрытого захвата сессии.</p>
+    <p><strong>Глобальный выход (Global SignOut):</strong> Вызов метода <code>AdminUserGlobalSignOut</code> аннулирует все Refresh токены пользователя на всех устройствах и сдвигает внутреннюю метку времени выхода. При этом Access токены, содержащие клейм <code>auth_time</code>, меньший времени вызова SignOut, могут отсекаться логикой валидатора на стороне API Gateway.</p>
+
+    <h2 id="srp-auth">6 · Протокол SRP против классической передачи паролей <a class="anchor-link" href="#srp-auth">#</a></h2>
+    <p>По умолчанию AWS SDK и библиотека Amplify используют для аутентификации протокол Secure Remote Password (SRP, RFC 2945). Главное достоинство SRP состоит в том, что <em>пароль пользователя никогда не передается по сети</em>, даже в зашифрованном виде внутри TLS-канала.</p>
+    <p>Клиент и сервер проводят математический диалог с нулевым разглашением тайны (Zero-Knowledge Proof):</p>
+    <ol>
+      <li>Клиент генерирует случайный эфемерный ключ <code>a</code>, вычисляет открытый параметр <code>A</code> и отправляет его серверу вместе с именем пользователя в запросе <code>InitiateAuth</code> с потоком <code>USER_SRP_AUTH</code>.</li>
+      <li>Сервер извлекает сохраненную соль <code>s</code> и верификатор пароля <code>v</code>, генерирует случайный ключ <code>b</code>, вычисляет открытый параметр <code>B</code> и возвращает клиенту испытание (Challenge) с солью <code>s</code> и параметром <code>B</code>.</li>
+      <li>Клиент и сервер независимо вычисляют общий секретный ключ сессии <code>S</code> и хэш подтверждения <code>M1</code>.</li>
+      <li>Клиент отправляет <code>M1</code> в запросе <code>RespondToAuthChallenge</code>. Сервер проверяет совпадение и возвращает токены вместе с подтверждением <code>M2</code>.</li>
+    </ol>
+    <p>Использование классического потока <code>USER_PASSWORD_AUTH</code> или <code>ADMIN_NO_SRP_AUTH</code> отправляет открытый пароль в теле POST-запроса через HTTPS. Этот режим допустим только в изолированных серверных скриптах или старых legacy-интеграциях, так как несет риск перехвата учетных данных на корпоративных прокси с инспекцией SSL/TLS.</p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы освоили архитектуру токенов и механизмы их верификации:</p>
+      <ul>
+        <li>Четкое архитектурное разграничение ролей ID Token, Access Token и Refresh Token.</li>
+        <li>Понимание анатомии JWT (Header, Payload, Signature) и обязательных клеймов Cognito.</li>
+        <li>Готовый 8-шаговый алгоритм децентрализованной валидации токенов по эндпоинту JWKS.</li>
+        <li>Управление временем жизни токенов через <code>TokenValidityUnits</code> и политики безопасности.</li>
+        <li>Принципы отзыва сессий, ротации Refresh токенов и криптографическая стойкость протокола SRP.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="03.html">Раздел 3</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="01.html">Раздел 1</a></p>
+        <p class="pager-next">Следующая тема: <a href="03.html">Клиенты и OAuth 2.0</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="01.html">Архитектура User Pools</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 4 · devops-aws-cognito · ai|</title>
+<title>Hosted UI и домены · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Встроенный интерфейс авторизации Cognito Hosted UI: конфигурация доменов, привязка сертификатов ACM в us-east-1, брендинг и безопасность редиректов.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/04.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/04.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/04.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 4">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Hosted UI и домены">
+<meta property="og:description" content="Встроенный интерфейс авторизации Cognito Hosted UI: конфигурация доменов, привязка сертификатов ACM в us-east-1, брендинг и безопасность редиректов.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/04.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 4","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/04.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Hosted UI и домены","description":"Встроенный интерфейс авторизации Cognito Hosted UI: конфигурация доменов, привязка сертификатов ACM в us-east-1, брендинг и безопасность редиректов.","url":"https://y-kolyada.github.io/aws-cognito/ru/04.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html" aria-current="page"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html" aria-current="page"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,75 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 4</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Hosted UI и домены</h1>
+    <p class="page-size" data-words="1175">Слов: 1175</p>
+    <p class="lead">Встроенный интерфейс авторизации Cognito Hosted UI: конфигурация доменов, привязка сертификатов ACM в us-east-1, брендинг и безопасность редиректов.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Amazon Cognito Hosted UI представляет собой полностью готовый к эксплуатации, управляемый AWS сервер авторизации OAuth 2.0 и OpenID Connect, снабженный готовыми веб-формами для регистрации, входа, сброса паролей, прохождения MFA и интеграции с внешними провайдерами идентификации (Google, Apple, SAML). Использование Hosted UI позволяет команде разработчиков полностью исключить самостоятельную реализацию криптографически сложных и подверженных уязвимостям экранов авторизации в коде клиентских приложений. Доступ к Hosted UI организуется через домен авторизации, при этом подключение собственного доменного имени требует строгого соблюдения глобальной архитектуры AWS: выпуска сертификата в регионе us-east-1 и настройки маршрутизации через CloudFront.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="domain-types">1 · Типы доменов: префиксный домен AWS против кастомного домена <a class="anchor-link" href="#domain-types">#</a></h2>
+    <p>Для активации Hosted UI в User Pool создается домен авторизации. Вызов API <code>create-user-pool-domain</code> настраивает четыре параметра: <code>CustomDomainConfig</code>, <code>Domain</code>, <code>ManagedLoginVersion</code> и <code>UserPoolId</code>. Разработчику доступно два архитектурных варианта домена:</p>
+    <ul>
+      <li><strong>Префиксный домен AWS (Cognito Domain Prefix):</strong> Имеет формат <code>https://&lt;domain_prefix&gt;.auth.&lt;region&gt;.amazoncognito.com</code>. Преимущество префиксного домена - мгновенное развертывание: он не требует покупки доменного имени, выпуска SSL-сертификатов и настройки DNS-записей. Главное ограничение: выбранный префикс обязан быть глобально уникальным среди всех аккаунтов AWS в рамках данного региона. Префиксный домен оптимален для сред разработки (dev/stage) и внутренних прототипов.</li>
+      <li><strong>Кастомный домен (Custom Domain):</strong> Имеет формат собственного субдомена компании, например <code>https://auth.example.com</code> или <code>https://login.mycorp.org</code>. Кастомный домен формирует доверие пользователей, сохраняет единый бренд сервиса и предотвращает появление подозрительных сторонних адресов в адресной строке браузера при перенаправлении на вход.</li>
+    </ul>
+
+    <h2 id="acm-certificate">2 · Привязка сертификата ACM строго в регионе us-east-1 <a class="anchor-link" href="#acm-certificate">#</a></h2>
+    <p>Настройка кастомного домена для Hosted UI подчиняется фундаментальному правилу пограничной архитектуры AWS. Под капотом сервис Cognito создает глобальную дистрибуцию Amazon CloudFront для обработки входящих HTTPS-запросов к экранам входа на пограничных локациях (Edge Locations).</p>
+    <p>В силу архитектуры CloudFront SSL/TLS-сертификат для кастомного домена обязан быть выпущен или импортирован в сервис AWS Certificate Manager (ACM) <em>строго в регионе us-east-1 (Северная Вирджиния)</em>. Это правило действует абсолютно всегда, даже если сам User Pool физически расположен во Франкфурте (<code>eu-central-1</code>), Лондоне (<code>eu-west-2</code>) или Токио (<code>ap-northeast-1</code>).</p>
+    <p>Параметр <code>CustomDomainConfig.CertificateArn</code> принимает ARN сертификата строго из <code>us-east-1</code>. Попытка передать ARN сертификата, созданного в том же европейском или азиатском регионе, что и User Pool, завершится ошибкой валидации <code>InvalidParameterException</code>. После успешного создания кастомного домена AWS выделяет дистрибуцию CloudFront и возвращает псевдоним вида <code>d111111abcdef8.cloudfront.net</code>, на который администратор обязан настроить каноническую DNS-запись CNAME в сервисе Amazon Route 53 или у стороннего DNS-провайдера.</p>
+    <p>В процессе создания кастомный домен проходит несколько стадий жизненного цикла: начальный статус <code>CREATING</code> сменяется на <code>UPDATING</code> и, наконец, на <code>ACTIVE</code>. Этот процесс занимает от 15 до 30 минут, пока глобальная сеть CloudFront распространяет конфигурацию по сотням пограничных узлов (PoP). Дополнительное архитектурное преимущество выделенного субдомена (например, <code>auth.example.com</code> по сравнению с основным доменом приложения <code>app.example.com</code>) состоит в строгой изоляции области видимости файлов cookie: сессионные куки Hosted UI не утекают на основной сайт, а куки приложения изолированы от сервера авторизации, что полностью блокирует атаки класса Cookie Tossing и Session Fixation.</p>
+
+    <h2 id="oauth-endpoints">3 · Стандартные конечные точки OAuth 2.0 Hosted UI <a class="anchor-link" href="#oauth-endpoints">#</a></h2>
+    <p>После привязки домена на нем автоматически разворачивается полный набор стандартных REST-эндпоинтов протоколов OAuth 2.0 и OpenID Connect:</p>
+    <ul>
+      <li><code>/oauth2/authorize</code>: конечная точка инициации аутентификации (HTTP GET). Принимает параметры запроса: <code>response_type=code</code>, <code>client_id</code>, <code>redirect_uri</code>, <code>scope</code>, <code>state</code>, <code>code_challenge</code> и <code>code_challenge_method=S256</code>. Если пользователь не авторизован, отображает веб-форму логина.</li>
+      <li><code>/oauth2/token</code>: конечная точка выдачи и обновления токенов (HTTP POST). Принимает код авторизации с параметром <code>code_verifier</code> (поток Authorization Code + PKCE), логин-пароль или Refresh Token и возвращает JSON-ответ с комплектом токенов.</li>
+      <li><code>/oauth2/userInfo</code>: стандартизированный эндпоинт OIDC (HTTP GET). Принимает валидный Access Token в заголовке Authorization и возвращает профиль пользователя.</li>
+      <li><code>/oauth2/revoke</code>: эндпоинт отзыва токенов (HTTP POST). Принимает Refresh Token и аннулирует активную пользовательскую сессию.</li>
+      <li><code>/logout</code>: эндпоинт завершения сеанса (HTTP GET). Очищает куки сессии в браузере и перенаправляет пользователя на один из разрешенных адресов <code>LogoutURLs</code>.</li>
+      <li><code>/.well-known/openid-configuration</code>: документ автообнаружения (Discovery Document), описывающий все адреса эндпоинтов, поддерживаемые алгоритмы и скоупы для автоматической настройки клиентских библиотек.</li>
+    </ul>
+
+    <h2 id="redirect-security">4 · Безопасность перенаправлений: CallbackURLs и LogoutURLs <a class="anchor-link" href="#redirect-security">#</a></h2>
+    <p>Одной из наиболее опасных уязвимостей протокола OAuth 2.0 является атака открытого перенаправления (Open Redirector), при которой злоумышленник подменяет адрес возврата и перехватывает код авторизации жертвы. Для предотвращения этой угрозы Cognito применяет строжайшую валидацию списков <code>CallbackURLs</code> и <code>LogoutURLs</code> в настройках App Client.</p>
+    <p>Сервис производит строгое точное сопоставление (exact matching) входящего значения <code>redirect_uri</code> с предварительно объявленным списком в конфигурации. Любое расхождение в схеме протокола, регистре символов, номере порта или пути (path) приводит к немедленной блокировке запроса сервером с ошибкой <code>redirect_mismatch</code>. Использование подстановочных символов (wildcards, например <code>https://*.example.com/callback</code>) категорически запрещено спецификацией безопасности.</p>
+    <p>Все зарегистрированные адреса обязаны использовать защищенный протокол HTTPS. Единственным допустимым исключением из этого правила является адрес <code>http://localhost</code> (с произвольным портом), зарезервированный для локальной отладки на машине инженера.</p>
+
+    <h2 id="branding-customization">5 · Брендинг и Managed Login (v1 против v2) <a class="anchor-link" href="#branding-customization">#</a></h2>
+    <p>Cognito предоставляет возможность адаптации внешнего вида экранов входа под корпоративный стиль компании. Через API-метод <code>SetUICustomization</code> администратор может загрузить логотип компании в форматах PNG или JPEG и применить кастомные правила CSS для шрифтов, цветов кнопок, фона и рамок полей ввода.</p>
+    <p>Кастомизация классического интерфейса осуществляется через стандартизированный набор классов стилей CSS: <code>.banner-customizable</code> для оформления шапки, <code>.submitButton-customizable</code> для основных интерактивных кнопок действий, <code>.inputField-customizable</code> для полей ввода учетных данных и <code>.errorMessage-customizable</code> для сообщений о сбоях. На таблицу стилей накладывается жесткое физическое ограничение: объем передаваемого CSS-файла не может превышать 6 КБ, а размер графического логотипа ограничен 100 КБ. При обновлении стилей важно учитывать временной лаг кэширования: CloudFront кэширует статические ассеты экранов на пограничных узлах, поэтому внесенные правки отображаются в браузере в течение 10-15 минут.</p>
+    <p>Параметр <code>ManagedLoginVersion</code> определяет архитектурное поколение интерфейса Hosted UI:</p>
+    <ul>
+      <li><strong>Hosted UI Classic (v1):</strong> Традиционный одностраничный интерфейс, существующий с момента запуска сервиса. Имеет ограниченные возможности верстки и адаптивности, но поддерживается всеми версиями SDK.</li>
+      <li><strong>Managed Login (v2):</strong> Современное поколение пользовательского интерфейса Cognito, разработанное с учетом современных стандартов адаптивного дизайна для мобильных платформ. Managed Login v2 поддерживает пошаговые сценарии входа (раздельный ввод логина и пароля), гранулярную кастомизацию компонентов брендинга, улучшенную доступность (accessibility по стандарту WCAG 2.1) и встроенную динамическую локализацию экранных текстов на множество языков в зависимости от заголовка Accept-Language клиента. Также Managed Login v2 нативно поддерживает регистрацию и прохождение аутентификации через аппаратные ключи безопасности FIDO2 и биометрические стандарты WebAuthn.</li>
+    </ul>
+
+    <h2 id="csrf-protection">6 · Защита от подделки запросов через параметр state <a class="anchor-link" href="#csrf-protection">#</a></h2>
+    <p>При использовании потока Authorization Code клиентское приложение обязано использовать параметр <code>state</code> для защиты от атак межсайтовой подделки запросов (Cross-Site Request Forgery, CSRF).</p>
+    <p>Без использования <code>state</code> злоумышленник может инициировать процесс авторизации под своей учетной записью, перехватить код авторизации и обманом заставить браузер жертвы перейти по ссылке с этим кодом. В результате приложение жертвы привяжет свои данные к учетной записи атакующего.</p>
+    <p>Для предотвращения атаки перед отправкой пользователя на Hosted UI фронтенд генерирует криптографически непредсказуемое случайное значение, сохраняет его в защищенной куке или сессионном хранилище браузера и передает в параметре <code>state</code> запроса <code>/oauth2/authorize</code>. Сервер Cognito возвращает полученный <code>state</code> в неизменном виде в параметрах редиректа на <code>CallbackURL</code>. Клиент проверяет идентичность возвращенного значения с сохраненным в сессии, и только при полном совпадении приступает к обмену кода авторизации на токены.</p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы освоили архитектуру Hosted UI и правила сетевой конфигурации:</p>
+      <ul>
+        <li>Понимание преимуществ и ограничений префиксных доменов AWS против кастомных доменов.</li>
+        <li>Знание архитектурной причины выпуска SSL-сертификатов ACM строго в регионе us-east-1.</li>
+        <li>Полная карта конечных точек OAuth 2.0 / OIDC и их параметров.</li>
+        <li>Правила строгой валидации Callback URLs и предотвращение уязвимостей Open Redirector.</li>
+        <li>Настройка брендинга Managed Login и защита сессий авторизации через криптографический параметр <code>state</code>.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="05.html">Раздел 5</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="03.html">Раздел 3</a></p>
+        <p class="pager-next">Следующая тема: <a href="05.html">Федерация и IdP</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="03.html">Клиенты и OAuth 2.0</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>

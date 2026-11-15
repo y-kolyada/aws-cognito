@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раздел 5 · devops-aws-cognito · ai|</title>
+<title>Федерация и IdP · devops-aws-cognito · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Федерация идентичностей в Cognito: корпоративный вход SAML 2.0, социальные провайдеры OIDC, сопоставление атрибутов и провижининг Just-In-Time.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-cognito/ru/05.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-cognito/ru/05.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-cognito/en/05.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="x-default" href="https://y-kolyada.github.io/aws-cognito/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-cognito">
-<meta property="og:title" content="Раздел 5">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:title" content="Федерация и IdP">
+<meta property="og:description" content="Федерация идентичностей в Cognito: корпоративный вход SAML 2.0, социальные провайдеры OIDC, сопоставление атрибутов и провижининг Just-In-Time.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-cognito/ru/05.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Раздел 5","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-cognito/ru/05.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Федерация и IdP","description":"Федерация идентичностей в Cognito: корпоративный вход SAML 2.0, социальные провайдеры OIDC, сопоставление атрибутов и провижининг Just-In-Time.","url":"https://y-kolyada.github.io/aws-cognito/ru/05.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-cognito","url":"https://y-kolyada.github.io/aws-cognito/"}}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -67,21 +67,21 @@
 
   <nav class="contents" aria-label="Разделы сайта">
     <ol>
-      <li><a href="01.html"><span class="num">1</span>Раздел 1</a></li>
-      <li><a href="02.html"><span class="num">2</span>Раздел 2</a></li>
-      <li><a href="03.html"><span class="num">3</span>Раздел 3</a></li>
-      <li><a href="04.html"><span class="num">4</span>Раздел 4</a></li>
-      <li><a href="05.html" aria-current="page"><span class="num">5</span>Раздел 5</a></li>
-      <li><a href="06.html"><span class="num">6</span>Раздел 6</a></li>
-      <li><a href="07.html"><span class="num">7</span>Раздел 7</a></li>
-      <li><a href="08.html"><span class="num">8</span>Раздел 8</a></li>
-      <li><a href="09.html"><span class="num">9</span>Раздел 9</a></li>
-      <li><a href="10.html"><span class="num">10</span>Раздел 10</a></li>
-      <li><a href="11.html"><span class="num">11</span>Раздел 11</a></li>
-      <li><a href="12.html"><span class="num">12</span>Раздел 12</a></li>
-      <li><a href="13.html"><span class="num">13</span>Раздел 13</a></li>
-      <li><a href="14.html"><span class="num">14</span>Раздел 14</a></li>
-      <li><a href="15.html"><span class="num">15</span>Раздел 15</a></li>
+      <li><a href="01.html"><span class="num">1</span>Архитектура User Pools</a></li>
+      <li><a href="02.html"><span class="num">2</span>Аутентификация и JWT</a></li>
+      <li><a href="03.html"><span class="num">3</span>Клиенты и OAuth 2.0</a></li>
+      <li><a href="04.html"><span class="num">4</span>Hosted UI и домены</a></li>
+      <li><a href="05.html" aria-current="page"><span class="num">5</span>Федерация и IdP</a></li>
+      <li><a href="06.html"><span class="num">6</span>События и триггеры</a></li>
+      <li><a href="07.html"><span class="num">7</span>Identity Pools и STS</a></li>
+      <li><a href="08.html"><span class="num">8</span>Безопасность и WAF</a></li>
+      <li><a href="09.html"><span class="num">9</span>Лимиты и экономика</a></li>
+      <li><a href="10.html"><span class="num">10</span>Примеры · Noob</a></li>
+      <li><a href="11.html"><span class="num">11</span>Примеры · Pro</a></li>
+      <li><a href="12.html"><span class="num">12</span>Примеры · IGL</a></li>
+      <li><a href="13.html"><span class="num">13</span>Вопросы · Noob</a></li>
+      <li><a href="14.html"><span class="num">14</span>Вопросы · Pro</a></li>
+      <li><a href="15.html"><span class="num">15</span>Вопросы · IGL</a></li>
     </ol>
     <div class="nav-extra">
       <div><a href="navigator.html"><svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> Навигатор</a></div>
@@ -93,28 +93,91 @@
   </nav>
 
   <main id="main">
-    <h1>Раздел 5</h1>
-    <p class="page-size" data-words="48">Слов: 48</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <h1>Федерация и IdP</h1>
+    <p class="page-size" data-words="1069">Слов: 1069</p>
+    <p class="lead">Федерация идентичностей в Cognito: корпоративный вход SAML 2.0, социальные провайдеры OIDC, сопоставление атрибутов и провижининг Just-In-Time.</p>
 
     <div class="box key" id="key-idea">
       <h2>Главная мысль страницы <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>Федерация удостоверений (Identity Federation) позволяет Amazon Cognito User Pool выступать в качестве центрального брокера аутентификации, объединяющего внешние источники учетных записей без необходимости дублирования паролей пользователей в облаке AWS. Поддерживая открытые стандарты SAML 2.0 и OpenID Connect, Cognito берет на себя тяжелую криптографическую работу по проверке цифровых подписей XML-утверждений и JWT-токенов сторонних провайдеров (Okta, Microsoft Entra ID, Google, Apple). При первом входе внешнего пользователя сервис автоматически создает профиль в локальном каталоге через механизм Just-In-Time (JIT) провижининга и выполняет сопоставление атрибутов, выдавая клиентскому приложению единый, унифицированный JWT-токен стандарта OIDC.</p>
     </div>
 
-    <h2 id="first">1 · Раздел 1 <a class="anchor-link" href="#first">#</a></h2>
-    <p>Текст этого раздела ещё не написан.</p>
+    <h2 id="federation-overview">1 · Архитектура федерации: User Pool как единый хаб идентичности <a class="anchor-link" href="#federation-overview">#</a></h2>
+    <p>В современных корпоративных и SaaS-архитектурах пользователи разделены между различными каталогами: сотрудники клиентов используют корпоративный каталог компании (Single Sign-On на базе Active Directory или Okta), розничные клиенты предпочитают быстрый вход через социальные сети (Google, Apple), а сервисные администраторы входят по логину и паролю. Попытка поддержать эти разнородные протоколы напрямую в коде каждого микросервиса приводит к катастрофическому росту сложности и уязвимостей.</p>
+    <p>Cognito User Pool решает эту проблему за счет роли единого хаба идентичности. Команда CLI <code>create-identity-provider</code> настраивает внешний провайдер, задавая шесть ключевых параметров: <code>AttributeMapping</code>, <code>IdpIdentifiers</code>, <code>ProviderDetails</code>, <code>ProviderName</code>, <code>ProviderType</code> и <code>UserPoolId</code>.</p>
+    <p>Поддерживаемые типы провайдеров охватывают шесть систем: <code>SAML</code>, <code>OIDC</code>, <code>Google</code>, <code>SignInWithApple</code>, <code>Facebook</code> и <code>LoginWithAmazon</code>. Для прикладных микросервисов источник аутентификации становится прозрачным: фронтенд всегда взаимодействует со стандартизированным API Cognito и получает идентичные по структуре токены доступа и идентификации.</p>
+
+    <h2 id="saml-federation">2 · Корпоративная федерация SAML 2.0 (Okta, Microsoft Entra ID) <a class="anchor-link" href="#saml-federation">#</a></h2>
+    <p>Протокол Security Assertion Markup Language 2.0 (SAML 2.0) является основой корпоративной аутентификации в сегменте Enterprise B2B. В архитектуре SAML:</p>
+    <ul>
+      <li><strong>Cognito User Pool</strong> выступает в роли поставщика услуг (Service Provider, SP).</li>
+      <li><strong>Корпоративный каталог</strong> (Okta, Microsoft Entra ID / Azure AD, Ping Identity, CyberArk) выступает в роли поставщика идентичности (Identity Provider, IdP).</li>
+    </ul>
+    <p>Конфигурация провайдера в блоке <code>ProviderDetails</code> включает в себя URL документа метаданных <code>MetadataURL</code> (или загруженный файл <code>MetadataFile</code> в формате XML), содержащий открытые сертификаты X.509 для проверки цифровых подписей ответов IdP и конечные точки Single Sign-On (SSO).</p>
+    <p>Со стороны Cognito для настройки в корпоративном IdP предоставляются следующие параметры Service Provider:</p>
+    <ul>
+      <li><strong>Assertion Consumer Service (ACS) URL:</strong> адрес, на который IdP отправляет подписанный POST-запрос с утверждением (SAML assertion): <code>https://&lt;your-domain&gt;.auth.&lt;region&gt;.amazoncognito.com/saml2/idpresponse</code>.</li>
+      <li><strong>Audience URI (SP Entity ID):</strong> уникальный идентификатор поставщика услуг в формате URN: <code>urn:amazon:cognito:sp:&lt;userPoolId&gt;</code>.</li>
+    </ul>
+    <p>Внутренняя структура ответа SAML Response строится по канонической иерархии XML: корневой элемент <code>samlp:Response</code> содержит вложенный блок <code>saml:Assertion</code>, защищенный криптографической подписью <code>ds:Signature</code> с алгоритмом RSA-SHA256. Внутри утверждения блок <code>saml:Subject</code> определяет идентификатор пользователя <code>NameID</code> (форматы <code>emailAddress</code>, <code>persistent</code> или <code>unspecified</code>), блок условий <code>saml:Conditions</code> ограничивает временной интервал валидности через метки <code>NotBefore</code> и <code>NotOnOrAfter</code>, а блок <code>saml:AttributeStatement</code> передает структурированные атрибуты пользователя (роли, департамент, группы доступа).</p>
+    <p>Поддерживаются сценарии SP-initiated (вход начинается с перехода на страницу приложения, которое перенаправляет пользователя в IdP) и IdP-initiated (вход начинается с корпоративного дашборда сотрудника в Okta с прямым переходом в приложение).</p>
+
+    <h2 id="oidc-social">3 · Социальный вход и универсальный OIDC (Google, Apple) <a class="anchor-link" href="#oidc-social">#</a></h2>
+    <p>Для потребительских веб- и мобильных приложений критичен низкий порог входа через популярные социальные сети и универсальные OIDC-серверы:</p>
+    <ul>
+      <li><strong>Google:</strong> В консоли Google Cloud регистрируется клиент OAuth 2.0 типа Web Application. В настройках Cognito указываются <code>client_id</code>, <code>client_secret</code> и запрашиваемые скоупы (<code>profile email openid</code>).</li>
+      <li><strong>Sign in with Apple:</strong> Требует специфической криптографической настройки. В панели Apple Developer регистрируются Service ID, Team ID и выпускается закрытый ключ подписи (файл <code>.p8</code>). При обмене кодов авторизации Cognito на лету генерирует для Apple временный клиентский секрет в виде подписанного токена JWT. Поддерживается безопасный механизм маскирования почты Apple Private Relay.</li>
+      <li><strong>Универсальный OIDC:</strong> Позволяет подключить любой совместимый с OpenID Connect сервер (Keycloak, Auth0, GitLab). В <code>ProviderDetails</code> указывается базовый адрес <code>oidc_issuer</code>, после чего Cognito автоматически загружает эндпоинты авторизации, токенов и набора ключей JWKS через манифест <code>.well-known/openid-configuration</code>.</li>
+    </ul>
+
+    <h2 id="attribute-mapping">4 · Сопоставление атрибутов и трансформация профилей <a class="anchor-link" href="#attribute-mapping">#</a></h2>
+    <p>Данные, возвращаемые внешними провайдерами, имеют различную структуру именования полей. Параметр <code>AttributeMapping</code> устанавливает соответствие между именами атрибутов в User Pool (ключи словаря) и именами полей во внешнем токене или SAML assertion (значения словаря).</p>
+    <p>Примеры конфигурации сопоставления:</p>
+    <ul>
+      <li>Для провайдера SAML (Okta):<br>
+        <code>email = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"</code><br>
+        <code>family_name = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"</code><br>
+        <code>custom:cost_center = "costCenter"</code>
+      </li>
+      <li>Для провайдера Google OIDC:<br>
+        <code>email = "email"</code><br>
+        <code>given_name = "given_name"</code><br>
+        <code>family_name = "family_name"</code><br>
+        <code>picture = "picture"</code>
+      </li>
+    </ul>
+    <p>Если в схеме User Pool атрибут <code>email</code> объявлен как обязательный (<code>Required=true</code>), маппинг для <code>email</code> обязан присутствовать в конфигурации каждого подключенного IdP. Если внешний провайдер вернет пустой email или поле с другим именем, процесс создания пользователя завершится фатальной ошибкой авторизации.</p>
+
+    <h2 id="jit-provisioning">5 · Механика Just-In-Time провижининга и объединение профилей <a class="anchor-link" href="#jit-provisioning">#</a></h2>
+    <p>Cognito реализует принцип Just-In-Time (JIT) провижининга: учетная запись пользователя создается в каталоге User Pool в момент его первого успешного входа через внешнего провайдера. Администратору не требуется предварительно синхронизировать списки сотрудников или выполнять пакетный импорт пользователей.</p>
+    <p>Имя пользователя (username) для федеративного субъекта формируется автоматически с префиксом провайдера, например <code>Google_112233445566</code> или <code>MyOkta_john.doe@corp.com</code>. Пользователь получает статус <code>EXTERNAL_PROVIDER</code> и не имеет собственного пароля в каталоге Cognito.</p>
+    <div class="box">
+      <p><strong>Проблема дублирования учетных записей (Account Linking).</strong> Если пользователь ранее зарегистрировался локально по адресу <code>user@example.com</code> с паролем, а затем нажал кнопку «Войти через Google» с тем же адресом, Cognito по умолчанию создаст вторую изолированную учетную запись. Чтобы объединить профили, используется административный метод <code>AdminLinkProviderForUser</code>.</p>
+      <p>Вызов <code>AdminLinkProviderForUser</code> принимает два обязательных структурных блока: <code>DestinationUser</code> (описывает целевую основную учетную запись в каталоге User Pool через поля <code>ProviderAttributeName="Cognito_Subject"</code>, <code>ProviderAttributeValue="&lt;sub-uuid&gt;"</code> и <code>ProviderName="Cognito"</code>) и <code>SourceUser</code> (описывает подключаемый внешний аккаунт через поля <code>ProviderAttributeName="Cognito_Subject"</code>, <code>ProviderAttributeValue="&lt;external-subject-id&gt;"</code> и <code>ProviderName="Google"</code>). После выполнения связывания пользователь может входить в один и тот же профиль как по локальному паролю, так и через внешнего провайдера, а в массиве <code>identities</code> локального пользователя появляется постоянная связь с внешним субъектом. В промышленной архитектуре этот процесс автоматизируется бессерверным триггером Lambda <code>Pre Sign-up</code>.</p>
+    </div>
+
+    <h2 id="idp-identifiers">6 · Динамическая маршрутизация доменов IdpIdentifiers <a class="anchor-link" href="#idp-identifiers">#</a></h2>
+    <p>В multi-tenant B2B платформах, обслуживающих сотни корпоративных заказчиков, отображение сотни отдельных кнопок входа («Войти через Okta Корпорации А», «Войти через Entra ID Корпорации Б») на экране Hosted UI неприемлемо с точки зрения интерфейса и безопасности.</p>
+    <p>Для решения этой задачи используется параметр <code>IdpIdentifiers</code> в конфигурации Identity Provider. Он принимает массив доменных имен корпоративной почты клиентов, например <code>["acme-corp.com", "acme.org"]</code>.</p>
+    <p>Когда пользователь вводит свой рабочий email на экране Hosted UI, Cognito автоматически распознает доменную часть адреса, находит соответствующий IdP по списку <code>IdpIdentifiers</code> и прозрачно перенаправляет браузер пользователя на форму входа его корпоративного провайдера без показа лишних промежуточных экранов.</p>
 
     <div class="box key" id="artifacts">
       <h2>Артефакты: что у вас есть после этой страницы <a class="anchor-link" href="#artifacts">#</a></h2>
-      <p>Текст этого раздела ещё не написан.</p>
+      <p>После изучения этой главы вы освоили архитектуру федерации идентичностей в AWS Cognito:</p>
+      <ul>
+        <li>Понимание роли User Pool как единого шлюза и нормализатора внешних протоколов OIDC и SAML 2.0.</li>
+        <li>Знание параметров интеграции Service Provider (ACS URL, Entity ID) и конфигурации IdP.</li>
+        <li>Уверенная настройка сопоставления атрибутов (Attribute Mapping) для корпоративных и социальных провайдеров.</li>
+        <li>Принципы работы Just-In-Time провижининга и архитектурные паттерны слияния аккаунтов через <code>AdminLinkProviderForUser</code>.</li>
+        <li>Проектирование мультитенантной корпоративной B2B-авторизации с использованием <code>IdpIdentifiers</code>.</li>
+      </ul>
     </div>
   
 
     <footer>
       <nav class="pager" aria-label="Соседние темы">
-        <p class="pager-next">Следующая тема: <a href="06.html">Раздел 6</a></p>
-        <p class="pager-prev">Предыдущая тема: <a href="04.html">Раздел 4</a></p>
+        <p class="pager-next">Следующая тема: <a href="06.html">События и триггеры</a></p>
+        <p class="pager-prev">Предыдущая тема: <a href="04.html">Hosted UI и домены</a></p>
       </nav>
       <p class="footer-note">Сайт серии AI Factory. Сделан той же оснасткой, что и остальные: обычный HTML и CSS, проверка на bash, публикация через GitHub Pages.</p>
     </footer>
