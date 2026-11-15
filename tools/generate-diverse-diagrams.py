@@ -409,9 +409,12 @@ DIAGRAMS = {
   <text x="235" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">TOTP Аутентификатор</text>
   <text x="235" y="159" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">$0 за SMS рассылку</text>
 
-  <!-- Final TCO Banner -->
-  <line x1="160" y1="168" x2="160" y2="182" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,188 156,180 164,180" fill="currentColor"/>
+  <!-- Dual Connectors Down to Final TCO Banner -->
+  <line x1="85" y1="168" x2="85" y2="182" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,188 81,180 89,180" fill="currentColor"/>
+
+  <line x1="235" y1="168" x2="235" y2="182" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,188 231,180 239,180" fill="currentColor"/>
 
   <rect x="30" y="188" width="260" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
   <text x="160" y="206" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Итог: Предсказуемый TCO</text>"""
