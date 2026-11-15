@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Лимиты и экономика</h1>
-    <p class="page-size" data-words="2023">Слов: 2023</p>
+    <p class="page-size" data-words="2016">Слов: 2016</p>
     <p class="lead">Экономическая модель MAU, оптимизация расходов на SMS MFA, защита от Toll Fraud и проектирование кэширования для обхода лимитов Cognito API.</p>
 
     <div class="box key" id="key-idea">
@@ -102,44 +102,42 @@
       <p>Стоимость Amazon Cognito масштабируется не по объёму хранимых записей, а по числу <span class="term"><button type="button" class="term-btn" aria-expanded="false">ежемесячно активных пользователей (MAU)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Ежемесячно активные пользователи (MAU)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Базовая метрика тарификации Cognito: уникальный пользователь, совершивший хотя бы одну операцию аутентификации за месяц.</span><span class="term-links"><a href="glossary.html#mau">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, при этом реальные финансовые и эксплуатационные риски лежат за пределами базовой сетки тарифов. Главными источниками внезапных расходов и простоев служат транспорт SMS-сообщений (подверженный атакам международного фрода Toll Fraud), жесткие региональные квоты вызовов API Identity Provider и наивный дизайн микросервисов, обращающихся к Cognito за профилем пользователя на каждый входящий HTTP-запрос. Зрелая инженерная архитектура защищает бюджет переходом на Passkeys и TOTP, изолирует SMS через WAF и SNS-лимиты и полностью устраняет вызовы GetUser на горячем пути за счет локальной валидации криптографических подписей JWT через кэшируемый JWKS.</p>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема экономики сервиса: тарификация MAU, защита от SMS Toll Fraud и квоты API">
-  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">База пользователей каталога</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема пирамиды расходов: MAU база, API квоты и экономия на MFA">
+  <!-- Top Wide Tier: 50K Free MAU -->
+  <rect x="20" y="8" width="280" height="30" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="27" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">База MAU: 50 000 Free Tier</text>
 
-  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,54 156,46 164,46" fill="currentColor"/>
+  <line x1="160" y1="38" x2="160" y2="56" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,62 156,54 164,54" fill="currentColor"/>
 
-  <rect x="20" y="54" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
-  <text x="160" y="69" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Тарификация MAU (Monthly Active)</text>
-  <text x="160" y="82" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">50 000 Free Tier • Ступени цены</text>
+  <!-- Middle Tier: API Limits & Quotas -->
+  <rect x="40" y="62" width="240" height="34" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="79" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Квоты API Identity Provider</text>
+  <text x="160" y="90" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Лимиты TPS • Burst емкость</text>
 
-  <path d="M 160 88 L 160 102 L 85 102 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,120 81,112 89,112" fill="currentColor"/>
+  <!-- Fork to Bottom Pillars -->
+  <path d="M 160 96 L 160 110 L 85 110 L 85 120" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="85,126 81,118 89,118" fill="currentColor"/>
 
-  <path d="M 160 88 L 160 102 L 235 102 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,120 231,112 239,112" fill="currentColor"/>
+  <path d="M 160 96 L 160 110 L 235 110 L 235 120" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="235,126 231,118 239,118" fill="currentColor"/>
 
-  <rect x="15" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">SMS Toll Fraud</text>
-  <text x="85" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Защита от фрода</text>
+  <!-- Left: SMS Fraud Guard -->
+  <rect x="15" y="126" width="140" height="42" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="85" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">SMS Toll Fraud</text>
+  <text x="85" y="159" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Лимиты расходов SNS</text>
 
-  <rect x="165" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Квоты API IdP</text>
-  <text x="235" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Лимиты TPS и Burst</text>
+  <!-- Right: TOTP MFA -->
+  <rect x="165" y="126" width="140" height="42" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="235" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">TOTP Аутентификатор</text>
+  <text x="235" y="159" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">$0 за SMS рассылку</text>
 
-  <line x1="85" y1="156" x2="85" y2="174" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,180 81,172 89,172" fill="currentColor"/>
+  <!-- Final TCO Banner -->
+  <line x1="160" y1="168" x2="160" y2="182" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,188 156,180 164,180" fill="currentColor"/>
 
-  <line x1="235" y1="156" x2="235" y2="174" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,180 231,172 239,172" fill="currentColor"/>
-
-  <rect x="15" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Отказ от SMS</text>
-  <text x="85" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">TOTP токены</text>
-
-  <rect x="165" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
-  <text x="235" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Кэш сессий</text>
-  <text x="235" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Снижение вызовов API</text>
+  <rect x="30" y="188" width="260" height="28" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="206" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Итог: Предсказуемый TCO</text>
       </svg>
       <p class="dim">Схема 10. Модель тарификации MAU, защита от SMS Toll Fraud и квоты API.</p>
     </div>

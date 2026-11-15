@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Федерация и IdP</h1>
-    <p class="page-size" data-words="1244">Слов: 1244</p>
+    <p class="page-size" data-words="1240">Слов: 1240</p>
     <p class="lead">Федерация идентичностей в Cognito: корпоративный вход SAML 2.0, социальные провайдеры OIDC, сопоставление атрибутов и провижининг Just-In-Time.</p>
 
     <div class="box key" id="key-idea">
@@ -102,44 +102,36 @@
       <p>Федерация удостоверений (Identity Federation) позволяет Amazon Cognito User Pool выступать в качестве центрального брокера аутентификации, объединяющего внешние источники учетных записей без необходимости дублирования паролей пользователей в облаке AWS. Поддерживая открытые стандарты <span class="term"><button type="button" class="term-btn" aria-expanded="false">SAML 2.0</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Протокол SAML 2.0 (Security Assertion Markup Language)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Открытый корпоративный стандарт обмена данными аутентификации и авторизации в формате подписанных XML-документов.</span><span class="term-links"><a href="glossary.html#saml">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> и OpenID Connect, Cognito берет на себя тяжелую криптографическую работу по проверке цифровых подписей XML-утверждений и JWT-токенов сторонних <span class="term"><button type="button" class="term-btn" aria-expanded="false">провайдеров идентичности IdP</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Провайдер идентичности (Identity Provider, IdP)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Внешняя доверенная система, хранящая учетные записи и удостоверяющая подлинность пользователей для Cognito.</span><span class="term-links"><a href="glossary.html#idp">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> (Okta, Microsoft Entra ID, Google, Apple). При первом входе внешнего пользователя сервис автоматически создает профиль в локальном каталоге через механизм <span class="term"><button type="button" class="term-btn" aria-expanded="false">Just-In-Time (JIT) провижининга</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Динамический провижининг (JIT Provisioning)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Автоматическое создание профиля пользователя в User Pool в момент первого успешного входа через внешний IdP.</span><span class="term-links"><a href="glossary.html#jit-provisioning">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> и выполняет <span class="term"><button type="button" class="term-btn" aria-expanded="false">сопоставление атрибутов</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Сопоставление атрибутов (Attribute Mapping)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Таблица трансляции входящих утверждений внешнего IdP (SAML утверждений или OIDC клеймов) в атрибуты профиля User Pool.</span><span class="term-links"><a href="glossary.html#attribute-mapping">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>, выдавая клиентскому приложению единый, унифицированный JWT-токен стандарта <span class="term"><button type="button" class="term-btn" aria-expanded="false">OpenID Connect (OIDC)</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Протокол OpenID Connect (OIDC)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Легковесный слой идентификации поверх протокола OAuth 2.0, выдающий ID токен в формате JSON Web Token.</span><span class="term-links"><a href="glossary.html#oidc">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>.</p>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема внешней федерации: интеграция SAML 2.0 и OIDC с Just-In-Time провижинингом">
-  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">Внешний IdP (Okta / Google)</text>
+      <svg viewBox="0 0 320 220" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема моста федерации: конвергенция внешних IdP в локальный каталог">
+  <!-- Top Two IdP Sources -->
+  <rect x="15" y="10" width="135" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="82" y="26" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">SAML 2.0 IdP</text>
+  <text x="82" y="39" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Okta / Entra ID</text>
 
-  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,54 156,46 164,46" fill="currentColor"/>
+  <rect x="170" y="10" width="135" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="237" y="26" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">OIDC Social</text>
+  <text x="237" y="39" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Google / Apple</text>
 
-  <rect x="20" y="54" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
-  <text x="160" y="69" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Cognito Federation Broker</text>
-  <text x="160" y="82" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">SAML 2.0 Assertion • OIDC Tokens</text>
+  <!-- Convergence Lines Down to Broker -->
+  <line x1="82" y1="46" x2="82" y2="66" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="82,74 78,66 86,66" fill="currentColor"/>
 
-  <path d="M 160 88 L 160 102 L 85 102 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,120 81,112 89,112" fill="currentColor"/>
+  <line x1="237" y1="46" x2="237" y2="66" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="237,74 233,66 241,66" fill="currentColor"/>
 
-  <path d="M 160 88 L 160 102 L 235 102 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,120 231,112 239,112" fill="currentColor"/>
+  <!-- Middle Broker -->
+  <rect x="30" y="74" width="260" height="42" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="93" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Cognito Federation Broker</text>
+  <text x="160" y="107" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Маппинг claims • JIT-провижининг</text>
 
-  <rect x="15" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Маппинг claims</text>
-  <text x="85" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Claims -> User Pool</text>
+  <!-- Down to Unified Catalog -->
+  <line x1="160" y1="116" x2="160" y2="138" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,146 156,138 164,138" fill="currentColor"/>
 
-  <rect x="165" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">JIT-провижининг</text>
-  <text x="235" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Создание профиля</text>
-
-  <line x1="85" y1="156" x2="85" y2="174" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,180 81,172 89,172" fill="currentColor"/>
-
-  <line x1="235" y1="156" x2="235" y2="174" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,180 231,172 239,172" fill="currentColor"/>
-
-  <rect x="15" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Связывание</text>
-  <text x="85" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">AdminLinkProvider</text>
-
-  <rect x="165" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
-  <text x="235" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Локальный JWT</text>
-  <text x="235" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Единый формат токенов</text>
+  <!-- Bottom Catalog -->
+  <rect x="20" y="146" width="280" height="46" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="165" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Единый User Pool Каталог</text>
+  <text x="160" y="181" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Связывание аккаунтов (AdminLink)</text>
       </svg>
       <p class="dim">Схема 6. Корпоративная и социальная федерация: интеграция SAML 2.0 и OIDC с JIT.</p>
     </div>

@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>События и триггеры</h1>
-    <p class="page-size" data-words="1249">Слов: 1249</p>
+    <p class="page-size" data-words="1234">Слов: 1234</p>
     <p class="lead">Жизненный цикл событий в Cognito: 15 триггеров LambdaConfig, валидация Pre Sign-up, динамическое обогащение токенов Pre Token Generation и бесшовная миграция.</p>
 
     <div class="box key" id="key-idea">
@@ -102,44 +102,46 @@
       <p>Механизм <span class="term"><button type="button" class="term-btn" aria-expanded="false">триггеров AWS Lambda</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Триггер Lambda (Lambda Trigger)</strong><button type="button" class="term-close" aria-label="Закрыть">×</button></span><span class="term-desc">Бессерверная функция AWS Lambda, автоматически вызываемая сервисом Cognito на различных этапах жизненного цикла пользователя.</span><span class="term-links"><a href="glossary.html#lambda-trigger">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span> в Amazon Cognito User Pool представляет собой событийно-ориентированный интерфейс расширения стандартного жизненного цикла идентификации. Триггеры позволяют разработчикам внедрять произвольную бизнес-логику на всех критических этапах: валидация и фильтрация регистраций, динамическая мутация клеймов JWT-токенов перед подписанием, персонализация каналов доставки сообщений и прозрачная фоновая миграция миллионов учетных записей из унаследованных реляционных баз данных. Архитектурная надежность этой связки базируется на четком разграничении синхронных блокирующих триггеров, требующих жесткого контроля таймаутов, и асинхронных событий аудита и онбординга.</p>
 
     <div class="box figure">
-      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема жизненного цикла бессерверных триггеров AWS Lambda в Amazon Cognito">
-  <rect x="40" y="8" width="240" height="26" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="160" y="25" text-anchor="middle" font-size="12" fill="currentColor">События Cognito User Pool</text>
+      <svg viewBox="0 0 320 230" style="max-width:320px;height:auto;display:block;margin:0 auto" role="img" aria-label="Схема топологии звезда: ядро User Pool и радиальные триггеры Lambda">
+  <!-- Top Spoke: Pre Sign-up -->
+  <rect x="85" y="10" width="150" height="32" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="29" text-anchor="middle" font-size="12" fill="currentColor">Pre Sign-up (Валидация)</text>
 
-  <line x1="160" y1="34" x2="160" y2="48" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="160,54 156,46 164,46" fill="currentColor"/>
+  <!-- Arrow Top to Center -->
+  <line x1="160" y1="42" x2="160" y2="70" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,78 156,70 164,70" fill="currentColor"/>
 
-  <rect x="20" y="54" width="280" height="34" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
-  <text x="160" y="69" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Шина триггеров AWS Lambda</text>
-  <text x="160" y="82" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Синхронные хуки • Таймаут 5 сек</text>
+  <!-- Left Spoke: Pre Token Gen -->
+  <rect x="8" y="78" width="82" height="46" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="49" y="97" text-anchor="middle" font-size="12" fill="currentColor">Pre-Token</text>
+  <text x="49" y="111" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Claims</text>
 
-  <path d="M 160 88 L 160 102 L 85 102 L 85 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,120 81,112 89,112" fill="currentColor"/>
+  <!-- Arrow Left to Center -->
+  <line x1="90" y1="101" x2="98" y2="101" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="106,101 98,97 98,105" fill="currentColor"/>
 
-  <path d="M 160 88 L 160 102 L 235 102 L 235 114" fill="none" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,120 231,112 239,112" fill="currentColor"/>
+  <!-- Center Hub: User Pool Core -->
+  <rect x="106" y="78" width="108" height="46" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
+  <text x="160" y="97" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Cognito Hub</text>
+  <text x="160" y="111" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Шина событий</text>
 
-  <rect x="15" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Pre Sign-up</text>
-  <text x="85" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Валидация email</text>
+  <!-- Arrow Center to Right -->
+  <line x1="214" y1="101" x2="222" y2="101" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="230,101 222,97 222,105" fill="currentColor"/>
 
-  <rect x="165" y="120" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="235" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Pre Token Gen</text>
-  <text x="235" y="148" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Обогащение claims</text>
+  <!-- Right Spoke: Custom Message -->
+  <rect x="230" y="78" width="82" height="46" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="271" y="97" text-anchor="middle" font-size="12" fill="currentColor">Custom</text>
+  <text x="271" y="111" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Шаблоны</text>
 
-  <line x1="85" y1="156" x2="85" y2="174" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="85,180 81,172 89,172" fill="currentColor"/>
+  <!-- Arrow Center to Bottom -->
+  <line x1="160" y1="124" x2="160" y2="152" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="160,160 156,152 164,152" fill="currentColor"/>
 
-  <line x1="235" y1="156" x2="235" y2="174" stroke="currentColor" stroke-width="1.4"/>
-  <polygon points="235,180 231,172 239,172" fill="currentColor"/>
-
-  <rect x="15" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
-  <text x="85" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Post Confirmation</text>
-  <text x="85" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Запись в DynamoDB</text>
-
-  <rect x="165" y="180" width="140" height="36" rx="4" fill="currentColor" fill-opacity="0.08" stroke="var(--acc, #0284c7)" stroke-width="1.4"/>
-  <text x="235" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Custom Message</text>
-  <text x="235" y="208" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Шаблоны уведомлений</text>
+  <!-- Bottom Spoke: Post Confirmation -->
+  <rect x="85" y="160" width="150" height="34" rx="4" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.2"/>
+  <text x="160" y="177" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Post Confirmation</text>
+  <text x="160" y="188" text-anchor="middle" font-size="12" opacity="0.8" fill="currentColor">Запись в БД</text>
       </svg>
       <p class="dim">Схема 7. Жизненный цикл бессерверных триггеров AWS Lambda в User Pool.</p>
     </div>
